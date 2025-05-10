@@ -1,0 +1,105 @@
+/* General navbar styling with curve */
+.navbar {
+  background-color: #45302d !important; /* Dark background */
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 50px; /* Makes the navbar curved */
+  margin: 1rem auto;
+  width: 90%;
+  max-width: 1500px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Brand styling */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+
+.navbar-brand p{
+  height: 50px;
+  padding-top:15px;
+  font-size: larger;
+  display: flex;
+  align-items: center;
+}
+/* General white text for everything inside navbar */
+.navbar * {
+  color: white !important;
+  text-decoration: none;
+  fill: white !important;
+}
+
+/* Nav items spacing */
+.nav-item {
+  padding: 0.5rem;
+}
+
+/* Right-side nav container */
+.ruchit ul {
+  margin-left: 0;
+  padding-left: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+/* Dropdown menu styles */
+.navbar-nav .dropdown-menu {
+  position: absolute !important;
+  z-index: 1050;
+  background-color: #45302d;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dropdown-item {
+  color: white !important;
+}
+
+.dropdown-item:hover {
+  background-color: #5a3a37;
+  color: white !important;
+}
+
+/* Responsive navbar */
+@media (max-width: 768px) {
+  .navbar {
+    border-radius: 10; /* Optional: remove curve on mobile */
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .ruchit ul {
+    flex-direction: column;
+    gap: 5px;
+  }
+  /* Change color of the navbar toggler (hamburger icon) */
+.navbar-toggler {
+  border-color: #fcc200; 
+}
+
+/* Change the actual icon (three lines) inside the toggler */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='red' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+/* Remove background color highlight on click/focus */
+.navbar-toggler:focus, 
+.navbar-toggler:active {
+  outline: none;
+  box-shadow: none;
+  border-color: aqua;
+  background-color: transparent !important;
+}
+
+
+}

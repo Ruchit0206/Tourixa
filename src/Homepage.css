@@ -1,0 +1,52 @@
+/* Set the body or the main wrapper of the page to have the image as the background */
+body {
+   margin: 0;
+   padding: 0;
+   background-image: url(homepage.jpg);
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   height: 100vh; /* The background image will take up the whole viewport */
+}
+
+/* Style for the front container to ensure it doesn't overlap with the navbar */
+.front-container {
+   background: rgba(0, 0, 0, 0.2); /* Optional: Add a slight transparent black overlay on the image for better text visibility */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: white;
+   text-align: center;
+   height: calc(100vh - 70px); /* Subtract the navbar height (adjust if needed) */
+   /* padding: 0 50px; Padding to ensure content doesn't touch edges on small screens */
+}
+
+/* Text styles inside the front-container */
+.front-container p {
+   font-size: 2rem; /* Customize text size for larger screens */
+   padding: 20px;
+   background-color: aliceblue;
+   color: black;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+   .front-container {
+      height: calc(80vh - 70px); /* Adjust the height for mobile */
+   }
+
+   .front-container p {
+      font-size: 1.5rem; /* Adjust text size for mobile */
+      padding: 15px;
+   }
+}
+
+@media (max-width: 480px) {
+   .front-container {
+      height: calc(80vh - 70px); /* Further adjust for smaller screens */
+   }
+
+   .front-container p {
+      font-size: 2.99rem; /* Adjust font size for very small screens */
+   }
+}
