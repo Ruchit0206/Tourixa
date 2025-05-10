@@ -51,7 +51,7 @@ export default function Navbar(props) {
               <ul className="dropdown-menu">
                 <li>
                   <a className="dropdown-item" href="/#">
-                    <i className="fa-solid fa-bolt me-1"></i> Action
+                    <i class="fa-solid fa-gopuram"></i> Action
                   </a>
                 </li>
                 <li>
