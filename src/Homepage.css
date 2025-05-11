@@ -2,6 +2,7 @@
 body {
    margin: 0;
    padding: 0;
+   background-color: black;
    background-image: url(homepage.jpg);
    background-size: cover;
    background-position: center;
@@ -11,7 +12,7 @@ body {
 
 /* Style for the front container to ensure it doesn't overlap with the navbar */
 .front-container {
-   background: rgba(0, 0, 0, 0.2); /* Optional: Add a slight transparent black overlay on the image for better text visibility */
+   background: rgba(0, 0, 0, 0.29); /* Optional: Add a slight transparent black overlay on the image for better text visibility */
    display: flex;
    justify-content: center;
    align-items: center;

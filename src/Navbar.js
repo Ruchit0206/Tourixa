@@ -1,6 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import logo from "./logo.jpg";
+// import logo1 from './logo1.jpeg';
 import PropTypes from "prop-types";
 
 export default function Navbar(props) {
@@ -9,7 +10,7 @@ export default function Navbar(props) {
       <div className="container-fluid">
         {/* Logo */}
         <a className="navbar-brand" href="/#">
-          <img src={logo} alt="logo" /><p>Tourixa</p>
+          <img src={logo} alt="logo" />&nbsp;<p>Tourixa</p>
           
         </a>
 
@@ -45,37 +46,78 @@ export default function Navbar(props) {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <i className="fa-solid fa-bars me-1"></i>
-                <span className="nav-text">{props.second}</span>
+                <i className="fa-solid fa-mountain-sun"></i>
+                <span className="nav-text"> {props.second}</span>
               </a>
               <ul className="dropdown-menu">
                 <li>
                   <a className="dropdown-item" href="/#">
-                    <i class="fa-solid fa-gopuram"></i> Action
+             <i className="fa-solid fa-globe"></i> International 
                   </a>
                 </li>
                 <li>
                   <a className="dropdown-item" href="/#">
-                    <i className="fa-solid fa-plus me-1"></i> Another action
+                    <img src="https://flagcdn.com/w40/in.png" alt="India Flag" width="20" /> Domestic
                   </a>
                 </li>
                 <li>
                   <a className="dropdown-item" href="/#">
-                    <i className="fa-solid fa-ellipsis me-1"></i> Something else
+                    <i className="fa-solid fa-people-group"></i> Group Tour
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/#">
+                   <i className="fa-solid fa-person-hiking"></i> Solo Tour
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/#">
+                    <i className="fa-solid fa-gopuram"></i> Heritage Tour
+                  </a>
+                </li>
+               
+                <li>
+                  <a className="dropdown-item" href="/#">
+                   <i className="fa-solid fa-tree"></i> Nature and Tracking
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/#">
+                    <i className="fa-solid fa-train-subway"></i> Maharaja Express
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/#">
+                    <i className="fa-solid fa-umbrella-beach"></i> Honeymoon Package
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/#">
+                   <i className="fa-solid fa-person-cane"></i> Senior Citizen
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/#">
+                   <i className="fa-solid fa-user-tie"></i> Business Places
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/#">
+                    <i className="fa-solid fa-children"></i> Children Places
                   </a>
                 </li>
               </ul>
             </li>
             <li className="nav-item">
               <a className="nav-link active" href="/#">
-                <i className="fa-solid fa-tags me-1"></i>
-                <span className="nav-text">{props.third}</span>
+                <i className="fa-solid fa-tags"></i>
+                <span className="nav-text"> {props.third}</span>
               </a>
             </li>
                <li className="nav-item">
               <a className="nav-link active" href="/#">
-                <i className="fa-solid fa-tags me-1"></i>
-                <span className="nav-text">{props.fourth}</span>
+                <i className="fa-solid fa-route"></i> 
+                <span className="nav-text"> {props.fourth}</span>
               </a>
             </li>
             {/* dropdown start */}
@@ -87,9 +129,8 @@ export default function Navbar(props) {
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-              >
-                <i className="fa-solid fa-bars me-1"></i>
-                <span className="nav-text">{props.fifth}</span>
+              ><i className="fa-solid fa-web-awesome"></i>
+                <span className="nav-text"> {props.fifth}</span>
               </a>
               <ul className="dropdown-menu">
                 <li>
