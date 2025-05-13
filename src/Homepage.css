@@ -3,23 +3,31 @@ body {
    margin: 0;
    padding: 0;
    background-color: black;
-   background-image: url(homepage.jpg);
+   /* background-image: url(homepage.jpg); */
+   background-image: url(homepage.jpg), linear-gradient(to right, #000000, #434343);
+
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
+   display: flex;
+   flex-direction: column;
    height: 100vh; /* The background image will take up the whole viewport */
+}
+
+/* Main content area to fill the remaining space */
+main {
+   flex-grow: 1; /* This ensures the content grows and fills the available space */
 }
 
 /* Style for the front container to ensure it doesn't overlap with the navbar */
 .front-container {
-   background: rgba(0, 0, 0, 0.29); /* Optional: Add a slight transparent black overlay on the image for better text visibility */
+   background: rgba(0, 0, 0, 0.5); /* Optional: Add a slight transparent black overlay on the image for better text visibility */
    display: flex;
    justify-content: center;
    align-items: center;
    color: white;
    text-align: center;
    height: calc(100vh - 70px); /* Subtract the navbar height (adjust if needed) */
-   /* padding: 0 50px; Padding to ensure content doesn't touch edges on small screens */
 }
 
 /* Text styles inside the front-container */

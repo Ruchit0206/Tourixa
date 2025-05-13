@@ -33,8 +33,9 @@ export default function Navbar(props) {
           <ul className="navbar-nav">
             <li className="nav-item">
               <a className="nav-link active" href="/#">
-                <i className="fa-solid fa-house me-1"></i>
-                <span className="nav-text">{props.first}</span>
+<img src="https://cdn-icons-png.flaticon.com/128/619/619034.png" alt="Color Home Icon" width="20" />
+
+                <span className="nav-text"> {props.first}</span>
               </a>
             </li>
             
@@ -46,7 +47,8 @@ export default function Navbar(props) {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <i className="fa-solid fa-mountain-sun"></i>
+                <img src="https://cdn-icons-png.flaticon.com/128/201/201623.png" alt="Tour Package" width="20" />
+
                 <span className="nav-text"> {props.second}</span>
               </a>
               <ul className="dropdown-menu">
@@ -110,14 +112,16 @@ export default function Navbar(props) {
             </li>
             <li className="nav-item">
               <a className="nav-link active" href="/#">
-                <i className="fa-solid fa-tags"></i>
+              <img src="https://cdn-icons-png.flaticon.com/128/869/869636.png" alt="Colorful Offers Icon" width="20" />
+
+
                 <span className="nav-text"> {props.third}</span>
               </a>
             </li>
                <li className="nav-item">
               <a className="nav-link active" href="/#">
-                <i className="fa-solid fa-route"></i> 
-                <span className="nav-text"> {props.fourth}</span>
+              <img src="https://cdn-icons-png.flaticon.com/128/3448/3448610.png" alt="Travel Guide Icon" width="20" />
+  <span className="nav-text"> {props.fourth}</span>
               </a>
             </li>
             {/* dropdown start */}
@@ -129,23 +133,34 @@ export default function Navbar(props) {
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-              ><i className="fa-solid fa-web-awesome"></i>
+              ><img src="https://cdn-icons-png.flaticon.com/128/2540/2540484.png" alt="Colorful Features Icon" width="20" />
+
                 <span className="nav-text"> {props.fifth}</span>
               </a>
               <ul className="dropdown-menu">
                 <li>
                   <a className="dropdown-item" href="/#">
-                    <i className="fa-solid fa-bolt me-1"></i> Action
+ <img src="https://cdn-icons-png.flaticon.com/128/3936/3936783.png" alt="Museum" width="20" /> Museum
                   </a>
                 </li>
                 <li>
                   <a className="dropdown-item" href="/#">
-                    <i className="fa-solid fa-plus me-1"></i> Another action
+                   <img src="https://cdn-icons-png.flaticon.com/128/1179/1179069.png" alt="Video" width="20" /> Video
                   </a>
                 </li>
                 <li>
                   <a className="dropdown-item" href="/#">
-                    <i className="fa-solid fa-ellipsis me-1"></i> Something else
+                    <img src="https://cdn-icons-png.flaticon.com/128/2012/2012152.png" alt="3d Model" width="20" /> 3D Model
+                  </a>
+                </li>
+                 <li>
+                  <a className="dropdown-item" href="/#">
+                    <img src="https://cdn-icons-png.flaticon.com/128/5510/5510739.png" alt="360 Video" width="20" /> 360 Video
+                  </a>
+                </li>
+                 <li>
+                  <a className="dropdown-item" href="/#">
+                   <img src="https://cdn-icons-png.flaticon.com/128/3612/3612272.png" alt="VR Tour" width="20" /> VR Tour
                   </a>
                 </li>
               </ul>
@@ -160,7 +175,8 @@ export default function Navbar(props) {
             
               <li className="nav-item">
                 <a className="nav-link active" href="/#">
-                  <i className="fa-solid fa-circle-user"></i>
+                 <img src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png" alt="Colorful Profile Icon" width="20" />
+
                   <span className="nav-text">&nbsp;Profile</span>
                 </a>
               </li>

@@ -170,11 +170,11 @@ export default function Home() {
 import React, { useState, useEffect } from 'react';
 import { TypeAnimation } from 'react-type-animation'; // 👈 Add this
 import './touch.css';
-import backgroundvideo from './backgroundvideo.mp4';
+// import backgroundvideo from './backgroundvideo.mp4';
 
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState({});
-  const greetings = ['नमः','Namaste!','નમસ્તે!', 'नमस्कार!', 'নমস্কার!','ਸਤ ਸ੍ਰੀ ਅਕਾਲ!','నమస్తే!','Vanakkam!']; // Add ! for better animation
+  const greetings = ['नमः','Namaste!','નમસ્તે!', 'नमस्कार!', 'নমস্কার!','ਸਤ ਸ੍ਰੀ ਅਕਾਲ!','నమస్తే!','Vadakkam!']; // Add ! for better animation
 
   useEffect(() => {
     const launchDate = new Date('2025-06-01T00:00:00').getTime();
@@ -202,12 +202,9 @@ export default function Home() {
 
   return (
     <div className='video-container'>
-      {/* <video autoPlay loop muted playsInline className='background-video'>
-        <source src={backgroundvideo} type='video/mp4' />
-        Your browser does not support the video tag.
-      </video> */}
+      
 
-      <div className='overlay'></div>
+      
 
       <div className='hero-content'>
         <p className='subtitle'>Launching Soon</p>
@@ -232,7 +229,7 @@ export default function Home() {
   <button className='cta-btn'>Login As Traveller</button>
   <button className='cta-btn'>Join As Agency</button>
 </div>
-<div class="open-source-text">India's First Open Travel Platform</div>
+<div className="open-source-text">India's First Open Travel Platform</div>
 
 
         {timeLeft.days !== undefined && (
@@ -241,6 +238,7 @@ export default function Home() {
           </div>
         )}
       </div>
-    </div>
+      </div>
+
   );
 }

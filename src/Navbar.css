@@ -1,7 +1,7 @@
 /* General navbar styling with curve */
 .navbar {
   /* background-color: #45302d !important; */
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   /* background-color: black; */
   padding: 0.5rem 1.5rem;
   display: flex;
@@ -100,6 +100,7 @@
 /* Change the actual icon (three lines) inside the toggler */
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='red' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  /* background-color: #fcc200; */
 }
 /* Remove background color highlight on click/focus */
 .navbar-toggler:focus, 
