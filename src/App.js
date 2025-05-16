@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import Home from './Homepage';
 import Footer from './Footer';
 // import Footerold from './Footerold';
-import UnderDevelopment from './UnderDevelopment';
+import UnderDevelopment from './Development';
 import { Routes, Route} from 'react-router-dom';
 
 function App() {

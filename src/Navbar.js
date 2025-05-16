@@ -4,7 +4,7 @@ import logo from "./logo.jpg";
 // import logo1 from './logo1.jpeg';
 import PropTypes from "prop-types";
 import { Link, Route, Routes, useNavigate } from 'react-router-dom';
-import UnderDevelopment from "./UnderDevelopment";
+// import UnderDevelopment from "./UnderDevelopment";
 
 export default function Navbar(props) {
   return (
