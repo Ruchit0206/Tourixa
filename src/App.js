@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import Home from './Homepage';
 import Footer from './Footer';
 // import Footerold from './Footerold';
-import UnderDevelopment from './Development';
+import Development from './Development';
 import { Routes, Route} from 'react-router-dom';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <Routes>
 
         <Route path="/" element={<Home />} />             {/* Home page */}
-       <Route path="/underde/:page" element={<UnderDevelopment />} />
+       <Route path="/underde/:page" element={<Development />} />
       </Routes>
 <Footer/>
           </div>
