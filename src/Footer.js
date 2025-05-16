@@ -1,6 +1,7 @@
 import React from 'react';
 import './Footer.css'; // Make sure to import this CSS file
 import logo from  './logo.jpg'
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -27,34 +28,39 @@ export default function Footer() {
           <div className="footer-section">
             <h4>Packages</h4>
             <ul>
-              <li><a href="/">International</a></li>
-              <li><a href="/">Domestic</a></li>
-              <li><a href="/">Group Tour</a></li>
-              <li><a href="/">Solo Tour</a></li>
-              <li><a href="/">Heritage Tour</a></li>
-              <li><a href="/">Nature and Tracking</a></li>
-              <li><a href="/">Maharaja Express</a></li>
-              <li><a href="/">Honeymoon Package</a></li>
-              <li><a href="/">Senior Citizen</a></li>
-              <li><a href="/">Business Places</a></li>
+              <li> <Link className="nav-link active" to="/underde/international">International</Link></li>
+              <li> <Link className="nav-link active" to="/underde/domestic">Domestic</Link></li>
+              <li> <Link className="nav-link active" to="/underde/Group Tour">Group Tour</Link></li>
+              <li> <Link className="nav-link active" to="/underde/Solo Tour">Solo Tour</Link></li>
+              <li> <Link className="nav-link active" to="/underde/Heritage Tour">Heritage Tour</Link></li>
+              <li> <Link className="nav-link active" to="/underde/Nature and Tracking">Nature and Tracking</Link></li>
+              <li> <Link className="nav-link active" to="/underde/Maharaja Express">Maharaja Express</Link></li>
+              <li> <Link className="nav-link active" to="/underde/Honeymoon Package">Honeymoon Package</Link></li>
+              <li> <Link className="nav-link active" to="/underde/Senior Citizen">Senior Citizen</Link></li>
+              <li> <Link className="nav-link active" to="/underde/Business Packages">Business Packages</Link></li>
+              <li> <Link className="nav-link active" to="/underde/Children Places">Children Places</Link></li>
+              
 
             </ul>
           </div>
           <div className="footer-section">
-            <h4>Quick Link</h4>
+            <h4>Feature</h4>
             <ul>
-              <li><a href="/" target="_blank" rel="noreferrer">new</a></li>
-              <li><a href="/" target="_blank" rel="noreferrer">new </a></li>
-              <li><a href="/" target="_blank" rel="noreferrer">new</a></li>
-              <li><a href="/" target="_blank" rel="noreferrer">new</a></li>
+              <Link className="nav-link active" to="/underde/Museum">Museum </Link>
+              <Link className="nav-link active" to="/underde/Video">Video </Link>
+              <Link className="nav-link active" to="/underde/3D Model">3D Model </Link>
+              <Link className="nav-link active" to="/underde/360 Video">360 Video </Link>
+              <Link className="nav-link active" to="/underde/VR Tour">VR Tour </Link>
             </ul>
           </div>
           <div className="footer-section">
             <h4>Company</h4>
             <ul>
-              <li><a href="/">About us</a></li>
-              <li><a href="/">Packages</a></li>
-              <li><a href="/">Tourixa App</a></li>
+              
+              <Link className="nav-link active" to="/underde/About Us">About Us</Link>
+              <Link className="nav-link active" to="/underde/Packages">Packages</Link>
+              <Link className="nav-link active" to="/underde/Tourixa App">Tourixa App</Link>
+              
             </ul>
           </div>
         </div>
@@ -69,7 +75,7 @@ United States
 
           </p>
           <p><i className="fas fa-phone-alt"></i> (+91) 98765 43210</p>
-          <p><i className="fas fa-envelope"></i> <a href="mailto:ruchit@gmail.com">ruchit0206gmail@.com</a></p>
+          <p><i className="fas fa-envelope"></i> <a href="mailto:ruchit@gmail.com">tourixa@gmail.com</a></p>
         </div>
       </div>
 

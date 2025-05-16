@@ -3,6 +3,8 @@ import "./Navbar.css";
 import logo from "./logo.jpg";
 // import logo1 from './logo1.jpeg';
 import PropTypes from "prop-types";
+import { Link, Route, Routes, useNavigate } from 'react-router-dom';
+import UnderDevelopment from "./UnderDevelopment";
 
 export default function Navbar(props) {
   return (
@@ -53,60 +55,60 @@ export default function Navbar(props) {
               </a>
               <ul className="dropdown-menu">
                 <li>
-                  <a className="dropdown-item" href="/#">
+                  <Link className="nav-link active" to="/underde/international">
              <i className="fa-solid fa-globe"></i> International 
-                  </a>
+                  </Link>
+                 
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/#">
-                    <img src="https://flagcdn.com/w40/in.png" alt="India Flag" width="20" /> Domestic
-                  </a>
+                  <Link className="nav-link active" to="/underde/domestic"><img src="https://flagcdn.com/w40/in.png" alt="India Flag" width="20" /> Domestic
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/#">
-                    <i className="fa-solid fa-people-group"></i> Group Tour
-                  </a>
+                  <Link className="nav-link active" to="/underde/group Tour">
+                    <i className="fa-solid fa-people-group"></i> GroupTour
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/#">
+                  <Link className="nav-link active" to="/underde/Solo Tour">
                    <i className="fa-solid fa-person-hiking"></i> Solo Tour
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/#">
+                 <Link className="nav-link active" to="/underde/Heritage Tour">
                     <i className="fa-solid fa-gopuram"></i> Heritage Tour
-                  </a>
+                  </Link>
                 </li>
                
                 <li>
-                  <a className="dropdown-item" href="/#">
+                  <Link className="nav-link active" to="/underde/Nature and Tracking">
                    <i className="fa-solid fa-tree"></i> Nature and Tracking
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/#">
+                  <Link className="nav-link active" to="/underde/Maharaja Express">
                     <i className="fa-solid fa-train-subway"></i> Maharaja Express
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/#">
+                  <Link className="nav-link active" to="/underde/Honeymoon Package">
                     <i className="fa-solid fa-umbrella-beach"></i> Honeymoon Package
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/#">
+                  <Link className="nav-link active" to="/underde/Senior Citizen">
                    <i className="fa-solid fa-person-cane"></i> Senior Citizen
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/#">
+                  <Link className="nav-link active" to="/underde/Business Places">
                    <i className="fa-solid fa-user-tie"></i> Business Places
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/#">
+                  <Link className="nav-link active" to="/underde/Children Places">
                     <i className="fa-solid fa-children"></i> Children Places
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -139,29 +141,29 @@ export default function Navbar(props) {
               </a>
               <ul className="dropdown-menu">
                 <li>
-                  <a className="dropdown-item" href="/#">
+                  <Link className="nav-link active" to="/underde/Museum">
  <img src="https://cdn-icons-png.flaticon.com/128/3936/3936783.png" alt="Museum" width="20" /> Museum
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/#">
+                  <Link className="nav-link active" to="/underde/Video">
                    <img src="https://cdn-icons-png.flaticon.com/128/1179/1179069.png" alt="Video" width="20" /> Video
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/#">
+                  <Link className="nav-link active" to="/underde/3D Model">
                     <img src="https://cdn-icons-png.flaticon.com/128/2012/2012152.png" alt="3d Model" width="20" /> 3D Model
-                  </a>
+                  </Link>
                 </li>
                  <li>
-                  <a className="dropdown-item" href="/#">
+                  <Link className="nav-link active" to="/underde/360 Video">
                     <img src="https://cdn-icons-png.flaticon.com/128/5510/5510739.png" alt="360 Video" width="20" /> 360 Video
-                  </a>
+                  </Link>
                 </li>
                  <li>
-                  <a className="dropdown-item" href="/#">
+                  <Link className="nav-link active" to="/underde/VR Tour">
                    <img src="https://cdn-icons-png.flaticon.com/128/3612/3612272.png" alt="VR Tour" width="20" /> VR Tour
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>

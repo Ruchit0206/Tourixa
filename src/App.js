@@ -4,13 +4,19 @@ import Navbar from './Navbar';
 import Home from './Homepage';
 import Footer from './Footer';
 // import Footerold from './Footerold';
+import UnderDevelopment from './UnderDevelopment';
+import { Routes, Route} from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
       <Navbar first="Home" second="Packages" third="Offers" fourth="Travel Guide" fifth="Feature" />
-      <Home/>
-          {/* <Footerold/> */}
+      
+        <Routes>
+
+        <Route path="/" element={<Home />} />             {/* Home page */}
+       <Route path="/underde/:page" element={<UnderDevelopment />} />
+      </Routes>
 <Footer/>
           </div>
   );
