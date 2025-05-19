@@ -46,20 +46,20 @@ export default function Footer() {
           <div className="footer-section">
             <h4>Feature</h4>
             <ul>
-              <Link className="nav-link active" to="/underde/Museum">Museum </Link>
-              <Link className="nav-link active" to="/underde/Video">Video </Link>
-              <Link className="nav-link active" to="/underde/3D Model">3D Model </Link>
-              <Link className="nav-link active" to="/underde/360 Video">360 Video </Link>
-              <Link className="nav-link active" to="/underde/VR Tour">VR Tour </Link>
+              <li><Link className="nav-link active" to="/underde/Museum">Museum </Link> </li>
+              <li><Link className="nav-link active" to="/underde/Video">Video </Link></li>
+              <li><Link className="nav-link active" to="/underde/3D Model">3D Model </Link></li>
+              <li><Link className="nav-link active" to="/underde/360 Video">360 Video </Link></li>
+              <li><Link className="nav-link active" to="/underde/VR Tour">VR Tour </Link></li>
             </ul>
           </div>
           <div className="footer-section">
             <h4>Company</h4>
             <ul>
               
-              <Link className="nav-link active" to="/underde/About Us">About Us</Link>
-              <Link className="nav-link active" to="/underde/Packages">Packages</Link>
-              <Link className="nav-link active" to="/underde/Tourixa App">Tourixa App</Link>
+             <li> <Link className="nav-link active" to="/underde/About Us">About Us</Link></li>
+              <li><Link className="nav-link active" to="/underde/Packages">Packages</Link></li>
+              <li><Link className="nav-link active" to="/underde/Tourixa App">Tourixa App</Link></li>
               
             </ul>
           </div>
