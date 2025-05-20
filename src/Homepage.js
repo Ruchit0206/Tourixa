@@ -67,7 +67,7 @@ export default function Home() {
         <div className='button-group'>
    <Link className="nav-link active" to="/underde/Login As Traveller"><button className='cta-btn'>Login As Traveller</button></Link>
   <Link className="nav-link active" to="/underde/Join As Agency"><button className='cta-btn'>Join As Agency</button></Link>
-  <Link to="VideoUpload"><button className='cta-btn'>Upload Your Travel Moments</button></Link>
+  <Link to="VideoUpload"><button className='cta-btn'>Upload Travel Moments</button></Link>
 </div>
 <div className="open-source-text">India's First Open Travel Platform</div>
 
