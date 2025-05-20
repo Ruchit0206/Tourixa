@@ -6,7 +6,9 @@ import Footer from "./Footer";
 // import Footerold from './Footerold';
 import Development from "./Development";
 import { Routes, Route } from "react-router-dom";
+import VideoUpload from "./Videoupload";
 // import Secondpage from "./Secondpage";
+
 
 function App() {
   return (
@@ -23,7 +25,7 @@ function App() {
              <Route path="/" element={<Home />} /> {/* Home page */}
              <Route path="/underde/:page" element={<Development />} />
              <Route path="*" element={<h2 style={{ textAlign: "center", marginTop: "2rem" }}>Page Not Found</h2>} />
-           
+            <Route path="VideoUpload" element={<VideoUpload/>}/>
            </Routes>
 
 

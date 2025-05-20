@@ -1,0 +1,118 @@
+:root {
+  --navbar-height: 115px; /* or set dynamically if possible */
+}
+
+.page-container {
+  padding-top: var(--navbar-height);
+  /* Remove margin-top */
+  margin-top: 0;
+width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: #222;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Big heading outside the box */
+.page-title {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+/* Description text outside the box */
+.page-description {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+/* The white box container */
+.upload-box {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+/* Heading inside the box */
+.upload-box h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #111;
+}
+
+/* Instruction text inside box */
+.upload-instruction {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* File input styling */
+.file-input {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+
+/* Video preview container */
+.video-preview-container {
+  margin-bottom: 1.5rem;
+}
+
+/* Video styling */
+.video-preview {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Button styling */
+.upload-button {
+  width: 100%;
+  padding: 0.85rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+/* Active button */
+.upload-button.active {
+  background-color: #007bff;
+  cursor: pointer;
+}
+
+.upload-button.active:hover {
+  background-color: #0056b3;
+}
+
+/* Disabled button */
+.upload-button.disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+
+
+
+.success-message {
+  margin-top: 1.5rem;
+  color: #28a745; /* nice green */
+  font-weight: 600;
+  font-size: 1.15rem;
+  text-align: center;
+}

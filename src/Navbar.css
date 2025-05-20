@@ -16,7 +16,7 @@
   top: 1rem; /*same as your margin-top*/
   left: 50%;
   transform: translateX(-50%); /* Center it horizontally */
-  z-index: 100;
+  z-index: 1000;
 }
 
 

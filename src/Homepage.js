@@ -7,6 +7,7 @@ import { TypeAnimation } from 'react-type-animation'; // 👈 Add this
 import './touch.css';
 import Secondpage from './Secondpage';
 import AboutUs from './Aboutus';
+import { Link } from 'react-router-dom';
 // import backgroundvideo from './backgroundvideo.mp4';
 
 export default function Home() {
@@ -64,8 +65,9 @@ export default function Home() {
         </p>
 
         <div className='button-group'>
-  <button className='cta-btn'>Login As Traveller</button>
-  <button className='cta-btn'>Join As Agency</button>
+   <Link className="nav-link active" to="/underde/Login As Traveller"><button className='cta-btn'>Login As Traveller</button></Link>
+  <Link className="nav-link active" to="/underde/Join As Agency"><button className='cta-btn'>Join As Agency</button></Link>
+  <Link to="VideoUpload"><button className='cta-btn'>Upload Your Travel Moments</button></Link>
 </div>
 <div className="open-source-text">India's First Open Travel Platform</div>
 
