@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { TypeAnimation } from 'react-type-animation'; // 👈 Add this
 import './touch.css';
 import Secondpage from './Secondpage';
+import AboutUs from './Aboutus';
 // import backgroundvideo from './backgroundvideo.mp4';
 
 export default function Home() {
@@ -76,6 +77,7 @@ export default function Home() {
         )}
       </div>
       </div>
+      <AboutUs></AboutUs>
         <Secondpage></Secondpage>
 
       </div>

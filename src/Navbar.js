@@ -3,7 +3,7 @@ import './Navbar.css';
 import logo from "./logo.jpg";
 // import logo1 from './logo1.jpeg';
 import PropTypes from "prop-types";
-import { Link, Route, Routes, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 // import Development from "./UnderDevelopment";
 
 export default function Navbar(props) {
@@ -42,9 +42,9 @@ export default function Navbar(props) {
             </li>
             
             <li className="nav-item dropdown">
-              <a
+              <Link 
                 className="nav-link dropdown-toggle active"
-                href="/#"
+                to="/"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -52,7 +52,7 @@ export default function Navbar(props) {
                 <img src="https://cdn-icons-png.flaticon.com/128/201/201623.png" alt="Tour Package" width="20" />
 
                 <span className="nav-text"> {props.second}</span>
-              </a>
+              </Link>
               <ul className="dropdown-menu">
                 <li>
                   <Link className="nav-link active" to="/underde/international">
@@ -195,4 +195,6 @@ Navbar.propTypes = {
   first: PropTypes.string,
   second: PropTypes.string,
   third: PropTypes.string.isRequired,
+  fourth:PropTypes.string,
+  fifth:PropTypes.string
 };
