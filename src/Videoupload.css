@@ -1,118 +1,202 @@
 :root {
-  --navbar-height: 115px; /* or set dynamically if possible */
+  --navbar-height: 125px;
+  --primary-color: #003366;
+  --accent-color: #007bff;
+  --background-gradient: linear-gradient(135deg, #e0f7fa, #ffffff);
+  --box-bg-color: rgba(255, 255, 255, 0.95);
+  --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: var(--background-gradient);
+  /* margin-bottom: 100px; */
+}
+
+/* Fixed navbar height respected */
 .page-container {
-  padding-top: var(--navbar-height);
-  /* Remove margin-top */
-  margin-top: 0;
-width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  color: #222;
+  /* padding-top: var(--navbar-height); */
   text-align: center;
-  margin-bottom: 10px;
+  width: 70%;
+  margin: 0 auto; /* Horizontal centering */
+  margin-bottom:15px;
 }
 
-/* Big heading outside the box */
+
+
 .page-title {
-  font-size: 2.8rem;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary-color);
   margin-bottom: 0.5rem;
-  font-weight: 700;
 }
 
-/* Description text outside the box */
 .page-description {
   font-size: 1.25rem;
-  color: #555;
+  color: #444;
   margin-bottom: 2rem;
 }
 
-/* The white box container */
 .upload-box {
-  background-color: #fff;
+  background-color: var(--box-bg-color);
   border: 1px solid #ddd;
   padding: 2rem 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px var(--shadow-color);
   text-align: left;
 }
 
-/* Heading inside the box */
 .upload-box h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #111;
 }
 
-/* Instruction text inside box */
 .upload-instruction {
   font-size: 1.1rem;
   color: #555;
   margin-bottom: 1.5rem;
 }
 
-/* File input styling */
+/* Drag area look */
+.upload-drag-area {
+  border: 2px dashed var(--accent-color);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  color: #007bff;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
 .file-input {
   width: 100%;
   padding: 0.6rem;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 6px;
-  cursor: pointer;
   margin-bottom: 1.5rem;
+  cursor: pointer;
 }
 
-/* Video preview container */
 .video-preview-container {
   margin-bottom: 1.5rem;
 }
 
-/* Video styling */
 .video-preview {
   width: 100%;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Button styling */
 .upload-button {
   width: 100%;
-  padding: 0.85rem 0;
+  padding: 0.9rem 0;
   font-size: 1.1rem;
   font-weight: 600;
   border: none;
   border-radius: 8px;
   color: #fff;
+  background-color: var(--primary-color);
   transition: background-color 0.3s ease;
-}
-
-/* Active button */
-.upload-button.active {
-  background-color: #007bff;
-  cursor: pointer;
 }
 
 .upload-button.active:hover {
   background-color: #0056b3;
 }
 
-/* Disabled button */
 .upload-button.disabled {
   background-color: #999;
   cursor: not-allowed;
 }
 
-
-
-
 .success-message {
   margin-top: 1.5rem;
-  color: #28a745; /* nice green */
+  color: #28a745;
   font-weight: 600;
   font-size: 1.15rem;
   text-align: center;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .page-container {
+    width: 90%;
+    padding: 1rem;
+    /* padding-top: var(--navbar-height); Keep navbar space */
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+  }
+
+  .upload-box {
+    padding: 1.5rem;
+  }
+}
+
+/* Progress bar */
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background-color: #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--primary-color);
+  width: 0%;
+  transition: width 0.2s ease-in-out;
+  border-radius: 8px 0 0 8px;
+}
+
+/* Drag over highlight */
+.upload-drag-area.dragover {
+  background-color: #d6f0ff;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* File info */
+.file-info {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Cancel upload button */
+.cancel-button {
+  width: 100%;
+  padding: 0.8rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  background-color: #dc3545;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+  background-color: #c82333;
+}
+
+/* Accessibility */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; 
+  width: 1px; 
+  overflow: hidden;
+  clip: rect(1px,1px,1px,1px);
+  white-space: nowrap;
 }

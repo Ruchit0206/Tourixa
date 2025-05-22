@@ -5,16 +5,17 @@ import logo from "./logo.jpg";
 import PropTypes from "prop-types";
 import { Link} from 'react-router-dom';
 // import Development from "./UnderDevelopment";
+// import Aboutus from './Aboutus'
 
 export default function Navbar(props) {
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
         {/* Logo */}
-        <a className="navbar-brand" href="/#">
-          <img src={logo} alt="logo" />&nbsp;<p>Tourixa</p>
-          
-        </a>
+       <a className="navbar-brand" href="/#">
+  <img src={logo} alt="Tourixa Logo" />
+  <span className="brand-text">Tourixa</span>
+</a>
 
         {/* Toggle for mobile */}
         <button
@@ -55,7 +56,7 @@ export default function Navbar(props) {
               </Link>
               <ul className="dropdown-menu">
                 <li>
-                  <Link className="nav-link active" to="/underde/international">
+                  <Link className="nav-link active" to="/International">
              <i className="fa-solid fa-globe"></i> International 
                   </Link>
                  
@@ -167,6 +168,18 @@ export default function Navbar(props) {
                 </li>
               </ul>
             </li>
+             
+            <li className="nav-item">
+  <Link to="/Aboutus" className="nav-link active">
+    <img
+      src="https://cdn-icons-png.flaticon.com/128/869/869636.png"
+      alt="Colorful Offers Icon"
+      width="20"
+    />
+    <span className="nav-text"> About Us</span>
+  </Link>
+</li>
+
             
             {/* dropdown end */}
           </ul>
@@ -190,11 +203,11 @@ export default function Navbar(props) {
     </nav>
   );
 }
-
 Navbar.propTypes = {
-  first: PropTypes.string,
-  second: PropTypes.string,
+  first: PropTypes.string.isRequired,
+  second: PropTypes.string.isRequired,
   third: PropTypes.string.isRequired,
-  fourth:PropTypes.string,
-  fifth:PropTypes.string
+  fourth: PropTypes.string.isRequired,
+  fifth: PropTypes.string.isRequired,
 };
+

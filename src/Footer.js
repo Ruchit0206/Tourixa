@@ -28,7 +28,7 @@ export default function Footer() {
           <div className="footer-section">
             <h4>Packages</h4>
             <ul>
-              <li> <Link className="nav-link active" to="/underde/international">International</Link></li>
+              <li> <Link className="nav-link active" to="/International">International</Link></li>
               <li> <Link className="nav-link active" to="/underde/domestic">Domestic</Link></li>
               <li> <Link className="nav-link active" to="/underde/Group Tour">Group Tour</Link></li>
               <li> <Link className="nav-link active" to="/underde/Solo Tour">Solo Tour</Link></li>

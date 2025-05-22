@@ -1,0 +1,36 @@
+.progress-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.progress-step {
+  background-color: #ccc;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.progress-step.active {
+  background-color: #00796b;
+}
+
+.progress-line {
+  width: 60px;
+  height: 4px;
+  background-color: #ccc;
+  margin: 0 10px;
+  border-radius: 2px;
+  transition: background-color 0.3s;
+}
+
+.progress-line.active {
+  background-color: #00796b;
+}
