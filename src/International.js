@@ -39,7 +39,7 @@ function International() {
 
   return (
     <div className="form-container">
-      <h1>International Trip Booking</h1>
+      <h1>Tourixaa International Booking</h1>
       <ProgressBar step={step} />
 
       {step === 1 && (

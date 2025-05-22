@@ -9,9 +9,9 @@ export default function Footer() {
       <div className="footer-container">
         {/* Left Column */}
         <div className="footer-column">
-          <img src={logo} alt="Tourixa" className="footer-logo" />
+          <img src={logo} alt="Tourixaa" className="footer-logo" />
           <p>
-           Tourixa is India’s first open travel platform that connects travelers with verified local agencies to deliver personalized and flexible trip experiences.
+           Tourixaa is India’s first open travel platform that connects travelers with verified local agencies to deliver personalized and flexible trip experiences.
           </p>
           <div className="social-icons">
             <a href="/" target="_blank" rel="noreferrer" className='  '><i className="fab fa-instagram"></i></a>
@@ -59,7 +59,7 @@ export default function Footer() {
               
              <li> <Link className="nav-link active" to="/underde/About Us">About Us</Link></li>
               <li><Link className="nav-link active" to="/underde/Packages">Packages</Link></li>
-              <li><Link className="nav-link active" to="/underde/Tourixa App">Tourixa App</Link></li>
+              <li><Link className="nav-link active" to="/underde/Tourixaa App">Tourixaa App</Link></li>
               
             </ul>
           </div>
@@ -67,7 +67,7 @@ export default function Footer() {
 
         {/* Right Column */}
         <div className="footer-column">
-          <h4>TOURIXA</h4>
+          <h4>TOURIXAA</h4>
           <p>
             42 Maple Avenue, Suite 5B  
 Springfield, IL 62704  
@@ -75,12 +75,12 @@ United States
 
           </p>
           <p><i className="fas fa-phone-alt"></i> (+91) 98765 43210</p>
-          <p><i className="fas fa-envelope"></i> <a href="mailto:ruchit@gmail.com">tourixa@gmail.com</a></p>
+          <p><i className="fas fa-envelope"></i> <a href="mailto:ruchit@gmail.com">tourixaa@gmail.com</a></p>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <p>Copyright © 2025 <a href="https://tourixa-git-main-ruchit-patels-projects-b32f3c7a.vercel.app/" target="_blank" rel="noreferrer">Tourixa</a> All Rights Reserved.</p>
+        <p>Copyright © 2025 <a href="https://tourixa-git-main-ruchit-patels-projects-b32f3c7a.vercel.app/" target="_blank" rel="noreferrer">Tourixaa</a> All Rights Reserved.</p>
       </div>
     </div>
   );

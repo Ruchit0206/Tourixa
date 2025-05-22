@@ -13,8 +13,8 @@ export default function Navbar(props) {
       <div className="container-fluid">
         {/* Logo */}
        <a className="navbar-brand" href="/#">
-  <img src={logo} alt="Tourixa Logo" />
-  <span className="brand-text">Tourixa</span>
+  <img src={logo} alt="Tourixaa Logo" />
+  <span className="brand-text">Tourixaa</span>
 </a>
 
         {/* Toggle for mobile */}

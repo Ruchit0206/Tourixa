@@ -2,7 +2,7 @@ function SuccessPage({ resetForm }) {
   return (
     <div style={{ textAlign: 'center' }}>
       <h2 style={{ color: '#00796b' }}>🎉 Thank you!</h2>
-      <p>Your travel inquiry has been submitted successfully.</p>
+      <p>Your travel inquiry has been submitted successfully to Tourixaa.</p>
       <button onClick={resetForm} style={{
         marginTop: '20px',
         padding: '10px 20px',
