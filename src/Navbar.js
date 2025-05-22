@@ -1,6 +1,6 @@
 import React from "react";
 import './Navbar.css';
-import logo from "./logo.jpg";
+import logo from "./logo.png";
 // import logo1 from './logo1.jpeg';
 import PropTypes from "prop-types";
 import { Link} from 'react-router-dom';

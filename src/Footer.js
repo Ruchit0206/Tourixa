@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css'; // Make sure to import this CSS file
-import logo from  './logo.jpg'
+import logo from  './logo.png'
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
