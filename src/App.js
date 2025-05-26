@@ -27,9 +27,7 @@ function App() {
           <Route path="/VideoUpload" element={<VideoUpload />} />
           <Route path="/International" element={<International />} />
           <Route path="/Aboutus" element={<AboutUs />} />
-          <Route
-            path="*"
-            element={
+          <Route path="*" element={
               <h2 style={{ textAlign: "center", marginTop: "2rem" }}>
                 Page Not Found
               </h2>

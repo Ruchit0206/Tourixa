@@ -98,6 +98,7 @@
     border-radius: 10; /* Optional: remove curve on mobile */
     flex-direction: column;
     padding: 1rem;
+    
   }
 
   .ruchit ul {
