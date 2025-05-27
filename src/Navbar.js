@@ -107,19 +107,22 @@ export default function Navbar(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link className="nav-link active" to="/underde/Children Places">
+                  <Link className="nav-link active" to="/Offers">
                     <i className="fa-solid fa-children"></i> Children Places
                   </Link>
                 </li>
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" href="/#">
-              <img src="https://cdn-icons-png.flaticon.com/128/869/869636.png" alt="Colorful Offers Icon" width="20" />
-
-
-                <span className="nav-text"> {props.third}</span>
-              </a>
+              
+             <Link to="/Offers" className="nav-link active">
+    <img
+      src="https://cdn-icons-png.flaticon.com/128/869/869636.png"
+      alt="Colorful Offers Icon"
+      width="20"
+    />
+    <span className="nav-text"> Offers</span>
+  </Link>
             </li>
                <li className="nav-item">
               <a className="nav-link active" href="/#">
