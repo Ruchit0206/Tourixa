@@ -1,10 +1,11 @@
+// TourixaaApp.jsx
 import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./TourixaaApp.css";
 import newvideo from "./newvideo.mp4";
 import video2 from "./video2.mp4";
-import video3 from "./video3.mp4"
+import video3 from "./video3.mp4";
 
 const TourixaaApp = () => {
   // Countdown Timer logic
@@ -35,7 +36,7 @@ const TourixaaApp = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Progress circle increment
+  // Progress circle animation
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress((prev) => {
@@ -49,32 +50,20 @@ const TourixaaApp = () => {
 
   return (
     <div className="tourixaa-outer">
-      {/* Animated Clouds background */}
+      {/* Animated Cloud Background */}
       <div className="animated-bg">
-        <svg
-          className="cloud cloud-1"
-          xmlns="http://www.w3.org/2000/svg"
-          width="100"
-          height="60"
-          fill="#bbdefb"
-          viewBox="0 0 100 60"
-        >
+        <svg className="cloud cloud-1" xmlns="http://www.w3.org/2000/svg" width="100" height="60" fill="#bbdefb" viewBox="0 0 100 60">
           <circle cx="30" cy="30" r="30" />
           <circle cx="70" cy="30" r="30" />
         </svg>
-        <svg
-          className="cloud cloud-2"
-          xmlns="http://www.w3.org/2000/svg"
-          width="80"
-          height="50"
-          fill="#e3f2fd"
-          viewBox="0 0 80 50"
-        >
+        <svg className="cloud cloud-2" xmlns="http://www.w3.org/2000/svg" width="80" height="50" fill="#e3f2fd" viewBox="0 0 80 50">
           <circle cx="20" cy="25" r="25" />
           <circle cx="60" cy="25" r="25" />
         </svg>
       </div>
-        <div className="loader-container">
+
+      {/* Loader Circle */}
+      <div className="loader-container">
         <div className="progress-circle">
           <svg viewBox="0 0 36 36" className="circular-chart">
             <path
@@ -95,69 +84,50 @@ const TourixaaApp = () => {
         </div>
       </div>
 
-<div className="doingflex">
-     <div className="glass-card">
-        <h1 className="app-name">Tourixaa App</h1>
-        <p className="tagline">Your Ultimate Travel Companion</p>
-        <h2>We're Launching Soon 🚀</h2>
-        <p className="info-text">
-          Our app is currently under development. We’re crafting an amazing
-          travel experience for you. Stay tuned!
-        </p>
+      {/* Glass Card Content */}
+      <div className="doingflex">
+        <div className="glass-card">
+          <h1 className="app-name">Tourixaa App</h1>
+          <p className="tagline">Your Ultimate Travel Companion</p>
+          <h2>We're Launching Soon 🚀</h2>
+          <p className="info-text">
+            Our app is currently under development. We’re crafting an amazing travel experience for you. Stay tuned!
+          </p>
 
-        <div className="social-icons1">
-          <a
-            href="https://instagram.com/tourixaa"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Instagram"
-          >
-            <i className="fab fa-instagram"></i>
-          </a>
-          <a href="mailto:contact@tourixaa.com" aria-label="Email">
-            <i className="fas fa-envelope"></i>
-          </a>
-          <a
-            href="https://twitter.com/tourixaa"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Twitter"
-          >
-            <i className="fab fa-twitter"></i>
-          </a>
-        </div>
+          {/* Social Links */}
+          <div className="social-icons1">
+            <a href="https://instagram.com/tourixaa" target="_blank" rel="noreferrer" aria-label="Instagram">
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:contact@tourixaa.com" aria-label="Email">
+              <i className="fas fa-envelope"></i>
+            </a>
+            <a href="https://twitter.com/tourixaa" target="_blank" rel="noreferrer" aria-label="Twitter">
+              <i className="fab fa-twitter"></i>
+            </a>
+          </div>
+
+          {/* Countdown Timer */}
           <div className="countdown-timer">
-        {Object.entries(timeLeft).map(([unit, value]) => (
-          <span key={unit} className="time-box">
-            <strong>{value !== undefined ? value : 0}</strong> {unit}
-          </span>
-        ))}
+            {Object.entries(timeLeft).map(([unit, value]) => (
+              <span key={unit} className="time-box">
+                <strong>{value !== undefined ? value : 0}</strong> {unit}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
-      </div>
-    
 
-     
-    
-</div>
-     
-
-      {/* Teaser Carousel */}
-      <Carousel
-        autoPlay
-        
-        showThumbs={false}
-        showStatus={false}
-  
-        className="teaser-carousel"
-      >
+      {/* Teaser Video Carousel */}
+      <Carousel autoPlay infiniteLoop showThumbs={false} showStatus={false} className="teaser-carousel">
         <div>
-           <video autoPlay loop muted>
+          <video autoPlay loop muted>
             <source src={newvideo} type="video/mp4" />
-            Your browser does not support the video tag
-            </video>
+            Your browser does not support the video tag.
+          </video>
         </div>
         <div>
-         <video autoPlay loop muted>
+          <video autoPlay loop muted>
             <source src={video2} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
