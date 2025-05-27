@@ -53,7 +53,7 @@
   font-size: large;
 }
 
-.footer-section ul li:hover{
+.footer-section li :hover{
   color:red;
 
 }

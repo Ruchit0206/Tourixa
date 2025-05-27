@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import VideoUpload from "./Videoupload";
 import AboutUs from "./Aboutus";
 import International from "./International"; // This will have the multi-step form
+import TourixaaApp from "./TourixaaApp"
 
 function App() {
   return (
@@ -33,8 +34,13 @@ function App() {
               </h2>
             }
           />
+          <Route path="/TourixaaApp" element={<TourixaaApp/>}/>
         </Routes>
       </div>
+
+
+
+
 
       <Footer />
     </div>

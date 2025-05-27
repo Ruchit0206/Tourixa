@@ -9,6 +9,7 @@ import Secondpage from './Secondpage';
 import AboutUs from './Aboutus';
 import { Link } from 'react-router-dom';
 // import backgroundvideo from './backgroundvideo.mp4';
+// import TourixaaApp from "./TourixaaApp"
 
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState({});
@@ -81,6 +82,7 @@ export default function Home() {
       </div>
       <AboutUs></AboutUs>
         <Secondpage></Secondpage>
+       
 
       </div>
 
