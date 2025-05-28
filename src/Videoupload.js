@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import emailjs from 'emailjs-com';  // Import EmailJS
 import './Videoupload.css';
 
 export default function VideoUpload() {
@@ -12,12 +11,6 @@ export default function VideoUpload() {
   const uploadInterval = useRef(null);
 
   const MAX_SIZE_MB = 100;
-
-  // Add your EmailJS details here
-  const SERVICE_ID = 'service_lr9tfn8';
-  const TEMPLATE_ID = 'template_3zj5kgm';
-  const USER_ID = 'rysnNr2iULZpL1x7V';
-  const RECEIVER_EMAIL = 'substances0612@gmail.com';
 
   const resetUpload = () => {
     setVideoFile(null);
@@ -74,50 +67,7 @@ export default function VideoUpload() {
     setDragOver(false);
   };
 
-  // New function: Send email with video as Base64 attachment using EmailJS
-  const sendEmailWithVideo = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-
-      reader.onload = () => {
-        // Base64 string without the prefix "data:video/xxx;base64,"
-        const base64Video = reader.result.split(',')[1];
-
-        const templateParams = {
-          to_email: RECEIVER_EMAIL,
-          message: `User uploaded a video: ${file.name}`,
-          // EmailJS expects attachments as an array of objects with base64 content
-          attachments: [
-            {
-              content: base64Video,
-              filename: file.name,
-              type: file.type,
-              disposition: 'attachment',
-            },
-          ],
-        };
-
-        emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, USER_ID)
-          .then((response) => {
-            console.log('Email sent successfully!', response.status, response.text);
-            resolve();
-          })
-          .catch((error) => {
-            console.error('Email send failed:', error);
-            reject(error);
-          });
-      };
-
-      reader.onerror = (error) => {
-        console.error('File reading error:', error);
-        reject(error);
-      };
-
-      reader.readAsDataURL(file);
-    });
-  };
-
-  const handleUpload = async () => {
+  const handleUpload = () => {
     if (!videoFile) {
       setErrorMsg('No video selected.');
       return;
@@ -125,30 +75,20 @@ export default function VideoUpload() {
     setErrorMsg('');
     setProgress(0);
 
-    try {
-      // Start progress bar simulation
-      let p = 0;
-      uploadInterval.current = setInterval(() => {
-        p += 10;
-        if (p > 90) p = 90; // Keep below 100% until email sent
+    // Simulate upload progress
+    let p = 0;
+    uploadInterval.current = setInterval(() => {
+      p += 10;
+      if (p >= 100) {
+        clearInterval(uploadInterval.current);
+        setProgress(100);
+        setUploadSuccess(true);
+        setVideoFile(null);
+        setVideoPreview(null);
+      } else {
         setProgress(p);
-      }, 150);
-
-      // Send email
-      await sendEmailWithVideo(videoFile);
-
-      clearInterval(uploadInterval.current);
-      setProgress(100);
-      setUploadSuccess(true);
-
-      // Reset file and preview after successful send
-      setVideoFile(null);
-      setVideoPreview(null);
-    } catch (err) {
-      clearInterval(uploadInterval.current);
-      setProgress(0);
-      setErrorMsg('Failed to send email. Please try again.');
-    }
+      }
+    }, 150);
   };
 
   const handleCancel = () => {
@@ -245,23 +185,12 @@ export default function VideoUpload() {
             Cancel Upload
           </button>
         )}
-{/* <iframe
-      src="https://docs.google.com/forms/d/e/1FAIpQLSdcIibnGkJNuAoO0Y_yySE9Dtsfps1r10inQaHJ6IIyQWyY6A/viewform"
-      width="100%"
-      height="600"
-      frameBorder="0"
-      marginHeight="0"
-      marginWidth="0"
-      title="Travel Video Upload Form"
-    >
-      Loading…
-    </iframe> */}
+
         {uploadSuccess && (
           <p className="success-message" aria-live="polite">
             🎉 Your video is uploaded successfully! Our team will review it and post it soon.
           </p>
         )}
-        
       </div>
     </div>
   );

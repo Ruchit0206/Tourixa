@@ -1,51 +1,67 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import "./Offers.css";
 
 const offers = [
   {
     title: "Summer Special: 30% Off",
-    description: "Enjoy your summer vacation with an amazing 30% discount on select packages.",
-    imageUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+    description:
+      "Enjoy your summer vacation with an amazing 30% discount on select packages.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
   },
   {
     title: "Family Package: Kids Travel Free",
-    description: "Bring your family along and kids travel absolutely free on all domestic tours.",
-    imageUrl: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
+    description:
+      "Bring your family along and kids travel absolutely free on all domestic tours.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
   },
   {
     title: "Early Bird Offer",
-    description: "Book your tour 3 months in advance and get exclusive perks & gifts.",
-    imageUrl: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80",
+    description:
+      "Book your tour 3 months in advance and get exclusive perks & gifts.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80",
   },
-  {
-    title: "Early Bird Offer",
-    description: "Book your tour 3 months in advance and get exclusive perks & gifts.",
-    imageUrl: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    title: "Early Bird Offer",
-    description: "Book your tour 3 months in advance and get exclusive perks & gifts.",
-    imageUrl: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80",
-  }
 ];
-
-const mainTourixaaBenefit = {
-  icon: "🎁",
-  title: "Special Gift for Every Booking",
-  description: "Book any package with Tourixaa and receive an exclusive travel kit to make your journey memorable.",
-};
 
 const Benefits = () => (
   <section className="benefits-section">
     <h2>Why Choose Tourixaa?</h2>
     <div className="benefits-grid">
       {[
-        { icon: "🛫", title: "Easy Booking", desc: "Seamless online booking with instant confirmation." },
-        { icon: "💰", title: "Best Price Guarantee", desc: "Competitive pricing with no hidden charges." },
-        { icon: "🌟", title: "24/7 Customer Support", desc: "Always here to assist you anytime, anywhere." },
-        { icon: "🔒", title: "Secure Payments", desc: "Safe and encrypted payment gateways for your peace of mind." },
-        { icon: "📱", title: "Mobile Friendly", desc: "Book and manage your trips easily from any device." },
-        { icon: "🎉", title: "Exclusive Deals & Rewards", desc: "Access to special offers and loyalty rewards for frequent travelers." },
+        {
+          icon: "🛫",
+          title: "Easy Booking",
+          desc: "Seamless online booking with instant confirmation.",
+        },
+        {
+          icon: "💰",
+          title: "Best Price Guarantee",
+          desc: "Competitive pricing with no hidden charges.",
+        },
+        {
+          icon: "🌟",
+          title: "24/7 Customer Support",
+          desc: "Always here to assist you anytime, anywhere.",
+        },
+        {
+          icon: "🔒",
+          title: "Secure Payments",
+          desc: "Safe and encrypted payment gateways for your peace of mind.",
+        },
+        {
+          icon: "📱",
+          title: "Mobile Friendly",
+          desc: "Book and manage your trips easily from any device.",
+        },
+        {
+          icon: "🎉",
+          title: "Exclusive Deals & Rewards",
+          desc:
+            "Access to special offers and loyalty rewards for frequent travelers.",
+        },
       ].map((item, idx) => (
         <div className="benefit-card" key={idx}>
           <span className="benefit-icon">{item.icon}</span>
@@ -57,25 +73,177 @@ const Benefits = () => (
   </section>
 );
 
-export default function Offers() {
-  const [showModal, setShowModal] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", package: "" });
+// Gift Claim Form with EmailJS integration
+const GiftClaimForm = ({ onSubmit, onCancel }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const firstInputRef = useRef(null);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  useEffect(() => {
+    if (firstInputRef.current) {
+      firstInputRef.current.focus();
+    }
+    const handleEsc = (e) => {
+      if (e.key === "Escape") {
+        onCancel();
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [onCancel]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Gift Claimed:", formData);
-    alert("Gift claimed successfully! 🎁");
-    setFormData({ name: "", email: "", package: "" });
-    setShowModal(false);
+
+    if (!name.trim() || !email.trim() || !phone.trim()) {
+      alert("Please fill all fields.");
+      return;
+    }
+
+    setSubmitting(true);
+
+    // EmailJS send form
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      from_phone: phone,
+      message: `Gift claim request from ${name}`,
+    };
+
+    emailjs
+      .send(
+        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
+        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+        templateParams,
+        "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
+      )
+      .then(
+        (response) => {
+          setSubmitting(false);
+          onSubmit();
+          setName("");
+          setEmail("");
+          setPhone("");
+        },
+        (error) => {
+          setSubmitting(false);
+          alert(
+            "Oops! Something went wrong while sending your request. Please try again."
+          );
+          console.error("EmailJS error:", error);
+        }
+      );
+  };
+
+  return (
+    <div
+      className="modal-overlay"
+      onClick={onCancel}
+      aria-modal="true"
+      role="dialog"
+      aria-labelledby="modal-title"
+    >
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <h2
+          id="modal-title"
+          style={{ color: "#ca8a04", marginBottom: "20px", textAlign: "center" }}
+        >
+          Please Fill Your Details
+        </h2>
+        <form onSubmit={handleSubmit} noValidate>
+          <input
+            type="text"
+            placeholder="Full Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            ref={firstInputRef}
+            aria-label="Full Name"
+            required
+          />
+          <input
+            type="email"
+            placeholder="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            aria-label="Email Address"
+            required
+          />
+          <input
+            type="tel"
+            placeholder="Phone Number"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            aria-label="Phone Number"
+            required
+          />
+          <button type="submit" className="submit-btn" disabled={submitting}>
+            {submitting ? "Submitting..." : "Submit"}
+          </button>
+          <button
+            type="button"
+            onClick={onCancel}
+            style={{ marginTop: "10px", backgroundColor: "#aaa" }}
+          >
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+const SuccessMessage = ({ onClose }) => {
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [onClose]);
+
+  return (
+    <div
+      className="modal-overlay"
+      onClick={onClose}
+      aria-modal="true"
+      role="dialog"
+      aria-labelledby="success-title"
+    >
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <h2 id="success-title" style={{ color: "#ca8a04" }}>
+          Congratulations!
+        </h2>
+        <p>
+          You have successfully claimed your exclusive travel kit. Our team
+          will contact you soon!
+        </p>
+        <button onClick={onClose}>Close</button>
+      </div>
+    </div>
+  );
+};
+
+export default function Offers() {
+  const [showFormModal, setShowFormModal] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+  const handleClaimClick = () => {
+    setShowFormModal(true);
+  };
+
+  const handleFormSubmit = () => {
+    setShowFormModal(false);
+    setShowSuccessModal(true);
   };
 
   return (
     <div className="offers-page">
       <h1>Exclusive Offers</h1>
+
       <div className="carousel">
         {offers.map((offer, index) => (
           <div className="offer-slide" key={index}>
@@ -90,31 +258,29 @@ export default function Offers() {
 
       <section className="main-benefit-section">
         <div className="main-benefit-card glow">
-          <div className="benefit-icon">{mainTourixaaBenefit.icon}</div>
-          <h3 className="benefit-title">{mainTourixaaBenefit.title}</h3>
-          <p className="benefit-desc">{mainTourixaaBenefit.description}</p>
-          <button className="claim-btn" onClick={() => setShowModal(true)}>Claim Your Gift 🎁</button>
+          <div className="benefit-icon">🎁</div>
+          <h3 className="benefit-title">Special Gift for Every Booking</h3>
+          <p className="benefit-desc">
+            Book any package with Tourixaa and receive an exclusive travel kit
+            to make your journey memorable.
+          </p>
+          <button className="claim-btn" onClick={handleClaimClick}>
+            Claim Your Gift 🎁
+          </button>
         </div>
       </section>
 
       <Benefits />
 
-      {showModal && (
-        
-    
-        <div className="modal-backdrop">
-          <div className="modal">
-            <h2>🎁 Claim Your Gift</h2>
-            <form onSubmit={handleSubmit}>
-              <input type="text" name="name" placeholder="Full Name" required value={formData.name} onChange={handleChange} />
-              <input type="email" name="email" placeholder="Email Address" required value={formData.email} onChange={handleChange} />
-              <input type="text" name="package" placeholder="Interested Package (optional)" value={formData.package} onChange={handleChange} />
-              <button type="submit" className="submit-btn">Submit</button>
-            </form>
-            <button className="close-btn" onClick={() => setShowModal(false)}>✖ Close</button>
-          </div>
-        </div>
-    
+      {/* Modals */}
+      {showFormModal && (
+        <GiftClaimForm
+          onSubmit={handleFormSubmit}
+          onCancel={() => setShowFormModal(false)}
+        />
+      )}
+      {showSuccessModal && (
+        <SuccessMessage onClose={() => setShowSuccessModal(false)} />
       )}
     </div>
   );
