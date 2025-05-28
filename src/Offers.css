@@ -268,9 +268,9 @@
   color: white;
   border: none;
   padding: 12px;
-  border-radius: 25px;
+  /* border-radius: 25px; */
   font-weight: 600;
-  width:100%;
+  /* width:14%; */
   cursor: pointer;
 }
 

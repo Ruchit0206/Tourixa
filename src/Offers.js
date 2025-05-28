@@ -114,10 +114,10 @@ const GiftClaimForm = ({ onSubmit, onCancel }) => {
 
     emailjs
       .send(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+        "service_lr9tfn8", // Replace with your EmailJS service ID
+        "template_es04yxe", // Replace with your EmailJS template ID
         templateParams,
-        "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
+        "rysnNr2iULZpL1x7V" // Replace with your EmailJS public key
       )
       .then(
         (response) => {
