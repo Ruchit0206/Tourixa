@@ -9,7 +9,7 @@
   justify-content: center;
   border-radius: 50px;
   /* margin: 1rem auto; */
-  width: 90%;
+  width: 94%;
   max-width: 1500px;
   box-shadow: 0 0 15px rgba(255,216,0);
   position: fixed;
@@ -75,7 +75,8 @@
   border: none;
   border-radius: 10px;
   overflow: hidden;
-  padding: 10px;
+  padding: 3px;
+  width: auto;
 }
 
 .dropdown-item {

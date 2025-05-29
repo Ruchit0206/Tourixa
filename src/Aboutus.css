@@ -36,3 +36,62 @@
     align-items: flex-start; /* reset so items stack naturally */
   }
 }
+
+.benefits-section {
+  padding: 3rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Each benefit card style */
+.benefit-card {
+  background: #f0f4f8;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  width: 100%;
+  max-width: 220px;
+  justify-self: center;
+}
+
+/* Place the last two cards centered in second row */
+.benefit-card:nth-child(5) {
+  grid-column: 2 / 3;
+  grid-row: 2;
+}
+
+.benefit-card:nth-child(6) {
+  grid-column: 3 / 4;
+  grid-row: 2;
+}
+
+/* Responsive: on smaller screens stack in 1 column */
+@media (max-width: 768px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 1.5rem;
+  }
+
+  .benefit-card {
+    max-width: none;
+    width: 100%;
+  }
+
+  /* Reset special placement */
+  .benefit-card:nth-child(5),
+  .benefit-card:nth-child(6) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}

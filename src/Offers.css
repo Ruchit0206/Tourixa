@@ -149,9 +149,49 @@
 
 
 
-.benefits-section {
-  margin-top: 30px;
+.about-wrapper {
+  display: flex;
+  flex-wrap: nowrap; /* no wrap by default */
+  gap: 2rem;
+  align-items: stretch; /* stretch children to equal height */
+  padding: 3rem 2rem;
+  background-color: #f9f9f9;
+  /* margin-top: 50px; */
 }
+
+/* Children flex properties */
+.about-image {
+  flex: 1 1 40%;
+  min-width: 300px;
+}
+
+.about-content {
+  flex: 1 1 55%;
+  min-width: 300px;
+  font-size:1.2rem;
+}
+
+/* Image fills container height */
+.about-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive: on small screens, allow wrap/stack */
+@media (max-width: 768px) {
+  .about-wrapper {
+    flex-wrap: wrap; /* allow wrapping on smaller screens */
+    align-items: flex-start; /* reset so items stack naturally */
+  }
+}
+
+
+
+
+
 
 
 

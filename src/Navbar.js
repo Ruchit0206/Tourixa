@@ -1,6 +1,6 @@
 import React from "react";
 import './Navbar.css';
-import logo from "./logo.png";
+import logo from "./logo.jpeg";
 // import logo1 from './logo1.jpeg';
 import PropTypes from "prop-types";
 import { Link} from 'react-router-dom';
@@ -75,11 +75,7 @@ export default function Navbar(props) {
                    <i className="fa-solid fa-person-hiking"></i> Solo Tour
                   </Link>
                 </li>
-                <li>
-                 <Link className="nav-link active" to="/underde/Heritage Tour">
-                    <i className="fa-solid fa-gopuram"></i> Heritage Tour
-                  </Link>
-                </li>
+                
                
                 <li>
                   <Link className="nav-link active" to="/underde/Nature and Tracking">
@@ -124,12 +120,33 @@ export default function Navbar(props) {
     <span className="nav-text"> Offers</span>
   </Link>
             </li>
-               <li className="nav-item">
-              <a className="nav-link active" href="/#">
-              <img src="https://cdn-icons-png.flaticon.com/128/3448/3448610.png" alt="Travel Guide Icon" width="20" />
-  <span className="nav-text"> {props.fourth}</span>
-              </a>
-            </li>
+              
+              
+               <li className="nav-item dropdown">
+  <a
+    className="nav-link dropdown-toggle active"
+    href="/#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    <img src="https://cdn-icons-png.flaticon.com/128/3448/3448610.png" alt="Travel Guide Icon" width="20" />
+    <span className="nav-text"> {props.fourth}</span>
+  </a>
+  <ul className="dropdown-menu">
+    <li>
+      <Link className="nav-link active" to="/underde/Ai Tour Planner">
+        <img src="https://cdn-icons-png.flaticon.com/128/4380/4380899.png" alt="Ai Tour Planner" width="20" /> Ai Tour Planner
+      </Link>
+    </li>
+    <li>
+      <Link className="nav-link active" to="/underde/Plan With Us">
+        <img src="https://cdn-icons-png.flaticon.com/128/3612/3612272.png" alt="Plan With Us" width="20" /> Plan With Us 
+      </Link>
+    </li>
+  </ul>
+</li>
+
             {/* dropdown start */}
             
             <li className="nav-item dropdown">
@@ -172,16 +189,26 @@ export default function Navbar(props) {
               </ul>
             </li>
              
-            <li className="nav-item">
-  <Link to="/Aboutus" className="nav-link active">
-    <img
-      src="https://cdn-icons-png.flaticon.com/128/869/869636.png"
-      alt="Colorful Offers Icon"
-      width="20"
-    />
-    <span className="nav-text"> About Us</span>
-  </Link>
-</li>
+           <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle active"
+                href="/#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              ><img src="https://cdn-icons-png.flaticon.com/128/2540/2540484.png" alt="Colorful Features Icon" width="20" />
+
+                <span className="nav-text"> Lost Culture</span>
+              </a>
+              <ul className="dropdown-menu">
+               
+                 <li>
+                  <Link className="nav-link active" to="/underde/Heritage Tour">
+                   <img src="https://cdn-icons-png.flaticon.com/128/808/808435.png" alt="Heritage Tour" width="20" /> Heritage Tour 
+                  </Link>
+                </li>
+              </ul>
+            </li>
 
             
             {/* dropdown end */}

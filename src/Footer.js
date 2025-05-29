@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import logo from './logo.png';
+import logo from './logo.jpeg';
 import { Link} from 'react-router-dom';
 
 export default function Footer() {
@@ -41,7 +41,7 @@ export default function Footer() {
             <li><Link to="/underde/Domestic">Domestic</Link></li>
               <li><Link to="/underde/Group Tour">Group Tour</Link></li>
               <li><Link to="/underde/Solo Tour">Solo Tour</Link></li>
-              <li><Link to="/underde/Heritage Tour">Heritage Tour</Link></li>
+             
               <li><Link to="/underde/Nature and Tracking">Nature & Tracking</Link></li>
               <li><Link to="/underde/Maharaja Express">Maharaja Express</Link></li>
               <li><Link to="/underde/Honeymoon Package">Honeymoon Package</Link></li>
@@ -73,7 +73,9 @@ export default function Footer() {
         {/* Right Column */}
         <div className="footer-column">
           <h4>TOURIXAA</h4>
-          <p>42 Maple Avenue, Suite 5B<br/>Springfield, IL 62704<br/>United States</p>
+          <p>Nr. Visat three roads, Sabarmati-Koba Highway, Chandkheda,
+Ahmedabad, Gujarat
+</p>
           <p><i className="fas fa-phone-alt"></i> (+91) 98765 43210</p>
           <p><i className="fas fa-envelope"></i> <a href="mailto:tourixaa@gmail.com">tourixaa@gmail.com</a></p>
         </div>
@@ -81,7 +83,7 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <p>
-          © 2025 <a href="https://tourixa-git-main-ruchit-patels-projects-b32f3c7a.vercel.app/" target="_blank" rel="noreferrer">Tourixaa</a> — All Rights Reserved.
+          © {new Date().getFullYear()} <a href="https://tourixa.vercel.app/" target="_blank" rel="noreferrer">Tourixaa</a> — All Rights Reserved.
         </p>
       </div>
     </div>
