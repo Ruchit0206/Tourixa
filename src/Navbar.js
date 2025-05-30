@@ -66,6 +66,11 @@ export default function Navbar(props) {
                   </Link>
                 </li>
                 <li>
+                  <Link className="nav-link active" to="/underde/Business Places">
+                   <i className="fa-solid fa-user-tie"></i> Business Places
+                  </Link>
+                </li>
+                <li>
                   <Link className="nav-link active" to="/underde/group Tour">
                     <i className="fa-solid fa-people-group"></i> GroupTour
                   </Link>
@@ -97,11 +102,7 @@ export default function Navbar(props) {
                    <i className="fa-solid fa-person-cane"></i> Senior Citizen
                   </Link>
                 </li>
-                <li>
-                  <Link className="nav-link active" to="/underde/Business Places">
-                   <i className="fa-solid fa-user-tie"></i> Business Places
-                  </Link>
-                </li>
+                
                 <li>
                   <Link className="nav-link active" to="/Offers">
                     <i className="fa-solid fa-children"></i> Children Places

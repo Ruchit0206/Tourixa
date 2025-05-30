@@ -13,7 +13,6 @@ export default function Home() {
 
   useEffect(() => {
     const launchDate = new Date('2025-06-01T00:00:00').getTime();
-
     const interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = launchDate - now;
@@ -35,7 +34,6 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  // Back to Top button scroll event handler
   useEffect(() => {
     const handleScroll = () => {
       if (window.pageYOffset > 300) {
@@ -51,6 +49,11 @@ export default function Home() {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToSecondPage = () => {
+    const section = document.getElementById('next-section');
+    section?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -76,9 +79,15 @@ export default function Home() {
           </p>
 
           <div className='button-group'>
-            <Link className="nav-link active" to="/underde/Login As Traveller"><button className='cta-btn'>Login As Traveller</button></Link>
-            <Link className="nav-link active" to="/underde/Join As Agency"><button className='cta-btn'>Join As Agency</button></Link>
-            <Link to="VideoUpload"><button className='cta-btn'>Upload Travel Moments</button></Link>
+            <Link className="nav-link active" to="/underde/Login As Traveller">
+              <button className='cta-btn'>Login As Traveller</button>
+            </Link>
+            <Link className="nav-link active" to="/underde/Join As Agency">
+              <button className='cta-btn'>Join As Agency</button>
+            </Link>
+            <Link to="VideoUpload">
+              <button className='cta-btn'>Upload Travel Moments</button>
+            </Link>
           </div>
 
           <div className="open-source-text">India's First Open Travel Platform</div>
@@ -89,13 +98,17 @@ export default function Home() {
             </div>
           )}
 
-          <div className="start-journey">
-            Start your journey &rarr;
+          {/* 🔥 Modern Start Journey button */}
+          <div className="start-journey modern-btn" onClick={scrollToSecondPage}>
+           ⬇ Start Your Journey ⬇
           </div>
         </div>
       </div>
 
-      <AboutUs />
+      <div id="next-section" style={{ paddingTop: '45px' }}>
+        <AboutUs />
+      </div>
+
       <Secondpage />
 
       {showBackToTop && (

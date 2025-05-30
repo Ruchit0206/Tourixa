@@ -70,22 +70,59 @@
 
 
 .main-benefit-section {
-  margin: 40px 0 50px;
+  margin: 60px 0;
   display: flex;
   justify-content: center;
+  width: 100%;
+  padding: 20px;
+  /* background: linear-gradient(120deg, #fff7e6, #fffbeb, #fef3c7); */
+  background-size: 400% 400%;
+  animation: bgShift 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
 }
-
-
-
 .main-benefit-card {
-  background: #fef3c7;
-  border-radius: 15px;
-  padding: 30px 25px;
-  width: 320px;
+  background: #fffef7;
+  border-radius: 20px;
+  padding: 40px 30px;
+  width: 80%;
+  max-width: 720px;
   text-align: center;
-  box-shadow: 0 0 20px rgba(255, 223, 0, 0.5);
+  box-shadow: 0 12px 25px rgba(202, 138, 4, 0.3);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: bgPulse 6s ease-in-out infinite, fadeInUp 0.8s ease-in-out;
 }
 
+.main-benefit-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 16px 40px rgba(202, 138, 4, 0.4);
+}
+@keyframes bgPulse {
+  0% {
+    background-color: #fef3c7;
+  }
+  50% {
+    background-color: #fff7d6;
+  }
+  100% {
+    background-color: #fef3c7;
+  }
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 
 .glow {
@@ -113,40 +150,38 @@
 
 
 .benefit-title {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 12px;
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 15px;
   color: #b45309;
+  text-shadow: 1px 1px 2px #fef3c7;
 }
-
-
 
 .benefit-desc {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #92400e;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  line-height: 1.6;
 }
-
 
 
 .claim-btn {
-  background-color: #b45309;
+  background-color: #ca8a04;
   color: white;
-  padding: 12px 25px;
-  font-size: 1rem;
-  font-weight: 600;
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 8px 18px rgba(202, 138, 4, 0.3);
 }
-
-
 
 .claim-btn:hover {
-  background-color: #78350f;
+  background-color: #b45309;
+  transform: scale(1.05);
 }
-
 
 
 .about-wrapper {
@@ -189,6 +224,11 @@
 }
 
 
+@media (max-width: 768px) {
+  .main-benefit-section {
+    width: 95%;
+  }
+}
 
 
 
@@ -318,4 +358,55 @@
 
 .submit-btn:hover {
   background-color: #b45309;
+}
+
+
+
+.package-details {
+  margin-top: 15px;
+}
+
+.package-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.package-items-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.package-items-list li {
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+
+
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.main-benefit-section::before,
+.main-benefit-section::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  /* background: radial-gradient(circle, #fde68a60 0%, transparent 70%); */
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.main-benefit-section::before {
+  top: -50px;
+  left: -50px;
+}
+
+.main-benefit-section::after {
+  bottom: -50px;
+  right: -50px;
 }

@@ -18,6 +18,20 @@ const offers = [
       "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
   },
   {
+    title: "Family Package: Kids Travel Free",
+    description:
+      "Bring your family along and kids travel absolutely free on all domestic tours.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    title: "Family Package: Kids Travel Free",
+    description:
+      "Bring your family along and kids travel absolutely free on all domestic tours.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
+  },
+  {
     title: "Early Bird Offer",
     description:
       "Book your tour 3 months in advance and get exclusive perks & gifts.",
@@ -210,19 +224,34 @@ export default function Offers() {
         ))}
       </div>
 
-      <section className="main-benefit-section">
-        <div className="main-benefit-card glow">
-          <div className="benefit-icon">🎁</div>
-          <h3 className="benefit-title">Special Gift for Every Booking</h3>
-          <p className="benefit-desc">
-            Book any package with Tourixaa and receive an exclusive travel kit
-            to make your journey memorable.
-          </p>
-          <button className="claim-btn" onClick={handleClaimClick}>
-            Claim Your Gift 🎁
-          </button>
-        </div>
-      </section>
+    <section className="main-benefit-section">
+  <div className="main-benefit-card glow">
+    <div className="benefit-icon">🎁</div>
+    <h3 className="benefit-title">Special Gift & Package Offer</h3>
+    
+    <p className="benefit-desc">
+      Book any package with <strong>Tourixaa</strong> and receive an exclusive travel kit
+      along with a premium combo of useful items to enhance your journey.
+    </p>
+
+    <div className="package-details">
+      <h4 className="package-title">What You'll Get:</h4>
+      <ul className="package-items-list">
+        <li>🥤 Branded Water Bottle</li>
+        <li>☕ Premium Coffee Packet</li>
+        <li>🪥 Travel Comb</li>
+        <li>🍳 Kitchen</li>
+        <li>🖊️ Quality Pen</li>
+        <li>📒 Diary for memorable moments</li>
+        <li>And many more..</li>
+      </ul>
+    </div>
+
+    <button className="claim-btn" onClick={handleClaimClick}>
+      Claim Your Gift & Offer 🎁🚀
+    </button>
+  </div>
+</section>
 
 
       {/* Modals */}
