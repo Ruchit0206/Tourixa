@@ -27,31 +27,7 @@ const travelData = [
     title: "PARIS",
     image: "/images/paris.jpg",
   },
-  {
-    id: 6,
-    title: "TOKYO",
-    image: "/images/tokyo.jpg",
-  },
-  {
-    id: 7,
-    title: "ROME",
-    image: "/images/rome.webp",
-  },
-  {
-    id: 8,
-    title: "NEW YORK",
-    image: "/images/newyork.jpg",
-  },
-  {
-    id: 9,
-    title: "CAPE TOWN",
-    image: "/images/capetown.jpg",
-  },
-  {
-    id: 10,
-    title: "SYDNEY",
-    image: "/images/sydney.jpg",
-  },
+  
 ];
 
 
