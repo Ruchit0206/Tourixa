@@ -17,14 +17,14 @@
 .card-container {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1.2rem;
   flex-wrap: wrap;
 }
 
 .travel-card {
   position: relative;
-  width: 250px;
-  height: 350px;
+  width: 200px;
+  height: 240px;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
@@ -52,10 +52,17 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  font-size: 1.3rem;
+  font-size: 1.09rem;
   font-weight: bold;
 }
 
 .card-number {
   font-size: 2rem;
+}
+
+
+@media (max-width: 600px) {
+  .travel-card {
+    width: 45%; /* or 48% depending on gap */
+  }
 }
