@@ -40,8 +40,6 @@ const offers = [
   },
 ];
 
-
-// Gift Claim Form with EmailJS integration
 const GiftClaimForm = ({ onSubmit, onCancel }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -65,14 +63,26 @@ const GiftClaimForm = ({ onSubmit, onCancel }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[6-9]\d{9}$/;
+
     if (!name.trim() || !email.trim() || !phone.trim()) {
       alert("Please fill all fields.");
       return;
     }
 
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    if (!phoneRegex.test(phone)) {
+      alert("Please enter a valid 10-digit phone number.");
+      return;
+    }
+
     setSubmitting(true);
 
-    // EmailJS send form
     const templateParams = {
       from_name: name,
       from_email: email,
@@ -82,13 +92,13 @@ const GiftClaimForm = ({ onSubmit, onCancel }) => {
 
     emailjs
       .send(
-        "service_lr9tfn8", // Replace with your EmailJS service ID
-        "template_es04yxe", // Replace with your EmailJS template ID
+        "service_lr9tfn8",
+        "template_es04yxe",
         templateParams,
-        "rysnNr2iULZpL1x7V" // Replace with your EmailJS public key
+        "rysnNr2iULZpL1x7V"
       )
       .then(
-        (response) => {
+        () => {
           setSubmitting(false);
           onSubmit();
           setName("");
@@ -116,7 +126,11 @@ const GiftClaimForm = ({ onSubmit, onCancel }) => {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <h2
           id="modal-title"
-          style={{ color: "#ca8a04", marginBottom: "20px", textAlign: "center" }}
+          style={{
+            color: "#ca8a04",
+            marginBottom: "20px",
+            textAlign: "center",
+          }}
         >
           Please Fill Your Details
         </h2>
@@ -139,13 +153,21 @@ const GiftClaimForm = ({ onSubmit, onCancel }) => {
             required
           />
           <input
-            type="tel"
-            placeholder="Phone Number"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            aria-label="Phone Number"
-            required
-          />
+  type="tel"
+  placeholder="Phone Number"
+  value={phone}
+  onChange={(e) => setPhone(e.target.value)}
+  aria-label="Phone Number"
+  required
+  inputMode="numeric"
+  pattern="[0-9]*"
+  onKeyPress={(e) => {
+    if (!/[0-9]/.test(e.key)) {
+      e.preventDefault();
+    }
+  }}
+/>
+
           <button type="submit" className="submit-btn" disabled={submitting}>
             {submitting ? "Submitting..." : "Submit"}
           </button>
@@ -186,8 +208,8 @@ const SuccessMessage = ({ onClose }) => {
           Congratulations!
         </h2>
         <p>
-          You have successfully claimed your exclusive travel kit. Our team
-          will contact you soon!
+          You have successfully claimed your exclusive travel kit. Our team will
+          contact you soon!
         </p>
         <button onClick={onClose}>Close</button>
       </div>
@@ -224,37 +246,34 @@ export default function Offers() {
         ))}
       </div>
 
-    <section className="main-benefit-section">
-  <div className="main-benefit-card glow">
-    <div className="benefit-icon">🎁</div>
-    <h3 className="benefit-title">Special Gift & Package Offer</h3>
-    
-    <p className="benefit-desc">
-      Book any package with <strong>Tourixaa</strong> and receive an exclusive travel kit
-      along with a premium combo of useful items to enhance your journey.
-    </p>
+      <section className="main-benefit-section">
+        <div className="main-benefit-card glow">
+          <div className="benefit-icon">🎁</div>
+          <h3 className="benefit-title">Special Gift & Package Offer</h3>
+          <p className="benefit-desc">
+            Book any package with <strong>Tourixaa</strong> and receive an
+            exclusive travel kit along with a premium combo of useful items to
+            enhance your journey.
+          </p>
+          <div className="package-details">
+            <h4 className="package-title">What You'll Get:</h4>
+            <ul className="package-items-list">
+              <li>🥤 Branded Water Bottle</li>
+              <li>☕ Premium Coffee Packet</li>
+              <li>🪥 Travel Comb</li>
+              <li>🍳 Kitchen</li>
+              <li>🖊️ Quality Pen</li>
+              <li>📒 Diary for memorable moments</li>
+              <li>And many more..</li>
+            </ul>
+          </div>
 
-    <div className="package-details">
-      <h4 className="package-title">What You'll Get:</h4>
-      <ul className="package-items-list">
-        <li>🥤 Branded Water Bottle</li>
-        <li>☕ Premium Coffee Packet</li>
-        <li>🪥 Travel Comb</li>
-        <li>🍳 Kitchen</li>
-        <li>🖊️ Quality Pen</li>
-        <li>📒 Diary for memorable moments</li>
-        <li>And many more..</li>
-      </ul>
-    </div>
+          <button className="claim-btn" onClick={handleClaimClick}>
+            Claim Your Gift 🎁
+          </button>
+        </div>
+      </section>
 
-    <button className="claim-btn" onClick={handleClaimClick}>
-      Claim Your Gift & Offer 🎁🚀
-    </button>
-  </div>
-</section>
-
-
-      {/* Modals */}
       {showFormModal && (
         <GiftClaimForm
           onSubmit={handleFormSubmit}

@@ -5,6 +5,8 @@ import './touch.css';
 import Secondpage from './Secondpage';
 import AboutUs from './Aboutus';
 import { Link } from 'react-router-dom';
+import TravelCarousel from './TravelCarouseli';
+import TravelCarouseld from './TravelCarouseld';
 
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState({});
@@ -108,7 +110,8 @@ export default function Home() {
       <div id="next-section" style={{ paddingTop: '45px' }}>
         <AboutUs />
       </div>
-
+<TravelCarousel/>
+<TravelCarouseld/>
       <Secondpage />
 
       {showBackToTop && (

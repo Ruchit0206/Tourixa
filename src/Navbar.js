@@ -65,11 +65,7 @@ export default function Navbar(props) {
                   <Link className="nav-link active" to="/underde/domestic"><img src="https://flagcdn.com/w40/in.png" alt="India Flag" width="20" /> Domestic
                   </Link>
                 </li>
-                <li>
-                  <Link className="nav-link active" to="/underde/Business Places">
-                   <i className="fa-solid fa-user-tie"></i> Business Places
-                  </Link>
-                </li>
+                
                 <li>
                   <Link className="nav-link active" to="/underde/group Tour">
                     <i className="fa-solid fa-people-group"></i> GroupTour
@@ -206,6 +202,35 @@ export default function Navbar(props) {
                  <li>
                   <Link className="nav-link active" to="/underde/Heritage Tour">
                    <img src="https://cdn-icons-png.flaticon.com/128/808/808435.png" alt="Heritage Tour" width="20" /> Heritage Tour 
+                  </Link>
+                </li>
+              </ul>
+            </li>
+
+
+
+
+ <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle active"
+                href="/#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              ><img src="https://cdn-icons-png.flaticon.com/128/2540/2540484.png" alt="Colorful Features Icon" width="20" />
+
+                <span className="nav-text"> Corporate</span>
+              </a>
+              <ul className="dropdown-menu">
+               
+                 <li>
+                  <Link className="nav-link active" to="/underde/Heritage Tour">
+                   <img src="https://cdn-icons-png.flaticon.com/128/808/808435.png" alt="Heritage Tour" width="20" /> Corporate Packages 
+                  </Link>
+                </li>
+                  <li>
+                  <Link className="nav-link active" to="/underde/Heritage Tour">
+                   <img src="https://cdn-icons-png.flaticon.com/128/808/808435.png" alt="Heritage Tour" width="20" /> Business Meetings 
                   </Link>
                 </li>
               </ul>
