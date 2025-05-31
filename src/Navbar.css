@@ -19,6 +19,37 @@
   z-index: 1000;
 }
 
+
+
+
+.nav-item .nav-link:hover,
+.dropdown-menu .nav-link:hover {
+  /* color: #007bff; Change this to your desired hover text color */
+  background-color: #0f77df; /*Optional: Light background on hover*/
+  transition: 0.1s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .brand-text {
   padding-left: 8px;
   font-size: 1.5rem;
