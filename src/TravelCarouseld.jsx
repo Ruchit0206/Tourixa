@@ -2,62 +2,32 @@ import React from "react";
 import "./TravelCarousel.css";
 
 const travelData = [
-  {
+    {
     id: 1,
-    title: "BARCELONA",
-    image: "/images/barcelona.jpg",
+    title: "GOA",
+    image: "/images/paris.jpg",
   },
   {
     id: 2,
-    title: "BALI",
-    image: "/images/bali.jpeg",
+    title: "MANALI",
+    image: "/images/greece.webp",
   },
   {
     id: 3,
-    title: "DUBAI",
+    title: "JAIPUR",
     image: "/images/dubai.jpg",
   },
   {
     id: 4,
-    title: "GREECE",
-    image: "/images/greece.webp",
+    title: "KERALA",
+    image: "/images/bali.jpeg",
   },
   {
     id: 5,
-    title: "PARIS",
-    image: "/images/paris.jpg",
+    title: "LEH LADAKH",
+    image: "/images/capetown.jpg",
   },
-  
-];
-
-
-// const travelData = [
-//   {
-//     id: 1,
-//     title: "GOA",
-//     image: "/images/goa.jpg",
-//   },
-//   {
-//     id: 2,
-//     title: "MANALI",
-//     image: "/images/manali.jpg",
-//   },
-//   {
-//     id: 3,
-//     title: "JAIPUR",
-//     image: "/images/jaipur.jpg",
-//   },
-//   {
-//     id: 4,
-//     title: "KERALA",
-//     image: "/images/kerala.jpg",
-//   },
-//   {
-//     id: 5,
-//     title: "LEH LADAKH",
-//     image: "/images/leh.jpg",
-//   },
-//   {
+  // {
 //     id: 6,
 //     title: "AGRA",
 //     image: "/images/agra.jpg",
@@ -82,7 +52,9 @@ const travelData = [
 //     title: "RISHIKESH",
 //     image: "/images/rishikesh.jpg",
 //   },
-// ];
+];
+
+
 
 
 
