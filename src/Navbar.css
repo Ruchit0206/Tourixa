@@ -1,177 +1,103 @@
 /* General navbar styling with curve */
 .navbar {
-  /* background-color: #45302d !important; */
   background: rgba(0, 0, 0, 0.7);
-  /* background-color: black; */
   padding: 0.5rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 50px;
-  /* margin: 1rem auto; */
-  width: 94%;
+  width: 95%;
   max-width: 1500px;
-  box-shadow: 0 0 15px rgba(255,216,0);
+  box-shadow: 0 0 15px rgba(255, 216, 0);
   position: fixed;
-  top: 0.5rem; /*same as your margin-top*/
+  top: 0.5rem;
   left: 50%;
-  transform: translateX(-50%); /* Center it horizontally */
+  transform: translateX(-50%);
   z-index: 1000;
+  font-size: 1.09rem;
 }
 
-
-
-
-.nav-item .nav-link:hover,
-.dropdown-menu .nav-link:hover {
-  /* color: #007bff; Change this to your desired hover text color */
-  background-color: #0f77df; /*Optional: Light background on hover*/
-  transition: 0.1s ease-in-out;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.brand-text {
-  padding-left: 8px;
-  font-size: 1.5rem;
-  color: white;
-}
-
-
-/* Brand styling */
+/* Brand logo and text aligned */
 .navbar-brand {
   display: flex;
   align-items: center;
-}
-
-.navbar-brand img {
-  height: 40px;
-  width: auto;
-  object-fit: contain;
-}
-
-
-.navbar-brand p{
-  height: 50px;
-  padding-top:15px;
-  font-size: larger;
-  display: flex;
-  align-items: center;
-}
-/* General white text for everything inside navbar */
-.navbar * {
-  color: white !important;
-  text-decoration: none;
-  fill: white !important;
-}
-
-/* Nav items spacing */
-.nav-item {
-  padding: 0.5rem;
-}
-
-/* Right-side nav container */
-.ruchit ul {
-  margin-left: 0;
-  padding-left: 0;
-  display: flex;
-  flex-direction: row;
   gap: 10px;
 }
 
-/* Dropdown menu styles */
-.navbar-nav .dropdown-menu {
-  position: absolute !important;
-  z-index: 1050;
-  background-color: rgb(102, 67, 39);
-  border: none;
-  border-radius: 10px;
-  overflow: hidden;
-  padding: 3px;
-  width: auto;
+.navbar-brand img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
-.dropdown-item {
-  color: white !important;
+.brand-text {
+  /* font-weight: bold; */
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: white;
 }
 
-.dropdown-item:hover {
-  background-color: black;
-  color: white !important;
+/* Align nav items with icons and text */
+.navbar-nav .nav-item .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
 }
-/* @media (min-width:768px) {
-  .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='red' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+
+.navbar-nav .nav-item .nav-link img {
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.nav-text {
+  display: inline-block;
+  vertical-align: middle;
+  color: white;
+}
+
+/* Dropdown items styling */
+.dropdown-menu{
+background-color: rgb(102, 67, 39);
+}
+.dropdown-menu .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  color: black;
+}
+
+.dropdown-menu .nav-link img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* Hover effects */
+.nav-item .nav-link:hover,
+.dropdown-menu .nav-link:hover {
+  background-color: #0f77df;
+  color: white;
+  transition: 0.3s;
+}
+
+/* Responsive tweaks */
+@media (max-width: 992px) {
+  .navbar-nav .nav-item .nav-link {
+    padding: 8px 0;
   }
-} */
 
-/* Responsive navbar */
-@media (max-width: 768px)  {
-  .navbar {
-    border-radius: 10; /* Optional: remove curve on mobile */
-    flex-direction: column;
-    padding: 1rem;
-    
+  .dropdown-menu .nav-link {
+    padding: 8px 16px;
   }
 
-  .ruchit ul {
-    flex-direction: column;
-    gap: 5px;
+  .navbar-brand img {
+    width: 32px;
+    height: 32px;
   }
-  /* Change color of the navbar toggler (hamburger icon) */
-.navbar-toggler {
-  border-color: #fcc200; 
-}
 
-/* Change the actual icon (three lines) inside the toggler */
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='red' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-  /* background-color: #fcc200; */
-}
-/* Remove background color highlight on click/focus */
-.navbar-toggler:focus, 
-.navbar-toggler:active {
-  outline: none;
-  box-shadow: none;
-  border-color: aqua;
-  background-color: transparent !important;
-}
-.navbar-nav {
-    overflow-x: auto;
-    white-space: nowrap;
-    
+  .brand-text {
+    font-size: 1.1rem;
   }
-  .container-fluid button{
-    width: 55.6px;
-  }
-  .navbar-toggler {
-  padding: 2px;
 }
-
-}
-
-
-
-
-
-
-
