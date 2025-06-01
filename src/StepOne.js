@@ -20,6 +20,16 @@ function StepOne({ formData, setFormData, nextStep }) {
     }
     if (!formData.travelers || formData.travelers < 1)
       newErrors.travelers = "Number of travelers must be at least 1";
+    if (!formData.userName || formData.userName.trim() === "")
+      newErrors.userName = "Enter your name";
+    if (!formData.userEmail || formData.userEmail.trim() === "")
+      newErrors.userEmail = "Enter your email";
+    else {
+      // simple email regex check
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.userEmail))
+        newErrors.userEmail = "Enter a valid email address";
+    }
     return newErrors;
   };
 
@@ -27,7 +37,7 @@ function StepOne({ formData, setFormData, nextStep }) {
     e.preventDefault();
     const formErrors = validate();
     if (Object.keys(formErrors).length === 0) {
-      nextStep();
+      nextStep();  // move to next step
     } else {
       setErrors(formErrors);
     }
@@ -85,6 +95,28 @@ function StepOne({ formData, setFormData, nextStep }) {
         onChange={handleChange}
       />
       {errors.travelers && <p className="error">{errors.travelers}</p>}
+
+      {/* New input for user name */}
+      <label htmlFor="userName">Your Name</label>
+      <input
+        type="text"
+        id="userName"
+        name="userName"
+        value={formData.userName || ''}
+        onChange={handleChange}
+      />
+      {errors.userName && <p className="error">{errors.userName}</p>}
+
+      {/* New input for user email */}
+      <label htmlFor="userEmail">Your Email</label>
+      <input
+        type="phone"
+        id="userEmail"
+        name="userEmail"
+        value={formData.userEmail || ''}
+        onChange={handleChange}
+      />
+      {errors.userEmail && <p className="error">{errors.userEmail}</p>}
 
       <button type="submit">Next</button>
     </form>

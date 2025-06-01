@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import StepOne from "./StepOne";
-import StepTwo from "./StepTwo";
+import PackagesList from "./PackagesList";  // Import new component
 import SuccessPage from "./SuccessPage";
 import ProgressBar from "./ProgressBar";
 import "./International.css";
@@ -12,11 +12,6 @@ function International() {
     departureDate: "",
     returnDate: "",
     travelers: "",
-    name: "",
-    email: "",
-    phone: "",
-    budget: "",
-    hotel: "",
   });
 
   const nextStep = () => setStep((prev) => prev + 1);
@@ -28,11 +23,6 @@ function International() {
       departureDate: "",
       returnDate: "",
       travelers: "",
-      name: "",
-      email: "",
-      phone: "",
-      budget: "",
-      hotel: "",
     });
     setStep(1);
   };
@@ -45,14 +35,15 @@ function International() {
       {step === 1 && (
         <StepOne formData={formData} setFormData={setFormData} nextStep={nextStep} />
       )}
+
       {step === 2 && (
-        <StepTwo
+        <PackagesList
           formData={formData}
-          setFormData={setFormData}
           prevStep={prevStep}
-          onSuccess={nextStep}
+          nextStep={nextStep}
         />
       )}
+
       {step === 3 && <SuccessPage resetForm={resetForm} />}
     </div>
   );
