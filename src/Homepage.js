@@ -14,7 +14,7 @@ export default function Home() {
   const greetings = ['नमः','Namaste!','નમસ્તે!', 'नमस्कार!', 'নমস্কার!','ਸਤ ਸ੍ਰੀ ਅਕਾਲ!','నమస్తే!','Vadakkam!'];
 
   useEffect(() => {
-    const launchDate = new Date('2025-06-01T00:00:00').getTime();
+    const launchDate = new Date('2025-06-10T00:00:00').getTime();
     const interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = launchDate - now;
@@ -119,13 +119,22 @@ export default function Home() {
           ↑
         </button>
       )}
-      {showBackToTop && (
-        
-  <button className="inquiry-button" onClick={() => window.location.href = 'International'} aria-label="Inquiry">
-    ✉ Inquiry
+     {showBackToTop && (
+  <button
+    className="inquiry-button"
+    onClick={() => window.location.href = 'International'}
+    aria-label="Inquiry"
+  >
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/9412/9412919.png"
+      width="20px"
+      alt="Inquiry"
+      className="inquiry-icon"
+    />
+    <span className="inquiry-text">Inquiry</span>
   </button>
- 
 )}
+
 
     </div>
   );

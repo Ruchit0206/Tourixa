@@ -374,7 +374,6 @@
 
 
 
-
 .inquiry-button {
   position: fixed;
   bottom: 80px;
@@ -388,9 +387,33 @@
   cursor: pointer;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   transition: background-color 0.3s ease;
 }
 
-.inquiry-button:hover {
-  background-color: #e64a19;
+.inquiry-text {
+  display: inline;
 }
+
+/* ✅ Hide text and make button round on mobile */
+@media (max-width: 600px) {
+  .inquiry-text {
+    display: none;
+  }
+
+  .inquiry-button {
+    padding: 12px;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+  }
+
+  .inquiry-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+

@@ -3,7 +3,7 @@
   background: rgba(0, 0, 0, 0.7);
   padding: 0.5rem 1.5rem;
   border-radius: 50px;
-  width: 95%;
+  width: 94%;
   max-width: 1500px;
   box-shadow: 0 0 15px rgba(255, 216, 0);
   position: fixed;
@@ -14,11 +14,22 @@
   font-size: 1.09rem;
 }
 
+/* Make container a flex container and align items */
+.container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem; /* Optional spacing */
+  padding: 0; /* Remove any default padding */
+  margin: 0;  /* Remove any default margin */
+}
+
 /* Brand logo and text aligned */
 .navbar-brand {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin: 0; /* Remove extra margin */
 }
 
 .navbar-brand img {
@@ -29,10 +40,25 @@
 }
 
 .brand-text {
-  /* font-weight: bold; */
   font-weight: 500;
   font-size: 1.3rem;
   color: white;
+}
+
+/* Navbar toggler styling */
+.navbar-toggler {
+  padding: 0.25rem 0.5rem; /* smaller padding */
+  width: auto;             /* auto width */
+  border: none;            /* remove border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;               /* remove default margin */
+}
+
+.navbar-toggler-icon {
+  width: 24px;  /* control icon size */
+  height: 24px;
 }
 
 /* Align nav items with icons and text */
@@ -57,9 +83,10 @@
 }
 
 /* Dropdown items styling */
-.dropdown-menu{
-background-color: rgb(102, 67, 39);
+.dropdown-menu {
+  background-color: rgb(102, 67, 39);
 }
+
 .dropdown-menu .nav-link {
   display: flex;
   align-items: center;
