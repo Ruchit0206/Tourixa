@@ -56,7 +56,7 @@ export default function Navbar(props) {
               </Link>
               <ul className="dropdown-menu">
                 <li>
-                  <Link className="nav-link active" to="/International">
+                  <Link className="nav-link active" to="/underde/international">
              <i className="fa-solid fa-globe"></i> International 
                   </Link>
                  

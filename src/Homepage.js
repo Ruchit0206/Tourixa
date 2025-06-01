@@ -119,6 +119,14 @@ export default function Home() {
           ↑
         </button>
       )}
+      {showBackToTop && (
+        
+  <button className="inquiry-button" onClick={() => window.location.href = 'International'} aria-label="Inquiry">
+    ✉ Inquiry
+  </button>
+ 
+)}
+
     </div>
   );
 }

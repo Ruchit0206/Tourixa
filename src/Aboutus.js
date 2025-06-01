@@ -1,6 +1,7 @@
 import React from 'react';
 import './Aboutus.css';
 import aboutImg from './aboutpic.jpg'; // Replace with your image path
+import {Link} from 'react-router-dom';
 
 const AboutUs = () => {
   return (
@@ -30,9 +31,18 @@ const AboutUs = () => {
         <p>
           At Tourixaa, we believe every trip is a chance to discover something new — about the world, and maybe even about yourself.
           Wherever you’re headed, we’ll help you get there in style.
-        </p>
-      </div>
+          
+          
+            
 
+        </p>
+        <button>
+                  <Link className="nav-link active" to="/International">
+             <i className="fa-solid fa-globe"></i> Inquire Us 
+                  </Link>
+                  </button>
+      </div>
+      
     </div>
     <Benefits/>
 
