@@ -66,6 +66,7 @@ export default function Footer() {
               <li><Link to="/Aboutus">About Us</Link></li>
               <li><Link to="/underde/Packages">Packages</Link></li>
               <li><Link to="/TourixaaApp">Tourixaa App</Link></li>
+              <li><Link to="/Community">Community</Link></li>
             </ul>
           </div>
         </div>
@@ -78,6 +79,7 @@ Ahmedabad, Gujarat
 </p>
           <p><i className="fas fa-phone-alt"></i> (+91) 98765 43210</p>
           <p><i className="fas fa-envelope"></i> <a href="mailto:tourixaa@gmail.com">tourixaa@gmail.com</a></p>
+          
         </div>
       </div>
 

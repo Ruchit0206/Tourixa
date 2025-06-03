@@ -10,6 +10,7 @@ import AboutUs from "./components/AboutUs/Aboutus";
 import International from "./components/Inquiry/International"; // This will have the multi-step form
 import TourixaaApp from "./components/TourixaaApp/TourixaaApp"
 import Offers from "./components/Offers/Offers";
+import Community from "./components/Community/Community";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           />
           <Route path="/TourixaaApp" element={<TourixaaApp/>}/>
           <Route path="/Offers" element={<Offers/>}/>
+          <Route path="/Community" element={<Community/>}/>
         </Routes>
       </div>
 
