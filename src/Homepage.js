@@ -2,11 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import './touch.css';
-import Secondpage from './Secondpage';
-import AboutUs from './Aboutus';
+import Secondpage from './components/Secondpage/Secondpage';
+import AboutUs from './components/AboutUs/Aboutus';
 import { Link } from 'react-router-dom';
-import TravelCarousel from './TravelCarouseli';
-import TravelCarouseld from './TravelCarouseld';
+import TravelCarousel from './components/Thirdpage/TravelCarouseli';
+import TravelCarouseld from './components/Thirdpage/TravelCarouseld';
 
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState({});

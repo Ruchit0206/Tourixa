@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import packages from "./packages";
+import packages from "../Inquiry/packages";
 import emailjs from "emailjs-com";
 
 function PackagesList({ formData, prevStep, nextStep }) {

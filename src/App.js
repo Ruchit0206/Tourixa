@@ -1,15 +1,15 @@
 import "./App.css";
 import React from "react";
-import Navbar from "./Navbar";
-import Home from "./Homepage";
-import Footer from "./Footer";
-import Development from "./Development";
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./Homepage"
+import Footer from "./components/Footer/Footer";
+import Development from "./components/Development/Development";
 import { Routes, Route } from "react-router-dom";
 import VideoUpload from "./Videoupload";
-import AboutUs from "./Aboutus";
-import International from "./International"; // This will have the multi-step form
-import TourixaaApp from "./TourixaaApp"
-import Offers from "./Offers";
+import AboutUs from "./components/AboutUs/Aboutus";
+import International from "./components/Inquiry/International"; // This will have the multi-step form
+import TourixaaApp from "./components/TourixaaApp/TourixaaApp"
+import Offers from "./components/Offers/Offers";
 
 function App() {
   return (

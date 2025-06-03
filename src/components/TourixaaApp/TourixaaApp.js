@@ -3,7 +3,9 @@ import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./TourixaaApp.css";
-import newvideo from "./newvideo.mp4";
+// import newvideo from "../../newvideo.mp4";
+import newvideo from '../../newvideo.mp4';
+
 import video2 from "./video2.mp4";
 import video3 from "./video3.mp4";
 

@@ -5,27 +5,27 @@ const travelData = [
     {
     id: 1,
     title: "GOA",
-    image: "/images/paris.jpg",
+    image: "/images/Goa.jpg",
   },
   {
     id: 2,
     title: "MANALI",
-    image: "/images/greece.webp",
+    image: "/images/Manali.jpg",
   },
   {
     id: 3,
     title: "JAIPUR",
-    image: "/images/dubai.jpg",
+    image: "/images/Jaipur.jpg",
   },
   {
     id: 4,
     title: "KERALA",
-    image: "/images/bali.jpeg",
+    image: "/images/Kerala.jpg",
   },
   {
     id: 5,
     title: "LEH LADAKH",
-    image: "/images/capetown.jpg",
+    image: "/images/Ladakh.webp",
   },
   // {
 //     id: 6,
