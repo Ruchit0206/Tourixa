@@ -7,20 +7,13 @@
   --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  background: var(--background-gradient);
-  /* margin-bottom: 100px; */
-}
 
 /* Fixed navbar height respected */
 .page-container {
   /* padding-top: var(--navbar-height); */
   text-align: center;
   width: 70%;
-  margin: 0 auto; /* Horizontal centering */
+  margin: 20px auto; /* Horizontal centering */
   margin-bottom:15px;
 }
 
@@ -28,7 +21,7 @@ body {
 
 .page-title {
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 540;
   color: var(--primary-color);
   margin-bottom: 0.5rem;
 }
