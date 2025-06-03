@@ -1,7 +1,7 @@
 // homepage.js
 import React, { useState, useEffect } from 'react';
 import { TypeAnimation } from 'react-type-animation';
-import './touch.css';
+import './Homepage.css';
 import Secondpage from './components/Secondpage/Secondpage';
 import AboutUs from './components/AboutUs/Aboutus';
 import { Link } from 'react-router-dom';
