@@ -84,9 +84,21 @@ export default function Home() {
             <Link className="nav-link active" to="/underde/Login As Traveller">
               <button className='cta-btn'>Login As Traveller</button>
             </Link>
-            <Link className="nav-link active" to="/underde/Join As Agency">
-              <button className='cta-btn'>Join As Agency</button>
-            </Link>
+            
+
+
+<a
+  href="https://tourixaa.vercel.app/login"  // replace with your real agency URL
+  target="_blank"
+  rel="noopener noreferrer"
+  className="join-agency-btn"
+>
+  <button className='cta-btn'>Join As Agency</button>
+</a>
+
+
+             
+            
             <Link to="VideoUpload">
               <button className='cta-btn'>Upload Travel Moments</button>
             </Link>
