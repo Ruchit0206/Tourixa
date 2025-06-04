@@ -1,4 +1,4 @@
-**Tourixa**
+
  Tourixa is a responsive travel website designed to showcase customized travel packages. The
  platform provides users with an engaging experience through features like user sign-up, video
  uploads, and easy social media sharing.
