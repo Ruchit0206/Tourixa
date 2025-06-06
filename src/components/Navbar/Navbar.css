@@ -85,6 +85,7 @@
 /* Dropdown items styling */
 .dropdown-menu {
   background-color: rgb(102, 67, 39);
+  width: 175px;
 }
 
 .dropdown-menu .nav-link {
