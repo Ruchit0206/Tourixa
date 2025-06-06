@@ -170,12 +170,7 @@ export default function Home() {
           onClick={() => (window.location.href = "Community")}
           aria-label="Community"
         >
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/9412/9412919.png"
-            width="20px"
-            alt="Inquiry"
-            className="community-icon"
-          />
+          <i class="fa-solid fa-users-rectangle"></i>
           <span className="community-text">Community</span>
         </button>
       )}
