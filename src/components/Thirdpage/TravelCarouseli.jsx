@@ -54,12 +54,12 @@ const travelData = [
   },
 ];
 
-
 const TravelCarousel = () => {
   return (
     <div className="carousel-container">
       <h2 className="carousel-title">
-        <span className="highlight">Most popular</span> International places for <span className="highlight">Travel</span>
+        <span className="highlight">Most popular</span> places for{" "}
+        <span className="highlight">Travel</span>
       </h2>
       <div className="card-container">
         {travelData.map((place) => (
@@ -75,6 +75,5 @@ const TravelCarousel = () => {
     </div>
   );
 };
-
 
 export default TravelCarousel;
