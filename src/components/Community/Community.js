@@ -60,7 +60,7 @@ const whatsappShare = `https://api.whatsapp.com/send?text=${encodedMessage}`;
   return (
     <section className="community-teaser">
       <div className="teaser-content">
-        <h2>🌍 Tourixa Community — Coming Soon!</h2>
+        <h2>🌍 Tourixa Community-Coming Soon!</h2>
         <p>We’re building a space where travelers connect, share stories, and plan adventures together.</p>
 
         <div className="subscribe-form">
