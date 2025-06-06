@@ -1,7 +1,7 @@
 .carousel-container {
   padding: 2rem;
   text-align: center;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
 .carousel-title {
@@ -60,6 +60,19 @@
   font-size: 2rem;
 }
 
+.card {
+  min-width: 180px;
+  height: 250px;
+  background-color: #ccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  padding: 10px;
+  background-size: cover;
+}
 
 @media (max-width: 600px) {
   .travel-card {

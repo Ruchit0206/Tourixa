@@ -2,7 +2,7 @@ import React from "react";
 import "./TravelCarousel.css";
 
 const travelData = [
-    {
+  {
     id: 1,
     title: "GOA",
     image: "/images/Goa.jpg",
@@ -27,43 +27,40 @@ const travelData = [
     title: "LEH LADAKH",
     image: "/images/Ladakh.webp",
   },
-  // {
-//     id: 6,
-//     title: "AGRA",
-//     image: "/images/agra.jpg",
-//   },
-//   {
-//     id: 7,
-//     title: "ANDAMAN",
-//     image: "/images/andaman.jpg",
-//   },
-//   {
-//     id: 8,
-//     title: "OOTY",
-//     image: "/images/ooty.jpg",
-//   },
-//   {
-//     id: 9,
-//     title: "DARJEELING",
-//     image: "/images/darjeeling.jpg",
-//   },
-//   {
-//     id: 10,
-//     title: "RISHIKESH",
-//     image: "/images/rishikesh.jpg",
-//   },
+  {
+    id: 6,
+    title: "AGRA",
+    image: "/images/Ladakh.webp",
+  },
+  {
+    id: 7,
+    title: "ANDAMAN",
+    image: "/images/Ladakh.webp",
+  },
+  {
+    id: 8,
+    title: "OOTY",
+    image: "/images/Ladakh.webp",
+  },
+  {
+    id: 9,
+    title: "DARJEELING",
+    image: "/images/Ladakh.webp",
+  },
+  {
+    id: 10,
+    title: "RISHIKESH",
+    image: "/images/Ladakh.webp",
+  },
 ];
-
-
-
-
 
 const TravelCarousel = () => {
   return (
     <div className="carousel-container">
-      <h2 className="carousel-title">
-        <span className="highlight">Popular</span> Travel Picks Within <span className="highlight">India</span>
-      </h2>
+      {/* <h2 className="carousel-title">
+        <span className="highlight">Popular</span> Travel Picks Within{" "}
+        <span className="highlight">India</span>
+      </h2> */}
       <div className="card-container">
         {travelData.map((place) => (
           <div key={place.id} className="travel-card">
@@ -78,6 +75,5 @@ const TravelCarousel = () => {
     </div>
   );
 };
-
 
 export default TravelCarousel;
