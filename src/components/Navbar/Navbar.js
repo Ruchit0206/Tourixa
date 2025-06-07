@@ -283,7 +283,7 @@ export default function Navbar(props) {
                     />{" "}
                     Heritage Tour
                   </Link>
-                  <Link className="nav-link active" to="/underde/Heritage Tour">
+                  <Link className="nav-link active" to="/underde/Lost Culture">
                     <img
                       src="https://cdn-icons-png.flaticon.com/128/808/808435.png"
                       alt="Heritage Tour"
