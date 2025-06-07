@@ -119,9 +119,9 @@ export default function Navbar(props) {
                 <li>
                   <Link
                     className="nav-link active"
-                    to="/underde/Senior Citizen"
+                    to="/underde/Spiritual Places"
                   >
-                    <i className="fa-solid fa-person-cane"></i> Senior Citizen
+                    <i className="fa-solid fa-person-cane"></i> Spiritual Places
                   </Link>
                 </li>
 
@@ -291,6 +291,15 @@ export default function Navbar(props) {
                     />{" "}
                     Lost Culture
                   </Link>
+                   <Link className="nav-link active" to="/underde/Heritage Tour">
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/128/808/808435.png"
+                      alt="Heritage Tour"
+                      width="20"
+                    />{" "}
+                    Festival Special
+                  </Link>
+                        {/* festival special */}
                 </li>
               </ul>
             </li>

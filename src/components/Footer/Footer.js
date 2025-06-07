@@ -45,7 +45,7 @@ export default function Footer() {
               <li><Link to="/underde/Nature and Tracking">Nature & Tracking</Link></li>
               <li><Link to="/underde/Maharaja Express">Maharaja Express</Link></li>
               <li><Link to="/underde/Honeymoon Package">Honeymoon Package</Link></li>
-              <li><Link to="/underde/Senior Citizen">Senior Citizen</Link></li>
+              <li><Link to="/underde/Spiritual Places">Spiritual Places</Link></li>
               <li><Link to="/underde/Business Packages">Business Packages</Link></li>
               <li><Link to="/underde/Children Places">Children Places</Link></li>
             </ul>
