@@ -1,5 +1,14 @@
+
+
+
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import "./TravelCarousel.css";
+
 
 const travelData = [
   {
@@ -54,24 +63,40 @@ const travelData = [
   },
 ];
 
+
 const TravelCarousel = () => {
   return (
     <div className="carousel-container">
       <h2 className="carousel-title">
-        <span className="highlight">Most popular</span> places for{" "}
-        <span className="highlight">Travel</span>
+        <span className="highlight">Most </span> Popular Travel  {" "}
+        <span className="highlight">Places</span>
       </h2>
-      <div className="card-container">
+
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={20}
+        slidesPerView={3}
+        navigation
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
+        breakpoints={{
+          320: { slidesPerView: 1 },
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+      >
         {travelData.map((place) => (
-          <div key={place.id} className="travel-card">
-            <img src={place.image} alt={place.title} />
-            <div className="card-overlay">
-              <span className="card-number">{place.id}</span>
-              <span className="card-title">{place.title}</span>
+          <SwiperSlide key={place.id}>
+            <div className="travel-card">
+              <img src={place.image} alt={place.title} />
+              <div className="card-overlay">
+                <span className="card-number">{place.id}</span>
+                <span className="card-title">{place.title}</span>
+              </div>
             </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 };

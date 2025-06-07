@@ -14,16 +14,9 @@
   font-weight: bold;
 }
 
-.card-container {
-  display: flex;
-  justify-content: center;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-}
-
 .travel-card {
   position: relative;
-  width: 200px;
+  width: 100%;
   height: 240px;
   border-radius: 20px;
   overflow: hidden;
@@ -60,22 +53,11 @@
   font-size: 2rem;
 }
 
-.card {
-  min-width: 180px;
-  height: 250px;
-  background-color: #ccc;
-  border-radius: 10px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  font-weight: bold;
-  color: white;
-  padding: 10px;
-  background-size: cover;
+.swiper-button-prev,
+.swiper-button-next {
+  color: #c40000;
 }
 
-@media (max-width: 600px) {
-  .travel-card {
-    width: 45%; /* or 48% depending on gap */
-  }
+.swiper-pagination-bullet-active {
+  background-color: #c40000;
 }
