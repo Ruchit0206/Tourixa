@@ -1,16 +1,16 @@
 /* Main Container */
-.front-container {
-  padding-top: 80px; /* space below fixed navbar */
-  text-align: center;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
+/* .front-container { */
+  /* padding-top: 80px; space below fixed navbar */
+  /* text-align: center; */
+  /* width: 100%; */
+  /* height: 100vh; */
+  /* overflow: hidden; */
   /* position: absolute; */
   /* left:10px; */
   /* display: flex; */
   /* justify-content: center; */
   /* align-items: center; */
-}
+/* } */
 
 /* Video Container */
 .video-container {

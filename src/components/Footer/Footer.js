@@ -37,7 +37,7 @@ export default function Footer() {
           <div className="footer-section">
             <h4>Packages</h4>
             <ul>
-              <li><Link to="/International">International</Link></li>
+              <li><Link to="/underde/International">International</Link></li>
             <li><Link to="/underde/Domestic">Domestic</Link></li>
               <li><Link to="/underde/Group Tour">Group Tour</Link></li>
               <li><Link to="/underde/Solo Tour">Solo Tour</Link></li>

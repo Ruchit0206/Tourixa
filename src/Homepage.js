@@ -132,7 +132,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div id="next-section" style={{ paddingTop: "0px" }}>
+      <div id="next-section" style={{ paddingTop: "50px" }}>
         <AboutUs />
       </div>
       <TravelCarousel />

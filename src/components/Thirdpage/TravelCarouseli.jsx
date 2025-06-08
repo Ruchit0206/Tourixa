@@ -65,52 +65,62 @@ const travelData = [
     id: 1,
     title: "BARCELONA",
     image: "/images/barcelona.jpg",
+    sticker:"International Pack"
   },
   {
     id: 2,
     title: "BALI",
     image: "/images/bali.jpeg",
+    sticker:"International Pack"
   },
   {
     id: 3,
     title: "DUBAI",
     image: "/images/dubai.jpg",
+    sticker:"International Pack"
   },
   {
     id: 4,
     title: "GREECE",
     image: "/images/greece.webp",
+    sticker:"International Pack"
   },
   {
     id: 5,
     title: "PARIS",
     image: "/images/paris.jpg",
+    sticker:"International Pack"
   },
   {
     id: 6,
     title: "TOKYO",
     image: "/images/tokyo.jpg",
+    sticker:"International Pack"
   },
   {
     id: 7,
     title: "ROME",
     image: "/images/rome.webp",
+    sticker:"International Pack"
   },
   {
     id: 8,
     title: "NEW YORK",
     image: "/images/newyork.jpg",
+    sticker:"International Pack"
   },
   {
     id: 9,
     title: "CAPE TOWN",
     image: "/images/capetown.jpg",
+    sticker:"International Pack"
   },
   {
     id: 10,
     title: "SYDNEY",
     image: "/images/sydney.jpg",
-    plan:"International"
+    sticker:"International Pack"
+    // plan:"International"
   },
 ];
 
