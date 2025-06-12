@@ -13,6 +13,16 @@
   justify-content: space-between;
   align-items: center;
 }
+@keyframes sparkle {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.8), 0 0 20px rgba(255, 0, 102, 0.4);
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 0, 102, 1), 0 0 30px rgba(255, 204, 0, 0.9);
+    transform: scale(1.05);
+  }
+}
 
 
 

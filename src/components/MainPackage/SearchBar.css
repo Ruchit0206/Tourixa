@@ -46,7 +46,8 @@
 }
 
 .location-label {
-  font-size: 13px;
+  font-size: 20px;
+  font-weight: 500;
   color: #b9b9b9;
   margin-top: 2px;
 }
@@ -81,7 +82,8 @@
 }
 
 .info-title {
-  font-size: 13px;
+  font-size: 20px;
+font-weight: 500;
   color: #b9b9b9;
   margin: 0;
 }

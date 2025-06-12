@@ -10,7 +10,7 @@ import './MainPage.css';
 const MainPage = () => {
   return (
     <section className="main-container">
-<div className='ruchit patel'>
+<div className='ruchitpatel'>
       <SearchBar />
       <FilterBar />
       <div className="packages-list">

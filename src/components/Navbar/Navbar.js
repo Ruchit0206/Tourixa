@@ -3,10 +3,18 @@ import "./Navbar.css";
 import logo from "../../logo.jpeg";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import confetti from 'canvas-confetti';
 
 export default function Navbar(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
+   const handleConfetti = () => {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+  };
 
   const toggleNavbar = () => setIsOpen(!isOpen);
 
@@ -131,12 +139,25 @@ export default function Navbar(props) {
             ))}
 
             {/* ✅ OFFERS Element */}
-            <li className="nav-item">
-              <Link to="/Offers" className="nav-link active">
-                <span className="nav-text">🎁 Offers</span>
-              </Link>
-            </li>
+   <li className="nav-item">
+  <Link
+    to="/Offers"
+    className="nav-link active"
+    onMouseEnter={handleConfetti}
+    style={{
+      color: '#fff',
+      background: 'linear-gradient(45deg, #ff0066, #ffcc00)',
+      padding: '6px 14px',
+      borderRadius: '12px',
+      fontWeight: 'bold',
+      boxShadow: '0 0 10px rgba(255, 204, 0, 0.8)',
+      animation: 'sparkle 1s infinite alternate',
 
+    }}
+  >
+    <span className="nav-text">🎁 Offers</span>
+  </Link>
+</li>
             {/* ✅ Profile */}
             <li className="nav-item">
               <Link to="/Profile" className="nav-link active profile-link">
