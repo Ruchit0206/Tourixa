@@ -8,7 +8,7 @@ export default function UnderDevelopment() {
   const pageName = page ? page.charAt(0).toUpperCase() + page.slice(1) : 'This';
 
   return (
-    <div style={{ textAlign: "center", padding: "30px", marginTop: "30px"}}>
+    <div style={{ textAlign: "center", padding: "30px"}}>
       <h2>🚧 {pageName} page is Under Development</h2>
       <p>We're working on this page. Please check back later.</p>
       <p>Come Back Soon</p>

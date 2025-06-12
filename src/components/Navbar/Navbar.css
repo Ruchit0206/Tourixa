@@ -1,131 +1,234 @@
-/* General navbar styling with curve */
 .navbar {
-  background: rgba(0, 0, 0, 0.8);
-  padding: 0.5rem 1.5rem;
-  border-radius: 50px;
-  width: 94%;
-  max-width: 1500px;
-  box-shadow: 0 0 15px rgba(255, 216, 0);
-  position: fixed;
-  top: 0.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  background-color: #06010b86;
+  padding: 0.5rem 1rem;
   z-index: 1000;
-  font-size: 1.09rem;
+  position:fixed;
+  top:0px;
+  width: 100%;
+  font-size: 1.4rem;
 }
 
-/* Make container a flex container and align items */
 .container-fluid {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 1rem; /* Optional spacing */
-  padding: 0; /* Remove any default padding */
-  margin: 0;  /* Remove any default margin */
+  align-items: center;
 }
 
-/* Brand logo and text aligned */
+
+
+.navbar-left {
+  display: contents;
+  /* justify-content: flex-end; */
+  /* align-items: center; */
+}
+
+/* Logo size */
 .navbar-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0; /* Remove extra margin */
+  margin-right: auto;
+  padding: 0;
 }
-
 .navbar-brand img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  border-radius: 50%;
+  height: 50px;
+  width: auto;
 }
 
-.brand-text {
-  font-weight: 500;
-  font-size: 1.3rem;
-  color: white;
-}
-
-/* Navbar toggler styling */
+/* Hamburger styles */
 .navbar-toggler {
-  padding: 0.25rem 0.5rem; /* smaller padding */
-  width: auto;             /* auto width */
-  border: none;            /* remove border */
+  padding: 0.3rem;
+  border: none;
+  background: transparent;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  margin: 0;               /* remove default margin */
+  z-index: 1100;
+  margin-left: auto;
 }
 
 .navbar-toggler-icon {
-  width: 24px;  /* control icon size */
-  height: 24px;
+  background-color: white;
+  height: 3px;
+  width: 25px;
+  margin: 4px 0;
+  transition: all 0.4s ease;
+  display: block;
 }
 
-/* Align nav items with icons and text */
-.navbar-nav .nav-item .nav-link {
+.navbar-toggler.open .navbar-toggler-icon:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.navbar-toggler.open .navbar-toggler-icon:nth-child(2) {
+  opacity: 0;
+}
+.navbar-toggler.open .navbar-toggler-icon:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Fullscreen menu overlay */
+.fullscreen-overlay {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(0, 0, 0);
+  padding-top: 5rem;
+  z-index: 1000;
+}
+
+/* Navbar links */
+.nav-link {
+  color: #fff !important;
+  font-weight: 500;
+  transition: 0.3s;
   display: flex;
   align-items: center;
-  gap: 6px;
-  color: white;
 }
 
-.navbar-nav .nav-item .nav-link img {
+.nav-link img,
+.dropdown-menu img {
+  margin-right: 8px;
   vertical-align: middle;
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
+}
+
+.nav-link:hover {
+  color: #00c6ff !important;
+}
+
+/* Dropdown */
+.dropdown-menu {
+  background-color: #000;
+  border: 1px solid #333;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+.dropdown-menu .nav-link {
+  padding: 0.25rem 0.5rem;
 }
 
 .nav-text {
-  display: inline-block;
-  vertical-align: middle;
-  color: white;
+  font-size: 1.3rem;
 }
 
-/* Dropdown items styling */
-.dropdown-menu {
-  background-color: rgb(102, 67, 39);
-  width: 175px;
+/* Profile */
+.profile-link {
+  background-color: #007bff;
+  color: white !important;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
 }
 
-.dropdown-menu .nav-link {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
-  color: black;
-}
+/* Mobile view fix */
+@media (max-width: 991px) {
+  .navbar-nav {
+    align-items: flex-start !important;
+    padding-left: 1.5rem;
+  }
 
-.dropdown-menu .nav-link img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-}
-
-/* Hover effects */
-.nav-item .nav-link:hover,
-.dropdown-menu .nav-link:hover {
-  background-color: #0f77df;
-  color: white;
-  transition: 0.3s;
-}
-
-/* Responsive tweaks */
-@media (max-width: 992px) {
-  .navbar-nav .nav-item .nav-link {
-    padding: 8px 0;
+  .dropdown-menu {
+    position: static;
+    float: none;
+    background-color: transparent;
+    border: none;
+  }
+  .navbar-toggler{
+    width:35px;
   }
 
   .dropdown-menu .nav-link {
-    padding: 8px 16px;
+    color: #ccc !important;
+  }
+}
+
+
+/* Dropdown icon styles */
+.dropdown-icon {
+  font-size: 0.75rem;
+  margin-left: 6px;
+  color: #ccc;
+  transition: transform 0.3s;
+}
+
+.nav-link.active:hover .dropdown-icon {
+  color: #00c6ff;
+}
+
+
+/* Existing styles remain unchanged above */
+
+@media (max-width: 600px) {
+  /* .container-fluid {
+    flex-wrap: nowrap;
+    padding: 0 1rem;
+  } */
+
+  .navbar-left {
+    flex-shrink: 0;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
   }
 
   .navbar-brand img {
-    width: 32px;
-    height: 32px;
+    height: 36px;
+    max-width: 120px; /* Adjust based on your logo */
   }
 
-  .brand-text {
-    font-size: 1.1rem;
+  .navbar-toggler {
+    margin-left: auto;
+    z-index: 1001;
+    width:36px;
+    height: 35PX;
+  }
+}
+
+/* Show dropdown on hover for desktop */
+@media (min-width: 992px) {
+  .nav-item.dropdown {
+    position: relative;
+  }
+
+  .nav-item.dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    background: #000;
+    border: 1px solid #333;
+    min-width: 200px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .dropdown-icon {
+    display: none;
+  }
+}
+
+/* Mobile view: show dropdown icon and static dropdown */
+@media (max-width: 991px) {
+  .dropdown-menu {
+    position: static;
+    background: transparent;
+    border: none;
+    padding-left: 1rem;
+  }
+
+  .dropdown-icon {
+    font-size: 0.8rem;
+    margin-left: 6px;
+    color: #ccc;
+  }
+
+  .dropdown-menu .nav-link {
+    color: #ccc !important;
   }
 }

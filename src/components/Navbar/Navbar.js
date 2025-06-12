@@ -1,377 +1,162 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import logo from "../../logo.jpeg";
-// import logo1 from './logo1.jpeg';
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-// import Development from "./UnderDevelopment";
-// import Aboutus from './Aboutus'
 
 export default function Navbar(props) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(null);
+
+  const toggleNavbar = () => setIsOpen(!isOpen);
+
+  const handleDropdownToggle = (id) => {
+    setDropdownOpen(dropdownOpen === id ? null : id);
+  };
+
+  const handleMouseEnter = (id) => {
+    if (window.innerWidth > 991) {
+      setDropdownOpen(id);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (window.innerWidth > 991) {
+      setDropdownOpen(null);
+    }
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg">
+    <nav className="navbar navbar-expand-lg" onMouseLeave={handleMouseLeave}>
       <div className="container-fluid">
-        {/* Logo */}
-        <a className="navbar-brand" href="/#">
-          <img src={logo} alt="Tourixaa Logo" />
-          <span className="brand-text">Tourixaa</span>
-        </a>
+        <div className="navbar-left">
+          <Link className="navbar-brand" to="/">
+            <img src={logo} alt="Tourixaa Logo" />
+          </Link>
+          <button
+            className={`navbar-toggler ${isOpen ? "open" : ""}`}
+            type="button"
+            onClick={toggleNavbar}
+          >
+            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        </div>
 
-        {/* Toggle for mobile */}
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+        <div
+          className={`collapse navbar-collapse justify-content-end ${
+            isOpen ? "show fullscreen-overlay" : ""
+          }`}
+          id="navbarNavDropdown"
         >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        {/* Collapsible content */}
-        <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          {/* Left */}
-          <ul className="navbar-nav">
+          <ul className="navbar-nav d-flex flex-column flex-lg-row align-items-lg-center gap-lg-3">
             <li className="nav-item">
               <a className="nav-link active" href="/#">
-                <img
-                  src="https://cdn-icons-png.flaticon.com/128/619/619034.png"
-                  alt="Color Home Icon"
-                  width="20"
-                />
-
-                <span className="nav-text"> {props.first}</span>
+                <span className="nav-text">{props.first}</span>
               </a>
             </li>
 
-            <li className="nav-item dropdown">
-              <Link
-                className="nav-link dropdown-toggle active"
-                to="/"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+            {/* Dropdowns */}
+            {[
+              {
+                id: "second", label: props.second, links: [
+                  { to: "/MainPage", text: "🌐 International" },
+                  { to: "/underde/domestic", text: "🇮🇳 Domestic" },
+                  { to: "/underde/group Tour", text: "👥 Group Tour" },
+                  { to: "/underde/Solo Tour", text: "🥾 Solo Tour" },
+                  { to: "/underde/Nature and Tracking", text: "🌲 Nature" },
+                  { to: "/underde/Maharaja Express", text: "🚆 Maharaja Express" },
+                  { to: "/underde/Honeymoon Package", text: "🏖️ Honeymoon" },
+                  { to: "/underde/Spiritual Places", text: "🧘‍♂️ Spiritual" },
+                  { to: "/Offers", text: "👶 Children Places" },
+                ]
+              },
+              {
+                id: "fourth", label: props.fourth, links: [
+                  { to: "/underde/Ai Tour Planner", text: "🤖 AI Tour Planner" },
+                  { to: "/underde/Plan With Us", text: "📝 Plan With Us" },
+                ]
+              },
+              {
+                id: "fifth", label: props.fifth, links: [
+                  { to: "/underde/Museum", text: "🏛️ Museum" },
+                  { to: "/underde/Video", text: "🎥 Video" },
+                  { to: "/underde/3D Model", text: "📦 3D Model" },
+                  { to: "/underde/360 Video", text: "🔄 360 Video" },
+                  { to: "/underde/VR Tour", text: "🕶️ VR Tour" },
+                ]
+              },
+              {
+                id: "six", label: props.six, links: [
+                  { to: "/underde/Museum", text: "🏛️ Heritage Tour" },
+                  { to: "/underde/Video", text: "🎥 Forgotten Traditions" },
+                  { to: "/underde/3D Model", text: "📦 Festival Experience Tours" },
+                ]
+              },
+              {
+                id: "corporate", label: props.seven, links: [
+                  { to: "/underde/Corporate Packages", text: "💼 Corporate Packages" },
+                  { to: "/underde/Business Meetings", text: "🏢 Business Meetings & Events" },
+                  { to: "/underde/Team Offsite", text: "👨‍💼 Team Offsite Packages" },
+                  { to: "/underde/Executive Retreats", text: "🌴 Executive Retreats" },
+                ]
+              },
+            ].map((item) => (
+              <li
+                key={item.id}
+                className="nav-item dropdown"
+                onMouseEnter={() => handleMouseEnter(item.id)}
+                onMouseLeave={handleMouseLeave}
               >
-                <img
-                  src="https://cdn-icons-png.flaticon.com/128/201/201623.png"
-                  alt="Tour Package"
-                  width="20"
-                />
+                <div
+                  className="nav-link active"
+                  onClick={() => handleDropdownToggle(item.id)}
+                >
+                  <span className="nav-text">
+                    {item.label}
+                    <span className="dropdown-icon d-lg-none">▼</span>
+                  </span>
+                </div>
+                <ul className={`dropdown-menu ${dropdownOpen === item.id ? "show" : ""}`}>
+                  {item.links.map((link, index) => (
+                    <li key={index}>
+                      <Link className="nav-link active" to={link.to}>
+                        {link.text}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
 
-                <span className="nav-text"> {props.second}</span>
-              </Link>
-              <ul className="dropdown-menu">
-                <li>
-                  <Link className="nav-link active" to="/underde/international">
-                    <i className="fa-solid fa-globe"></i> International
-                  </Link>
-                </li>
-                <li>
-                  <Link className="nav-link active" to="/underde/domestic">
-                    <img
-                      src="https://flagcdn.com/w40/in.png"
-                      alt="India Flag"
-                      width="20"
-                    />{" "}
-                    Domestic
-                  </Link>
-                </li>
-
-                <li>
-                  <Link className="nav-link active" to="/underde/group Tour">
-                    <i className="fa-solid fa-people-group"></i> GroupTour
-                  </Link>
-                </li>
-                <li>
-                  <Link className="nav-link active" to="/underde/Solo Tour">
-                    <i className="fa-solid fa-person-hiking"></i> Solo Tour
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    className="nav-link active"
-                    to="/underde/Nature and Tracking"
-                  >
-                    <i className="fa-solid fa-tree"></i> Nature and Tracking
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="nav-link active"
-                    to="/underde/Maharaja Express"
-                  >
-                    <i className="fa-solid fa-train-subway"></i> Maharaja
-                    Express
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="nav-link active"
-                    to="/underde/Honeymoon Package"
-                  >
-                    <i className="fa-solid fa-umbrella-beach"></i> Honeymoon
-                    Package
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="nav-link active"
-                    to="/underde/Spiritual Places"
-                  >
-                    <i className="fa-solid fa-person-cane"></i> Spiritual Places
-                  </Link>
-                </li>
-
-                <li>
-                  <Link className="nav-link active" to="/Offers">
-                    <i className="fa-solid fa-children"></i> Children Places
-                  </Link>
-                </li>
-              </ul>
-            </li>
+            {/* ✅ OFFERS Element */}
             <li className="nav-item">
               <Link to="/Offers" className="nav-link active">
-                <img
-                  src="https://cdn-icons-png.flaticon.com/128/869/869636.png"
-                  alt="Colorful Offers Icon"
-                  width="20"
-                />
-                <span className="nav-text"> Offers</span>
+                <span className="nav-text">🎁 Offers</span>
               </Link>
             </li>
 
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle active"
-                href="/#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <img
-                  src="https://cdn-icons-png.flaticon.com/128/3448/3448610.png"
-                  alt="Travel Guide Icon"
-                  width="20"
-                />
-                <span className="nav-text"> {props.fourth}</span>
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <Link
-                    className="nav-link active"
-                    to="/underde/Ai Tour Planner"
-                  >
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/128/4380/4380899.png"
-                      alt="Ai Tour Planner"
-                      width="20"
-                    />{" "}
-                    Ai Tour Planner
-                  </Link>
-                </li>
-                <li>
-                  <Link className="nav-link active" to="/underde/Plan With Us">
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/128/3612/3612272.png"
-                      alt="Plan With Us"
-                      width="20"
-                    />{" "}
-                    Plan With Us
-                  </Link>
-                </li>
-              </ul>
+            {/* ✅ Profile */}
+            <li className="nav-item">
+              <Link to="/Profile" className="nav-link active profile-link">
+                <span className="nav-text">Profile</span>
+              </Link>
             </li>
 
-            {/* dropdown start */}
-
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle active"
-                href="/#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <img
-                  src="https://cdn-icons-png.flaticon.com/128/2540/2540484.png"
-                  alt="Colorful Features Icon"
-                  width="20"
-                />
-
-                <span className="nav-text"> {props.fifth}</span>
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <Link className="nav-link active" to="/underde/Museum">
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/128/3936/3936783.png"
-                      alt="Museum"
-                      width="20"
-                    />{" "}
-                    Museum
-                  </Link>
-                </li>
-                <li>
-                  <Link className="nav-link active" to="/underde/Video">
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/128/1179/1179069.png"
-                      alt="Video"
-                      width="20"
-                    />{" "}
-                    Video
-                  </Link>
-                </li>
-                <li>
-                  <Link className="nav-link active" to="/underde/3D Model">
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/128/2012/2012152.png"
-                      alt="3d Model"
-                      width="20"
-                    />{" "}
-                    3D Model
-                  </Link>
-                </li>
-                <li>
-                  <Link className="nav-link active" to="/underde/360 Video">
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/128/5510/5510739.png"
-                      alt="360 Video"
-                      width="20"
-                    />{" "}
-                    360 Video
-                  </Link>
-                </li>
-                <li>
-                  <Link className="nav-link active" to="/underde/VR Tour">
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/128/3612/3612272.png"
-                      alt="VR Tour"
-                      width="20"
-                    />{" "}
-                    VR Tour
-                  </Link>
-                </li>
-              </ul>
-            </li>
-
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle active"
-                href="/#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <img
-                  src="https://cdn-icons-png.flaticon.com/128/2540/2540484.png"
-                  alt="Colorful Features Icon"
-                  width="20"
-                />
-
-                <span className="nav-text">Culture</span>
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <Link className="nav-link active" to="/underde/Heritage Tour">
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/128/808/808435.png"
-                      alt="Heritage Tour"
-                      width="20"
-                    />{" "}
-                    Heritage Tour
-                  </Link>
-                  <Link className="nav-link active" to="/underde/Lost Culture">
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/128/808/808435.png"
-                      alt="Heritage Tour"
-                      width="20"
-                    />{" "}
-                    Lost Culture
-                  </Link>
-                   <Link className="nav-link active" to="/underde/Heritage Tour">
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/128/808/808435.png"
-                      alt="Heritage Tour"
-                      width="20"
-                    />{" "}
-                    Festival Special
-                  </Link>
-                        {/* festival special */}
-                </li>
-              </ul>
-            </li>
-
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle active"
-                href="/#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <img
-                  src="https://cdn-icons-png.flaticon.com/128/2540/2540484.png"
-                  alt="Colorful Features Icon"
-                  width="20"
-                />
-
-                <span className="nav-text"> Corporate</span>
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <Link className="nav-link active" to="/underde/Heritage Tour">
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/128/808/808435.png"
-                      alt="Heritage Tour"
-                      width="20"
-                    />{" "}
-                    Corporate Packages
-                  </Link>
-                </li>
-                <li>
-                  <Link className="nav-link active" to="/underde/Heritage Tour">
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/128/808/808435.png"
-                      alt="Heritage Tour"
-                      width="20"
-                    />{" "}
-                    Business Meetings
-                  </Link>
-                </li>
-              </ul>
-            </li>
-
-            {/* dropdown end */}
           </ul>
-
-          {/* Right */}
-          <div className="ruchit ms-auto">
-            <ul className="navbar-nav d-flex flex-column flex-lg-row">
-              <li className="nav-item">
-                <a className="nav-link active" href="/#">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png"
-                    alt="Colorful Profile Icon"
-                    width="20"
-                  />
-
-                  <span className="nav-text">&nbsp;Profile</span>
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
     </nav>
   );
 }
+
 Navbar.propTypes = {
   first: PropTypes.string.isRequired,
   second: PropTypes.string.isRequired,
   third: PropTypes.string.isRequired,
   fourth: PropTypes.string.isRequired,
   fifth: PropTypes.string.isRequired,
+  six: PropTypes.string.isRequired,
+  seven: PropTypes.string.isRequired,
 };

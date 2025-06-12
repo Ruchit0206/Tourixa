@@ -23,7 +23,7 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    const launchDate = new Date("2025-06-10T00:00:00").getTime();
+    const launchDate = new Date("2025-06-25T00:00:00").getTime();
     const interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = launchDate - now;
@@ -127,13 +127,17 @@ export default function Home() {
             className="start-journey modern-btn"
             onClick={scrollToSecondPage}
           >
-            ⬇ Start Your Journey ⬇
+             {/* <img src="https://placeaa-seven.vercel.app/static/media/spiral.6e188be20c53c6fdce60d3f1a7b0ea1f.svg" alt="start journey"/> */}
+            {/* ⬇ Start Your Journey ⬇ */}
+            Start Your Journey
+            <img src="https://placeaa-seven.vercel.app/static/media/spiral.6e188be20c53c6fdce60d3f1a7b0ea1f.svg" alt="start journey" style={{transform:"rotate(180deg)"}}/>
           </div>
         </div>
       </div>
 
-      <div id="next-section" style={{ paddingTop: "50px" }}>
-        <AboutUs />
+      <div id="next-section"  >
+          {/* <div id="next-section" style={{ paddingTop: "50px" }}> */}
+                    <AboutUs />
       </div>
       <TravelCarousel />
       <TravelCarouseld />
@@ -170,7 +174,7 @@ export default function Home() {
           onClick={() => (window.location.href = "Community")}
           aria-label="Community"
         >
-          <i class="fa-solid fa-users-rectangle"></i>
+          <i className="fa-solid fa-users-rectangle"></i>
           <span className="community-text">Community</span>
         </button>
       )}

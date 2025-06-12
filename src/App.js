@@ -11,6 +11,7 @@ import International from "./components/Inquiry/International"; // This will hav
 import TourixaaApp from "./components/TourixaaApp/TourixaaApp"
 import Offers from "./components/Offers/Offers";
 import Community from "./components/Community/Community";
+import MainPage from "./MainPage";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
         third="Offers"
         fourth="Travel Guide"
         fifth="Feature"
+        six="Cultural Journeys"
+        seven="Corporate Getaways"
       />
 
       <div className="page-content">
@@ -31,7 +34,7 @@ function App() {
           <Route path="/International" element={<International />} />
           <Route path="/Aboutus" element={<AboutUs />} />
           <Route path="*" element={
-              <h2 style={{ textAlign: "center", marginTop: "2rem" }}>
+              <h2 style={{ textAlign: "center" }}>
                 Page Not Found
               </h2>
             }
@@ -39,6 +42,7 @@ function App() {
           <Route path="/TourixaaApp" element={<TourixaaApp/>}/>
           <Route path="/Offers" element={<Offers/>}/>
           <Route path="/Community" element={<Community/>}/>
+          <Route path="/MainPage" element={<MainPage/>}/>
         </Routes>
       </div>
 
