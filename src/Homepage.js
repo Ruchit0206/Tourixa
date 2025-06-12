@@ -23,7 +23,7 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    const launchDate = new Date("2025-06-25T00:00:00").getTime();
+    const launchDate = new Date("2025-06-01T00:00:00").getTime();
     const interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = launchDate - now;
