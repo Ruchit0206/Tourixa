@@ -1,32 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './PackageCard.css';
 import sampleImage from '../../logo.jpeg';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
-const PackageCard = () => {
+const PackageCard = ({
+  title,
+  location,
+  rating,
+  originalPrice,
+  discountedPrice,
+  vendor,
+  features = []
+}) => {
+  const [liked, setLiked] = useState(false);
+  const discountAmount = originalPrice - discountedPrice;
+
   return (
     <div className="package-card">
       <div className="image-section">
         <img src={sampleImage} alt="Travel" />
         <div className="badge">Customizable</div>
-        <button className="compare-button">Compare</button>
+        <div
+          className="wishlist-icon"
+          title={liked ? 'Remove from Wishlist' : 'Add to Wishlist'}
+          onClick={() => setLiked(!liked)}
+        >
+          {liked ? <FaHeart color="red" size={20} /> : <FaRegHeart color="black" size={20} />}
+        </div>
+        {discountAmount > 10000 && <div className="deal-tag">Best Deal</div>}
       </div>
+
       <div className="package-details">
-        <h3>2N SHIMLA | 3N KULLU | 3N MANALI</h3>
+        <h3>{title}</h3>
+        <div className="rating">{'⭐'.repeat(Math.floor(rating)) + '☆'} ({rating})</div>
+        <p className="location">📍 {location}</p>
+
+        {/* Dynamic Features List */}
         <ul>
-          <li>Round Trip Flights</li>
-          <li>3 Star Hotel</li>
-          <li>2 Activities</li>
-          <li>Airport Pickup & Drop</li>
+          {features.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
         </ul>
+
         <div className="price">
-          <span className="old">₹21850</span>
-          <span className="new">₹10580</span>
+          <span className="old">₹{originalPrice.toLocaleString('en-IN')}</span>
+          <span className="new">₹{discountedPrice.toLocaleString('en-IN')}</span>
         </div>
         <button className="book-button">Book Now</button>
-        <p className="vendor">Offered By: <span>Adventure Travels</span></p>
+        <p className="vendor">Offered By: <span>{vendor}</span></p>
       </div>
     </div>
   );
 };
+
 
 export default PackageCard;

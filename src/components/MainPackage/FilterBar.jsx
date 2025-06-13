@@ -1,14 +1,30 @@
 import React from 'react';
 import './FilterBar.css';
+// import { FaClock, FaStar, FaBus, FaPalette, FaSort } from 'react-icons/fa';
 
 const FilterBar = () => {
   return (
     <div className="filter-bar">
-      <select><option>Duration</option></select>
-      <select><option>Hotel Rating</option></select>
-      <select><option>Transportation</option></select>
-      <select><option>Theme</option></select>
-      <select><option>Sort by</option></select>
+      <div className="filter-item">
+       
+        <select><option>Duration</option></select>
+      </div>
+      <div className="filter-item">
+        
+        <select><option>Hotel Rating</option></select>
+      </div>
+      <div className="filter-item">
+       
+        <select><option>Transportation</option></select>
+      </div>
+      <div className="filter-item">
+        
+        <select><option>Theme</option></select>
+      </div>
+      <div className="filter-item">
+     
+        <select><option>Sort by</option></select>
+      </div>
     </div>
   );
 };

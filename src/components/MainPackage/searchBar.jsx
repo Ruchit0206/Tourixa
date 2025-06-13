@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './SearchBar.css';
 
-export default function TripPlanner() {
+export default function TripPlanner({ onSearch }) {
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
   const [date, setDate] = useState('');
@@ -44,7 +44,17 @@ export default function TripPlanner() {
 
   const searchTrip = () => {
     const finalBudget = budget === 'Other' ? customBudget : budget;
-    alert(`From: ${from}\nTo: ${to}\nDate: ${date}\nBudget: ${finalBudget}\nGuests: ${guests}`);
+
+    if (onSearch) {
+     onSearch({
+  from,
+  to,
+  date,
+  guests
+});
+
+
+    }
   };
 
   return (
@@ -64,21 +74,17 @@ export default function TripPlanner() {
             required
           />
           {fromSuggestions.length > 0 && (
-  <div className="autocomplete-suggestions">
-    {fromSuggestions.map((suggestion, i) => (
-      <div
-        key={i}
-        onClick={() => {
-          setFrom(suggestion);
-          setFromSuggestions([]); // Hide suggestions
-        }}
-      >
-        {suggestion}
-      </div>
-    ))}
-  </div>
-)}
-
+            <div className="autocomplete-suggestions">
+              {fromSuggestions.map((suggestion, i) => (
+                <div key={i} onClick={() => {
+                  setFrom(suggestion);
+                  setFromSuggestions([]);
+                }}>
+                  {suggestion}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <button type="button" className="swap-btn" title="Swap" onClick={swapLocations}>
@@ -98,22 +104,18 @@ export default function TripPlanner() {
             placeholder="Destination"
             required
           />
-         {toSuggestions.length > 0 && (
-  <div className="autocomplete-suggestions">
-    {toSuggestions.map((suggestion, i) => (
-      <div
-        key={i}
-        onClick={() => {
-          setTo(suggestion);
-          setToSuggestions([]); // Hide suggestions
-        }}
-      >
-        {suggestion}
-      </div>
-    ))}
-  </div>
-)}
-
+          {toSuggestions.length > 0 && (
+            <div className="autocomplete-suggestions">
+              {toSuggestions.map((suggestion, i) => (
+                <div key={i} onClick={() => {
+                  setTo(suggestion);
+                  setToSuggestions([]);
+                }}>
+                  {suggestion}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="form-group">
