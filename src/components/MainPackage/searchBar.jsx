@@ -64,12 +64,21 @@ export default function TripPlanner() {
             required
           />
           {fromSuggestions.length > 0 && (
-            <div className="autocomplete-suggestions">
-              {fromSuggestions.map((suggestion, i) => (
-                <div key={i} onClick={() => setFrom(suggestion)}>{suggestion}</div>
-              ))}
-            </div>
-          )}
+  <div className="autocomplete-suggestions">
+    {fromSuggestions.map((suggestion, i) => (
+      <div
+        key={i}
+        onClick={() => {
+          setFrom(suggestion);
+          setFromSuggestions([]); // Hide suggestions
+        }}
+      >
+        {suggestion}
+      </div>
+    ))}
+  </div>
+)}
+
         </div>
 
         <button type="button" className="swap-btn" title="Swap" onClick={swapLocations}>
@@ -89,17 +98,26 @@ export default function TripPlanner() {
             placeholder="Destination"
             required
           />
-          {toSuggestions.length > 0 && (
-            <div className="autocomplete-suggestions">
-              {toSuggestions.map((suggestion, i) => (
-                <div key={i} onClick={() => setTo(suggestion)}>{suggestion}</div>
-              ))}
-            </div>
-          )}
+         {toSuggestions.length > 0 && (
+  <div className="autocomplete-suggestions">
+    {toSuggestions.map((suggestion, i) => (
+      <div
+        key={i}
+        onClick={() => {
+          setTo(suggestion);
+          setToSuggestions([]); // Hide suggestions
+        }}
+      >
+        {suggestion}
+      </div>
+    ))}
+  </div>
+)}
+
         </div>
 
         <div className="form-group">
-          <label htmlFor="date">Starting Date</label>
+          <label htmlFor="date">Select Date</label>
           <input
             id="date"
             type="date"
