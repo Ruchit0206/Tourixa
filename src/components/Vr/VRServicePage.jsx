@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './VRServicePage.css';
 import video from "../../newvideo.mp4";
+import Lottie from 'lottie-react';
+
 import {
   FaVrCardboard,
   FaMapMarkerAlt,
@@ -15,15 +17,18 @@ const VRServicePage = () => {
   const testimonials = [
     {
       quote: "The VR experience was amazing! I could feel the vibe of Goa before booking the trip!",
-      name: "Aayushi S."
+      name: "Aayushi S.",
+      stars:"⭐⭐⭐⭐⭐"
     },
     {
       quote: "Convenient and professional service. Highly recommended for family vacation planning!",
-      name: "Rohan M."
+      name: "Rohan M.",
+      stars:"⭐⭐⭐⭐⭐"
     },
     {
       quote: "This helped me finalize my honeymoon destination in minutes!",
-      name: "Neha D."
+      name: "Neha D.",
+      stars:"⭐⭐⭐⭐⭐"
     }
   ];
 
@@ -123,6 +128,7 @@ const [showFeedback, setShowFeedback] = useState(false);
         <div className="carousel-container">
           <div className="testimonial-card">
             <p>"{testimonials[currentSlide].quote}"</p>
+            <p>"{testimonials[currentSlide].stars}"</p>
             <span>- {testimonials[currentSlide].name}</span>
           </div>
           <div className="carousel-dots">
@@ -155,12 +161,18 @@ const [showFeedback, setShowFeedback] = useState(false);
           ))}
         </ul>
       </section>
+      
 
       {/* 🔐 Safety Promise */}
-      <section className="vr-safety">
-        <h2>Our Safety Promise</h2>
-        <p>Your hygiene and safety are our top priorities. All VR equipment is sanitized before each demo, and our staff follows COVID-safe protocols.</p>
-      </section>
+  <section className="vr-safety">
+  <h2>Your Safety is Our Priority</h2>
+  <ul >
+    <li typeof='none'>Fully Sanitized VR Equipment</li>
+    <li>Masked & Trained Team</li>
+    <li>No Physical Contact During Setup</li>
+  </ul>
+</section>
+
 
       {/* 🔢 Trust Counter */}
       <section className="trust-counter">
@@ -176,6 +188,18 @@ const [showFeedback, setShowFeedback] = useState(false);
           <h3>300+</h3>
           <p>Cities Covered</p>
         </div>
+         <div className="counter-item">
+    <h3>5,000+</h3>
+    <p>Happy Travelers</p>
+  </div>
+  <div className="counter-item">
+    <h3>40+</h3>
+    <p>Service Cities</p>
+  </div>
+  <div className="counter-item">
+    <h3>24/7</h3>
+    <p>Support</p>
+  </div>
       </section>
 
       {/* 🚀 CTA */}

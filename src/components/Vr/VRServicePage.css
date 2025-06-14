@@ -5,7 +5,10 @@
   margin-top: 66px;
   /* background: #f8f9fa; */
   position: relative;
-   background: linear-gradient(to bottom, #f5f7fa, #c3cfe2);
+   background: linear-gradient(to bottom, #7490b9, #8bf9d6);
+   /* background-image: url("https://thvnext.bing.com/th/id/OIP.hJGD9Ejg0H5II5beR4mgGQHaHa?r=0&cb=thvnext&rs=1&pid=ImgDetMain"); */
+   /* background-size: cover; */
+   
 }
 
 /* 🎁 First-Time Offer Banner */
@@ -68,6 +71,7 @@
   width: 220px;
   text-align: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  
 }
 
 .vr-icon {
@@ -164,7 +168,7 @@
 /* ❓ FAQ */
 .vr-faq {
   padding: 40px 20px;
-  /* background: #c5bdbd; */
+  background: #d8d6d6;
 }
 .faq-item {
   margin-bottom: 20px;
