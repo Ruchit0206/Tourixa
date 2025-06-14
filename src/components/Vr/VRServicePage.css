@@ -1,104 +1,174 @@
 .vr-page {
   /* font-family: 'Segoe UI', sans-serif; */
-  color: #333;
-  padding-bottom: 100px;
-/* background-image: url("https://images.unsplash.com/photo-1581090700227-1e8a28c0f7c6"); */
-  background: linear-gradient(to bottom, #f5f7fa, #c3cfe2);
-  min-height: 100vh;
-
+  padding: 0;
+  margin: 0;
+  margin-top: 66px;
+  /* background: #f8f9fa; */
+  position: relative;
+   background: linear-gradient(to bottom, #f5f7fa, #c3cfe2);
 }
 
-/* Hero */
+/* 🎁 First-Time Offer Banner */
+.first-time-offer {
+  background-color: #ffde59;
+  color: #000;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: 600;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+/* 🎯 Hero Section */
 .vr-hero {
-  background: linear-gradient(to right, #4facfe, #00f2fe);
-  color: white;
+  /* background: linear-gradient(to bottom, #f5f7fa, #c3cfe2); */
   padding: 100px 20px;
+  color: #000000;
   text-align: center;
 }
-.vr-hero h1 {
-  font-size: 2.5rem;
+
+.vr-hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
 }
+
 .vr-btn {
-  margin-top: 20px;
-  background-color: #fff;
-  color: #00bfa6;
+  background-color: #007bff;
+  color: #fff;
   padding: 12px 25px;
-  font-weight: bold;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
+  font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
 }
+
 .vr-btn:hover {
-  background-color: #f0f0f0;
+  background-color: #0056b3;
 }
 
-/* Features */
+/* ✨ Feature Cards */
 .vr-features {
-  padding: 60px 20px;
+  padding: 50px 20px;
+  background: #fff;
   text-align: center;
 }
+
 .vr-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
 }
+
 .vr-card {
-  width: 250px;
-  padding: 20px;
-  margin: 15px;
-  border: 1px solid #ddd;
+  background: #f0f0f0;
   border-radius: 10px;
+  padding: 20px;
+  width: 220px;
   text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+
 .vr-icon {
   font-size: 2.5rem;
-  color: #00bfa6;
   margin-bottom: 10px;
+  color: #007bff;
 }
 
-/* Demo Video */
-.video-containervr {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0;
+/* 🎥 Demo Video */
+.vr-demo-video {
+  padding: 40px 20px;
+  background: #e9ecef;
+  text-align: center;
 }
 
+.video-containervr video {
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+.vr-demo-video-inner{
+    padding: 40px 20px;
+  background: #0a0f13;
+  text-align: center;
 
-/* Carousel */
-.carousel-container {
-  max-width: 700px;
-  margin: auto;
+}
+
+/* 🏙️ City Checker */
+.city-checker {
+  background: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.city-checker-form {
+  margin-top: 20px;
+}
+
+.city-checker input {
+  padding: 10px;
+  width: 250px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.city-checker button {
+  padding: 10px 15px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.city-checker-result {
+  margin-top: 15px;
+  font-weight: bold;
+}
+.city-checker-result.available {
+  color: green;
+}
+.city-checker-result.unavailable {
+  color: red;
+}
+
+/* ❤️ Testimonials */
+.vr-testimonials {
+  padding: 50px 20px;
+  /* background: #01e623; */
   text-align: center;
 }
 .testimonial-card {
-  background: #f9f9f9;
-  padding: 30px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  font-style: italic;
 }
-.carousel-dots .dot {
-  height: 12px;
-  width: 12px;
-  margin: 5px;
-  background: #bbb;
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 6px;
+  background-color: #c91d1d;
   border-radius: 50%;
   display: inline-block;
   cursor: pointer;
 }
-.carousel-dots .active {
-  background-color: #00bfa6;
+.dot.active {
+  background-color: #007bff;
 }
 
-/* FAQ Accordion */
+/* ❓ FAQ */
 .vr-faq {
-  max-width: 800px;
-  margin: 50px auto;
+  padding: 40px 20px;
+  /* background: #c5bdbd; */
 }
 .faq-item {
-  margin-bottom: 15px;
-  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
   padding-bottom: 10px;
 }
 .faq-question {
@@ -108,34 +178,64 @@
   justify-content: space-between;
 }
 .faq-answer {
-  margin-top: 10px;
-  color: #666;
-}
-.arrow {
-  font-size: 1.2rem;
+  margin-top: 8px;
+  color: brown;
+    font-weight: 600;
 }
 
-/* CTA */
-.vr-cta {
+/* 🔐 Safety Promise */
+.vr-safety {
+  background: #f0fff4;
+  padding: 40px 20px;
   text-align: center;
-  background-color: #00f2fe1a;
+  color: #155724;
+  font-weight: 500;
+}
+
+/* 🔢 Trust Counter */
+.trust-counter {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 20px;
+  background: #fff;
+}
+.counter-item h3 {
+  font-size: 2rem;
+  color: #007bff;
+}
+.counter-item p {
+  margin-top: 5px;
+}
+
+/* 🚀 CTA */
+.vr-cta {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
   padding: 60px 20px;
 }
+.vr-cta h2 {
+  margin-bottom: 10px;
+}
 
-/* Form Modal */
+/* 📝 Booking Form Modal */
 .vr-form-modal {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.7);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 1000;
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 999;
+  align-items: center;
 }
 .vr-form-content {
   background: white;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 8px;
   width: 90%;
   max-width: 700px;
   position: relative;
@@ -144,20 +244,138 @@
   position: absolute;
   top: 10px;
   right: 15px;
-  font-size: 1.5rem;
+  font-size: 24px;
   cursor: pointer;
 }
 
-/* WhatsApp Button */
-.whatsapp-float {
+/* 💬 Floating Buttons */
+.whatsapp-float{
   position: fixed;
   bottom: 20px;
-  right: 20px;
-  background: #25d366;
+  padding: 10px 15px;
+  border-radius: 50px;
   color: white;
-  padding: 12px 18px;
-  border-radius: 30px;
-  font-size: 1rem;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 999;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   text-decoration: none;
-  z-index: 1000;
+}
+
+.whatsapp-float {
+  right: 20px;
+  background-color: #25D366;
+}
+
+
+
+
+
+
+
+/* ✨ Animations */
+@keyframes fadeInDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 📱 Responsive */
+@media screen and (max-width: 768px) {
+  .vr-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .trust-counter {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .vr-form-content iframe {
+    height: 400px;
+  }
+
+  .vr-hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .vr-btn {
+    padding: 10px 18px;
+  }
+
+  .city-checker input {
+    width: 100%;
+    margin-bottom: 10px;
+
+  }
+
+  .city-checker-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+
+/* feedback
+ */
+
+
+
+
+  
+
+
+/* Feedback Modal */
+.feedback-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.feedback-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  position: relative;
+}
+.feedback-content h2 {
+  margin-bottom: 20px;
+}
+.feedback-content input,
+.feedback-content textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.feedback-content button {
+  background: #00bfa6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.feedback-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
 }

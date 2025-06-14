@@ -19,7 +19,7 @@ const PackageCard = ({
     <div className="package-card">
       <div className="image-section">
         <img src={sampleImage} alt="Travel" />
-        <div className="badge">Customizable</div>
+        
         <div
           className="wishlist-icon"
           title={liked ? 'Remove from Wishlist' : 'Add to Wishlist'}

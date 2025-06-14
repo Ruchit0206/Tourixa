@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './VRServicePage.css';
-import video from "../../newvideo.mp4"
+import video from "../../newvideo.mp4";
 import {
   FaVrCardboard,
   FaMapMarkerAlt,
@@ -29,11 +29,14 @@ const VRServicePage = () => {
 
   const [currentSlide, setCurrentSlide] = useState(0);
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % testimonials.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
+  const interval = setInterval(() => {
+    setCurrentSlide((prev) => (prev + 1) % testimonials.length);
+  }, 4000);
+  return () => clearInterval(interval);
+}, [testimonials.length]);
+const [showFeedback, setShowFeedback] = useState(false);
+
+
 
   const faqData = [
     {
@@ -51,9 +54,21 @@ const VRServicePage = () => {
   ];
 
   const [openFAQ, setOpenFAQ] = useState(null);
+  const [city, setCity] = useState('');
+  const [available, setAvailable] = useState(null);
 
+  const checkAvailability = () => {
+    const availableCities = ['Ahmedabad', 'Surat', 'Mumbai', 'Delhi', 'Bangalore','Vadodara','Patna'];
+    setAvailable(availableCities.includes(city.trim()));
+  };
   return (
     <div className="vr-page">
+      {/* 🎁 First-Time Offer Banner */}
+      <div className="first-time-offer">
+        🎉 First-time users get a free 10-minute VR destination tour!
+      </div>
+
+      {/* 🎯 Hero Section */}
       <section className="vr-hero">
         <div className="vr-hero-content">
           <h1>Experience Travel in Virtual Reality</h1>
@@ -62,52 +77,47 @@ const VRServicePage = () => {
         </div>
       </section>
 
+      {/* ✨ Features */}
       <section className="vr-features">
         <h2>Why Try Our VR Experience?</h2>
         <div className="vr-cards">
-          <div className="vr-card">
-            <FaVrCardboard className="vr-icon" />
-            <h3>Immersive Preview</h3>
-            <p>Get a 360° tour of your dream destinations before you travel.</p>
-          </div>
-          <div className="vr-card">
-            <FaMapMarkerAlt className="vr-icon" />
-            <h3>At Your Doorstep</h3>
-            <p>We come to you with our mobile VR kit – anytime, anywhere.</p>
-          </div>
-          <div className="vr-card">
-            <FaRupeeSign className="vr-icon" />
-            <h3>Minimal Cost</h3>
-            <p>Affordable pricing to suit every traveler’s budget.</p>
-          </div>
-          <div className="vr-card">
-            <FaCheckCircle className="vr-icon" />
-            <h3>Easy Booking</h3>
-            <p>Simple online scheduling with instant confirmation.</p>
-          </div>
+          <div className="vr-card"><FaVrCardboard className="vr-icon" /><h3>Immersive Preview</h3><p>Get a 360° tour before you travel.</p></div>
+          <div className="vr-card"><FaMapMarkerAlt className="vr-icon" /><h3>At Your Doorstep</h3><p>We come to you with our mobile VR kit.</p></div>
+          <div className="vr-card"><FaRupeeSign className="vr-icon" /><h3>Minimal Cost</h3><p>Affordable pricing for every traveler.</p></div>
+          <div className="vr-card"><FaCheckCircle className="vr-icon" /><h3>Easy Booking</h3><p>Instant online scheduling.</p></div>
         </div>
       </section>
 
+      {/* 🎥 Demo Video */}
       <section className="vr-demo-video">
         <h2>See It In Action</h2>
         <div className="video-containervr">
-        <video
-  className="vr-demo-video"
-  width="80%"
-  height="400"
-  
-  muted
-  autoPlay
-  loop
->
-  <source src={video} type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
-
-
+          <video className="vr-demo-video-inner" width="50%" height="400" muted autoPlay loop>
+            <source src={video} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </section>
 
+      {/* 🏙️ Destination Availability Checker */}
+      <section className="city-checker">
+        <h2>Check VR Availability in Your City</h2>
+        <div className="city-checker-form">
+          <input
+            type="text"
+            placeholder="Enter your city"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+          <button onClick={checkAvailability}>Check</button>
+        </div>
+        {available !== null && (
+          <p className={`city-checker-result ${available ? 'available' : 'unavailable'}`}>
+            {available ? '🎉 Service available in your city!' : '😔 Oops! We are not in this city yet — but we are expanding soon. Stay tuned!'}
+          </p>
+        )}
+      </section>
+      {/* ❤️ Testimonials */}
       <section className="vr-testimonials">
         <h2>What Our Clients Say</h2>
         <div className="carousel-container">
@@ -127,6 +137,7 @@ const VRServicePage = () => {
         </div>
       </section>
 
+      {/* ❓ FAQ */}
       <section className="vr-faq">
         <h2>Frequently Asked Questions</h2>
         <ul>
@@ -145,12 +156,36 @@ const VRServicePage = () => {
         </ul>
       </section>
 
+      {/* 🔐 Safety Promise */}
+      <section className="vr-safety">
+        <h2>Our Safety Promise</h2>
+        <p>Your hygiene and safety are our top priorities. All VR equipment is sanitized before each demo, and our staff follows COVID-safe protocols.</p>
+      </section>
+
+      {/* 🔢 Trust Counter */}
+      <section className="trust-counter">
+        <div className="counter-item">
+          <h3>10,000+</h3>
+          <p>VR Tours Delivered</p>
+        </div>
+        <div className="counter-item">
+          <h3>98%</h3>
+          <p>Customer Satisfaction</p>
+        </div>
+        <div className="counter-item">
+          <h3>300+</h3>
+          <p>Cities Covered</p>
+        </div>
+      </section>
+
+      {/* 🚀 CTA */}
       <section className="vr-cta">
         <h2>Ready to Explore Virtually?</h2>
         <p>Feel the adventure before the journey. Book your home VR session today!</p>
         <button className="vr-btn" onClick={toggleForm}>Get Started</button>
       </section>
 
+      {/* 📝 Booking Form Modal */}
       {showForm && (
         <div className="vr-form-modal">
           <div className="vr-form-content">
@@ -168,6 +203,7 @@ const VRServicePage = () => {
         </div>
       )}
 
+      {/* 💬 WhatsApp Floating Button */}
       <a
         href="https://wa.me/919979683808"
         className="whatsapp-float"
@@ -176,6 +212,11 @@ const VRServicePage = () => {
       >
         📲 Chat with Us
       </a>
+    
+
+
+    
+
     </div>
   );
 };
