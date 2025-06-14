@@ -98,7 +98,7 @@ export default function Navbar(props) {
                   { to: "/underde/Video", text: "🎥 Video" },
                   { to: "/underde/3D Model", text: "📦 3D Model" },
                   { to: "/underde/360 Video", text: "🔄 360 Video" },
-                  { to: "/underde/VR Tour", text: "🕶️ VR Tour" },
+                  { to: "/VRServicePage", text: "🕶️ VR Tour" },
                 ]
               },
               {

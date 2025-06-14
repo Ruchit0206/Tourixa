@@ -12,6 +12,7 @@ import TourixaaApp from "./components/TourixaaApp/TourixaaApp"
 import Offers from "./components/Offers/Offers";
 import Community from "./components/Community/Community";
 import MainPage from "./MainPage";
+import VRServicePage from "./components/Vr/VRServicePage"
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="/Offers" element={<Offers/>}/>
           <Route path="/Community" element={<Community/>}/>
           <Route path="/MainPage" element={<MainPage/>}/>
+          <Route path="VRServicePage" element={<VRServicePage/>}/>
         </Routes>
       </div>
 
