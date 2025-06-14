@@ -98,7 +98,7 @@ const MainPage = () => {
     <section className="main-container">
       <div className='ruchitpatel'>
         <SearchBar onSearch={handleSearch} onClear={handleClearSearch} />
-        <FilterBar />
+        {/* <FilterBar /> */}
         {searchSummary && (
           <p className="search-summary" style={{ textAlign: 'center', margin: '1rem', fontWeight: 'bold' }}>
             {searchSummary}
