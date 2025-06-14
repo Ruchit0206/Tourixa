@@ -8,7 +8,8 @@ import confetti from 'canvas-confetti';
 export default function Navbar(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
-   const handleConfetti = () => {
+
+  const handleConfetti = () => {
     confetti({
       particleCount: 100,
       spread: 70,
@@ -34,11 +35,17 @@ export default function Navbar(props) {
     }
   };
 
+  const handleNavClick = () => {
+    setIsOpen(false);
+    setDropdownOpen(null);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <nav className="navbar navbar-expand-lg" onMouseLeave={handleMouseLeave}>
       <div className="container-fluid">
         <div className="navbar-left">
-          <Link className="navbar-brand" to="/">
+          <Link className="navbar-brand" to="/" onClick={handleNavClick}>
             <img src={logo} alt="Tourixaa Logo" />
           </Link>
           <button
@@ -60,12 +67,11 @@ export default function Navbar(props) {
         >
           <ul className="navbar-nav d-flex flex-column flex-lg-row align-items-lg-center gap-lg-3">
             <li className="nav-item">
-              <a className="nav-link active" href="/#">
+              <Link className="nav-link active" to="/" onClick={handleNavClick}>
                 <span className="nav-text">{props.first}</span>
-              </a>
+              </Link>
             </li>
 
-            {/* Dropdowns */}
             {[
               {
                 id: "second", label: props.second, links: [
@@ -129,7 +135,7 @@ export default function Navbar(props) {
                 <ul className={`dropdown-menu ${dropdownOpen === item.id ? "show" : ""}`}>
                   {item.links.map((link, index) => (
                     <li key={index}>
-                      <Link className="nav-link active" to={link.to}>
+                      <Link className="nav-link active" to={link.to} onClick={handleNavClick}>
                         {link.text}
                       </Link>
                     </li>
@@ -138,29 +144,28 @@ export default function Navbar(props) {
               </li>
             ))}
 
-            {/* ✅ OFFERS Element */}
-   <li className="nav-item">
-  <Link
-    to="/Offers"
-    className="nav-link active"
-    onMouseEnter={handleConfetti}
-    style={{
-      color: '#fff',
-      background: 'linear-gradient(45deg, #ff0066, #ffcc00)',
-      padding: '6px 14px',
-      borderRadius: '12px',
-      fontWeight: 'bold',
-      boxShadow: '0 0 10px rgba(255, 204, 0, 0.8)',
-      animation: 'sparkle 1s infinite alternate',
-
-    }}
-  >
-    <span className="nav-text">🎁 Offers</span>
-  </Link>
-</li>
-            {/* ✅ Profile */}
             <li className="nav-item">
-              <Link to="/Profile" className="nav-link active profile-link">
+              <Link
+                to="/Offers"
+                className="nav-link active"
+                onMouseEnter={handleConfetti}
+                onClick={handleNavClick}
+                style={{
+                  color: '#fff',
+                  background: 'linear-gradient(45deg, #ff0066, #ffcc00)',
+                  padding: '6px 14px',
+                  borderRadius: '12px',
+                  fontWeight: 'bold',
+                  boxShadow: '0 0 10px rgba(255, 204, 0, 0.8)',
+                  animation: 'sparkle 1s infinite alternate',
+                }}
+              >
+                <span className="nav-text">🎁 Offers</span>
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link to="/Profile" className="nav-link active profile-link" onClick={handleNavClick}>
                 <span className="nav-text">Profile</span>
               </Link>
             </li>

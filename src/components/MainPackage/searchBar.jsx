@@ -1,16 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './SearchBar.css';
 
-export default function TripPlanner({ onSearch }) {
+export default function TripPlanner({ onSearch, onClear }) {
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
   const [date, setDate] = useState('');
-  const [budget, setBudget] = useState('₹10000 - ₹200000');
-  const [customBudget, setCustomBudget] = useState('');
   const [guests, setGuests] = useState('2');
+  const [packageType, setPackageType] = useState('');
   const [fromSuggestions, setFromSuggestions] = useState([]);
   const [toSuggestions, setToSuggestions] = useState([]);
-
   const fromRef = useRef(null);
   const toRef = useRef(null);
 
@@ -37,28 +35,29 @@ export default function TripPlanner({ onSearch }) {
     return () => document.removeEventListener('click', handleClickOutside);
   }, []);
 
+  const searchTrip = () => {
+    if (onSearch) {
+      onSearch({ from, to, date, guests, packageType });
+    }
+  };
+
+  const clearTrip = () => {
+    setFrom('');
+    setTo('');
+    setDate(new Date().toISOString().split('T')[0]);
+    setGuests('2');
+    setPackageType('');
+    if (onClear) onClear();
+  };
+
   const swapLocations = () => {
     setFrom(to);
     setTo(from);
   };
 
-  const searchTrip = () => {
-    const finalBudget = budget === 'Other' ? customBudget : budget;
-
-    if (onSearch) {
-     onSearch({
-  from,
-  to,
-  date,
-  guests
-});
-
-
-    }
-  };
-
   return (
     <main className="trip-form-container">
+      
       <form className="trip-form" onSubmit={(e) => e.preventDefault()} autoComplete="off">
         <div className="form-group" ref={fromRef}>
           <label htmlFor="from">From</label>
@@ -71,7 +70,6 @@ export default function TripPlanner({ onSearch }) {
               handleAutocomplete(e.target.value, setFromSuggestions);
             }}
             placeholder="Starting Location"
-            required
           />
           {fromSuggestions.length > 0 && (
             <div className="autocomplete-suggestions">
@@ -102,7 +100,6 @@ export default function TripPlanner({ onSearch }) {
               handleAutocomplete(e.target.value, setToSuggestions);
             }}
             placeholder="Destination"
-            required
           />
           {toSuggestions.length > 0 && (
             <div className="autocomplete-suggestions">
@@ -125,35 +122,8 @@ export default function TripPlanner({ onSearch }) {
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            required
             min={new Date().toISOString().split('T')[0]}
           />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="budget">Budget Per Person</label>
-          <select
-            id="budget"
-            value={budget}
-            onChange={(e) => setBudget(e.target.value)}
-          >
-            <option value="₹5000 - ₹10000">₹5,000 - ₹10,000</option>
-            <option value="₹10000 - ₹20000">₹10,000 - ₹20,000</option>
-            <option value="₹20000 - ₹50000">₹20,000 - ₹50,000</option>
-            <option value="₹50000 - ₹100000">₹50,000 - ₹1,00,000</option>
-            <option value="₹100000 - ₹200000">₹1,00,000 - ₹2,00,000</option>
-            <option value="Other">Other</option>
-          </select>
-
-          {budget === 'Other' && (
-            <input
-              type="text"
-              placeholder="Enter custom budget (e.g. ₹15000 - ₹25000)"
-              value={customBudget}
-              onChange={(e) => setCustomBudget(e.target.value)}
-              style={{ marginTop: '10px', padding: '8px', borderRadius: '8px' }}
-            />
-          )}
         </div>
 
         <div className="form-group">
@@ -167,8 +137,22 @@ export default function TripPlanner({ onSearch }) {
           </select>
         </div>
 
+        <div className="form-group">
+          <label htmlFor="packageType">Package Type</label>
+          <select id="packageType" value={packageType} onChange={(e) => setPackageType(e.target.value)}>
+            <option value="">All</option>
+            <option value="Domestic">Domestic</option>
+            <option value="International">International</option>
+            <option value="Nature">Nature</option>
+            <option value="Trekking">Trekking</option>
+          </select>
+        </div>
+
         <button type="submit" className="search-btn" onClick={searchTrip}>
           Search
+        </button>
+        <button type="button" className="clear-btn" onClick={clearTrip} style={{ marginLeft: '10px', backgroundColor: '#ccc' }}>
+          Clear
         </button>
       </form>
     </main>

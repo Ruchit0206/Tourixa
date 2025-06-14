@@ -22,7 +22,8 @@ const MainPage = () => {
         vendor: 'Sunny Travels',
         features: ['3 Nights', 'Beach Resort', 'Free Water Sports'],
         availableDates: ['2025-06-14', '2025-06-18', '2025-06-25'],
-        maxGuests: 4
+        maxGuests: 4,
+        packageType: 'Domestic'
       },
       {
         title: 'Manali Adventure',
@@ -34,7 +35,8 @@ const MainPage = () => {
         vendor: 'Himalaya Holidays',
         features: ['2 Nights', 'Snow Trekking', 'Campfire Dinner'],
         availableDates: ['2025-06-15', '2025-06-20', '2025-06-30'],
-        maxGuests: 5
+        maxGuests: 5,
+        packageType: 'Trekking'
       },
       {
         title: 'Kerala Backwaters',
@@ -46,31 +48,21 @@ const MainPage = () => {
         vendor: 'South India Travels',
         features: ['Houseboat', '2 Nights', 'Traditional Meals'],
         availableDates: ['2025-06-14', '2025-06-22', '2025-06-29'],
-        maxGuests: 6
+        maxGuests: 6,
+        packageType: 'Nature'
       },
       {
-        title: 'Rajasthan Heritage Tour',
-        from: 'Ahmedabad',
-        location: 'Jaipur',
-        rating: 4.3,
-        originalPrice: 28000,
-        discountedPrice: 21000,
-        vendor: 'Royal Rajasthan Rides',
-        features: ['City Palace', 'Camel Safari', '2 Nights Stay'],
-        availableDates: ['2025-06-17', '2025-06-23', '2025-06-30'],
-        maxGuests: 4
-      },
-      {
-        title: 'Sikkim Scenic Views',
-        from: 'Kolkata',
-        location: 'Gangtok',
-        rating: 4.7,
-        originalPrice: 35000,
-        discountedPrice: 27000,
-        vendor: 'Eastern Peaks Tours',
-        features: ['3 Nights', 'Monastery Visit', 'Cable Car Ride'],
-        availableDates: ['2025-06-20', '2025-06-25', '2025-06-28'],
-        maxGuests: 3
+        title: 'Paris Explorer',
+        from: 'Mumbai',
+        location: 'Paris',
+        rating: 4.9,
+        originalPrice: 120000,
+        discountedPrice: 95000,
+        vendor: 'Global Tours',
+        features: ['Eiffel Tower', 'Cruise Dinner', '4 Nights'],
+        availableDates: ['2025-06-25', '2025-07-01'],
+        maxGuests: 2,
+        packageType: 'International'
       }
     ];
 
@@ -78,44 +70,40 @@ const MainPage = () => {
     setFilteredPackages(mockData);
   }, []);
 
-  const cleanInput = (text) => {
-    return text?.split(',')[0].trim().toLowerCase(); // e.g. 'Delhi, India' -> 'delhi'
-  };
+  const handleSearch = ({ from, to, date, guests, packageType }) => {
+    const trimPlace = (place = '') => place.split(',')[0].trim().toLowerCase();
 
-  const handleSearch = ({ from, to, date, guests }) => {
     const filtered = packages.filter(pkg => {
-      const matchesFrom = from ? cleanInput(pkg.from) === cleanInput(from) : true;
-      const matchesTo = to ? cleanInput(pkg.location) === cleanInput(to) : true;
+      const matchesFrom = from ? pkg.from?.toLowerCase().includes(trimPlace(from)) : true;
+      const matchesTo = to ? pkg.location?.toLowerCase().includes(trimPlace(to)) : true;
       const matchesDate = date ? pkg.availableDates?.includes(date) : true;
-      const matchesGuests = guests && pkg.maxGuests ? parseInt(guests) <= pkg.maxGuests : true;
+      const matchesGuests = guests ? parseInt(guests) <= pkg.maxGuests : true;
+      const matchesType = packageType ? pkg.packageType === packageType : true;
 
-      return matchesFrom && matchesTo && matchesDate && matchesGuests;
+      return matchesFrom && matchesTo && matchesDate && matchesGuests && matchesType;
     });
 
     setFilteredPackages(filtered);
 
-    const summaryText = `Showing results from ${from || 'anywhere'} to ${to || 'anywhere'} on ${date || 'any date'} for ${guests || 'any'} guests`;
+    const summaryText = `Showing results from ${from || 'anywhere'} to ${to || 'anywhere'} on ${date || 'any date'} for ${guests || 'any'} guests ${packageType ? '(' + packageType + ')' : ''}`;
     setSearchSummary(summaryText);
   };
-  const handleClearSearch = () => {
-  setFilteredPackages(packages);
-  setSearchSummary('');
-};
 
+  const handleClearSearch = () => {
+    setFilteredPackages(packages);
+    setSearchSummary('');
+  };
 
   return (
     <section className="main-container">
       <div className='ruchitpatel'>
-        <SearchBar onSearch={handleSearch} />
+        <SearchBar onSearch={handleSearch} onClear={handleClearSearch} />
         <FilterBar />
-        
-
         {searchSummary && (
           <p className="search-summary" style={{ textAlign: 'center', margin: '1rem', fontWeight: 'bold' }}>
             {searchSummary}
           </p>
         )}
-
         <div className="packages-list">
           {filteredPackages.length > 0 ? (
             filteredPackages.map((pkg, i) => (
@@ -127,24 +115,6 @@ const MainPage = () => {
             </p>
           )}
         </div>
-        <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-  <button
-    onClick={handleClearSearch}
-    style={{
-      backgroundColor: '#f44336',
-      color: '#fff',
-      border: 'none',
-      padding: '8px 16px',
-      borderRadius: '5px',
-      cursor: 'pointer',
-      fontWeight: 'bold'
-    }}
-  >
-    Clear Search
-  </button>
-</div>
-
-
         <Advertisement />
       </div>
     </section>
