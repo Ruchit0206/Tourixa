@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from './components/MainPackage/searchBar';
-import FilterBar from './components/MainPackage/FilterBar';
+// import FilterBar from './components/MainPackage/FilterBar';
 import PackageCard from './components/MainPackage/PackageCard';
 import Advertisement from './components/MainPackage/Advertisement';
 import './MainPage.css';

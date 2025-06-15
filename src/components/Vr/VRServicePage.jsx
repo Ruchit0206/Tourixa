@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './VRServicePage.css';
 import video from "../../newvideo.mp4";
-import Lottie from 'lottie-react';
+// import Lottie from 'lottie-react';
 
 import {
   FaVrCardboard,
@@ -39,7 +39,7 @@ const VRServicePage = () => {
   }, 4000);
   return () => clearInterval(interval);
 }, [testimonials.length]);
-const [showFeedback, setShowFeedback] = useState(false);
+// const [showFeedback, setShowFeedback] = useState(false);
 
 
 

@@ -89,7 +89,7 @@ export default function Navbar(props) {
               {
                 id: "fourth", label: props.fourth, links: [
                   { to: "/underde/Ai Tour Planner", text: "🤖 AI Tour Planner" },
-                  { to: "/underde/Plan With Us", text: "📝 Plan With Us" },
+                  { to: "/PlanWithUs", text: "📝 Plan With Us" },
                 ]
               },
               {

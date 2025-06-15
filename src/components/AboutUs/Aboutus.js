@@ -22,7 +22,7 @@ const AboutUs = () => {
         </p>
         <p>
           Founded by passionate explorers, Tourixaa started with a simple belief: <em>travel should feel personal, not packaged</em>.
-          Today, we help travelers across the world plan everything from romantic honeymoons to adventure treks, family getaways to business trips — and everything in between.
+          Today, we help travelers across the world plan everything from romantic honeymoons to adventure treks, family gateways to business trips — and everything in between.
         </p>
         <p>
           Our signature? A blend of modern tech (hello <strong>AR/VR previews</strong>!) and old-school care (yes, real humans who listen). 

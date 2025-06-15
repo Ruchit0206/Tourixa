@@ -13,6 +13,7 @@ import Offers from "./components/Offers/Offers";
 import Community from "./components/Community/Community";
 import MainPage from "./MainPage";
 import VRServicePage from "./components/Vr/VRServicePage"
+import PlanWithUs from "./components/PlanWithUs/PlanWithUs";
 
 function App() {
   return (
@@ -45,7 +46,8 @@ function App() {
           <Route path="/Community" element={<Community/>}/>
           <Route path="/MainPage" element={<MainPage/>}/>
           <Route path="VRServicePage" element={<VRServicePage/>}/>
-        </Routes>
+          <Route path="PlanWithUs" element={<PlanWithUs/>}/>
+                  </Routes>
       </div>
 
       <Footer />
