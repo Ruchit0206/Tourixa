@@ -50,11 +50,11 @@ export default function Footer() {
           <div className="footer-section">
             <h4>Features</h4>
             <ul>
-              <li><Link to="/underde/Museum" onClick={handleScrollTop}>Museum</Link></li>
+             
               <li><Link to="/underde/Video" onClick={handleScrollTop}>Video</Link></li>
               <li><Link to="/underde/3D Model" onClick={handleScrollTop}>3D Model</Link></li>
               <li><Link to="/underde/360 Video" onClick={handleScrollTop}>360 Video</Link></li>
-              <li><Link to="/underde/VR Tour" onClick={handleScrollTop}>VR Tour</Link></li>
+              <li><Link to="/VRServicePage" onClick={handleScrollTop}>VR Tour</Link></li>
             </ul>
           </div>
 
@@ -62,8 +62,9 @@ export default function Footer() {
             <h4>Company</h4>
             <ul>
               <li><Link to="/Aboutus" onClick={handleScrollTop}>About Us</Link></li>
-              <li><Link to="/underde/Packages" onClick={handleScrollTop}>Packages</Link></li>
-              <li><Link to="/TourixaaApp" onClick={handleScrollTop}>Tourixaa App</Link></li>
+              <li><Link to="/PlanWithUs" onClick={handleScrollTop}>Plan With Us</Link></li>
+              <li><Link to="/underde/AI Tour Planner" onClick={handleScrollTop}>AI Tour Planner</Link></li>
+               <li><Link to="/TourixaaApp" onClick={handleScrollTop}>Tourixaa App</Link></li>
               <li><Link to="/Community" onClick={handleScrollTop}>Community</Link></li>
             </ul>
           </div>

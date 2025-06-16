@@ -86,7 +86,7 @@ const VRServicePage = () => {
       <section className="vr-features">
         <h2>Why Try Our VR Experience?</h2>
         <div className="vr-cards">
-          <div className="vr-card"><FaVrCardboard className="vr-icon" /><h3>Immersive Preview</h3><p>Get a 360° tour before you travel.</p></div>
+          <div className="vr-card"><FaVrCardboard className="vr-icon" /><h3>Immersive Preview</h3><p>Get a 3D tour before you travel.</p></div>
           <div className="vr-card"><FaMapMarkerAlt className="vr-icon" /><h3>At Your Doorstep</h3><p>We come to you with our mobile VR kit.</p></div>
           <div className="vr-card"><FaRupeeSign className="vr-icon" /><h3>Minimal Cost</h3><p>Affordable pricing for every traveler.</p></div>
           <div className="vr-card"><FaCheckCircle className="vr-icon" /><h3>Easy Booking</h3><p>Instant online scheduling.</p></div>

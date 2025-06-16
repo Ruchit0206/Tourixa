@@ -9,7 +9,7 @@ import {
   FaChevronDown,
   FaChevronUp,
   FaCalculator,
-  FaWhatsapp
+  
 } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
@@ -145,9 +145,15 @@ export default function PlanWithUs() {
 
 
       {/* WhatsApp Floating Button */}
-      <a href="https://wa.me/1234567890" className="whatsapp-float" target="_blank" rel="noopener noreferrer">
-        <FaWhatsapp />
+       <a
+        href="https://wa.me/919979683808"
+        className="whatsapp-float-plan"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        📲 Chat with Us
       </a>
+   
     </div>
   );
 }

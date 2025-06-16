@@ -94,16 +94,18 @@ export default function Navbar(props) {
               },
               {
                 id: "fifth", label: props.fifth, links: [
-                  { to: "/underde/Museum", text: "🏛️ Museum" },
-                  { to: "/underde/Video", text: "🎥 Video" },
+                  
+                 
+                  { to: "/VRServicePage", text: "🕶️ VR Tour" },
+                   { to: "/underde/Video", text: "🎥 Video" },
                   { to: "/underde/3D Model", text: "📦 3D Model" },
                   { to: "/underde/360 Video", text: "🔄 360 Video" },
-                  { to: "/VRServicePage", text: "🕶️ VR Tour" },
                 ]
               },
               {
                 id: "six", label: props.six, links: [
                   { to: "/underde/Museum", text: "🏛️ Heritage Tour" },
+                  { to: "/underde/Museum", text: "🏛️ Museum" },
                   { to: "/underde/Video", text: "🎥 Forgotten Traditions" },
                   { to: "/underde/3D Model", text: "📦 Festival Experience Tours" },
                 ]

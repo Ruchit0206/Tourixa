@@ -138,8 +138,8 @@ const TravelCarousel = () => {
   return (
     <div className="carousel-container">
        <h2 className="carousel-title">
-        <span className="highlight">Most </span> Popular Travel  {" "}
-        <span className="highlight">Places</span>
+        <span className="highlight-carousel">Most </span> Popular Travel  {" "}
+        <span className="highlight-carousel">Places</span>
       </h2>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
