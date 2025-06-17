@@ -28,7 +28,7 @@ function App() {
         seven="Corporate Getaways"
       />
 
-      <div className="page-content">
+      
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/underde/:page" element={<Development />} />
@@ -48,7 +48,7 @@ function App() {
           <Route path="VRServicePage" element={<VRServicePage/>}/>
           <Route path="PlanWithUs" element={<PlanWithUs/>}/>
                   </Routes>
-      </div>
+   
 
       <Footer />
     </div>

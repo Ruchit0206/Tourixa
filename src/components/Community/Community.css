@@ -7,11 +7,14 @@
   padding: 21px 10px;
   text-align: center;
   /* border-radius: 20px; */
-  margin: 0 0;
+  /* margin: 0 0; */
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   max-width: 100vw;
   box-sizing: border-box;
-  /* margin-top: 10px; */
+  margin-top: 61px;
+}
+.teaser-content{
+  margin-top: 100px
 }
 
 /* Create moving circles */

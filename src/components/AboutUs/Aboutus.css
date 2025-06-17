@@ -2,9 +2,10 @@
   display: flex;
   flex-wrap: nowrap; /* no wrap by default */
   gap: 2rem;
-  align-items: stretch; /* stretch children to equal height */
-  /* padding: 3rem 2rem; */
-  background-color: #f9f9f9;
+  /* align-items: stretch; stretch children to equal height */
+  padding: 5rem 2rem;
+  background-color: #ffffff;
+  padding-top: 200px;
   /* margin-top: 50px; */
   /* margin-top: 50px; */
 }
