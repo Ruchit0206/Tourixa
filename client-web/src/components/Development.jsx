@@ -1,12 +1,20 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import PageLayout from './layouts/PageLayout';
 
 export default function UnderDevelopment() {
-	const { page } = useParams(); // get the page param from URL
+	const location = useLocation();
 
-	// Capitalize the first letter of page name for better display
-	const pageName = page ? page.charAt(0).toUpperCase() + page.slice(1) : 'This';
+	// Get the last segment from the pathname
+	const pathSegments = location.pathname.split('/');
+	const lastSegment = pathSegments[pathSegments.length - 1];
+
+	// Decode URI and capitalize nicely
+	const decoded = decodeURIComponent(lastSegment || 'This');
+	const pageName = decoded
+		.split('-')
+		.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+		.join(' ');
 
 	return (
 		<PageLayout>

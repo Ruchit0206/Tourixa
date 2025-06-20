@@ -149,7 +149,7 @@ export default function Home() {
 						</button>
 
 						<button
-							onClick={() => navigate('/International')}
+							onClick={() => navigate('/Inquiry')}
 							className="fixed bottom-20 left-5 bg-[#7c4b30] text-white px-5 py-3 rounded-full font-bold shadow-md flex items-center gap-2 z-50 hover:bg-[#5c3724] transition duration-300"
 						>
 							<img

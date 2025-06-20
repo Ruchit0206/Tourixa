@@ -20,6 +20,7 @@ const routes = createBrowserRouter([
 			{ path: '/offers', element: <Offers /> },
 			{ path: '/vr-service-page', element: <VRServicePage /> },
 			{ path: '/plan-with-us', element: <PlanWithUs /> },
+		
 		],
 	},
 	{

@@ -5,48 +5,60 @@ import { Link } from 'react-router-dom';
 const AboutUs = () => {
   return (
     <div>
-      <div className="flex flex-nowrap gap-8 px-8 py-20 pt-[200px] bg-white flex-wrap md:flex-nowrap">
-        <div className="flex-1 min-w-[300px]">
-          <img src={aboutImg} alt="Tourixaa travel team or destination" className="w-full h-full rounded-[12px] object-cover" />
-        </div>
-        <div className="flex-1 min-w-[300px] text-[1.2rem]">
-          <h2 className="text-3xl font-semibold mb-4">About Tourixaa</h2>
-          <p className="mb-4">
-            Tourixaa isn’t just a travel company — it’s a passport to unforgettable memories.
-            We’re here to flip the script on ordinary vacations and turn your trips into stories worth retelling.
-          </p>
-          <p className="mb-4">
-            Whether you're dreaming of a peaceful sunset in Santorini, a bustling street market in Bangkok, or a quiet hilltop in Himachal,
-            we help make it happen — your way. Since our beginning, we’ve focused on <strong>customized, thoughtful travel experiences</strong> that go far beyond basic itineraries.
-          </p>
-          <p className="mb-4">
-            Founded by passionate explorers, Tourixaa started with a simple belief: <em>travel should feel personal, not packaged</em>.
-            Today, we help travelers across the world plan everything from romantic honeymoons to adventure treks, family gateways to business trips — and everything in between.
-          </p>
-          <p className="mb-4">
-            Our signature? A blend of modern tech (hello <strong>AR/VR previews</strong>!) and old-school care (yes, real humans who listen). 
-            Oh, and great deals — because smart travel should also be smartly priced.
-          </p>
-          <p className="mb-4">
-            At Tourixaa, we believe every trip is a chance to discover something new — about the world, and maybe even about yourself.
-            Wherever you’re headed, we’ll help you get there in style.
-          </p>
-          <button className="mt-4 bg-red-600 text-white px-6 py-2 rounded-full font-semibold">
-            <Link className="nav-link active flex items-center gap-2" to="/International">
-              <i className="fa-solid fa-globe"></i> Inquire Us
+      <div className="flex flex-col md:flex-row items-center gap-8 px-4 sm:px-6 md:px-8 py-20 pt-[150px] bg-white">
+        {/* Text Section */}
+        <div className="w-full md:w-1/2 text-[1rem] sm:text-[1.1rem] leading-7 order-1">
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">About Tourixaa</h2>
+
+          <div className="bg-[#f9fafb] p-4 sm:p-6 rounded-lg shadow-sm text-justify">
+            <p className="mb-4">
+              <strong>Tourixaa</strong> is India’s first open and collaborative travel marketplace where verified travel agencies and passionate travelers connect, create, and get unforgettable journeys. We’re building India’s first open travel ecosystem where verified travel agencies come together under one roof through a subscription-based model, giving travelers direct access to a wide range of trip plans, unique local experiences, and expert guidance.
+            </p>
+            <p className="mb-4">
+              At Tourixaa, whether you’re looking for a serene escape in the hills, a culturally rich city tour, or a thrilling adventure off the beaten path — we connect you with the right agency to make it happen, your way.
+            </p>
+            <p className="mb-4">
+              Born from a passion for exploration and built with modern technology, Tourixaa blends smart digital tools (like trip previews and real-time planning features) with a human-first approach. We empower both travelers and agencies:
+              <br />
+              – <strong>Travelers</strong> get freedom of choice, better deals, and fully tailored trips.
+              <br />
+              – <strong>Agencies</strong> get visibility, leads, and a platform to grow without middlemen.
+            </p>
+            <p>
+              With Tourixaa, every journey starts with a choice — not a compromise.
+              <br />
+              <strong>Open. Flexible. Authentic.</strong> That’s Tourixaa.
+            </p>
+          </div>
+
+          <div className="mt-6">
+            <Link to="/International">
+              <button className="bg-red-600 hover:bg-red-700 transition-colors text-white px-6 py-2 rounded-full font-semibold w-full sm:w-auto">
+                <i className="fa-solid fa-globe mr-2"></i> Inquire Us
+              </button>
             </Link>
-          </button>
+          </div>
+        </div>
+
+        {/* Image Section */}
+        <div className="w-full md:w-1/2 order-2 min-h-[300px]">
+          <img
+            src={aboutImg}
+            alt="Tourixaa travel team or destination"
+            className="w-full h-full max-h-[500px] min-h-[300px] object-cover rounded-[12px]"
+          />
         </div>
       </div>
+
       <Benefits />
     </div>
   );
 };
 
 const Benefits = () => (
-  <section className="py-12 px-8 bg-white text-center">
-    <h2 className="text-3xl font-semibold mb-8">Why Choose Tourixaa?</h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-[1000px] mx-auto">
+  <section className="py-12 px-4 sm:px-6 md:px-8 bg-white text-center">
+    <h2 className="text-2xl sm:text-3xl font-semibold mb-10">Why Choose Tourixaa?</h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
       {[
         {
           icon: "🛫",
@@ -81,7 +93,7 @@ const Benefits = () => (
       ].map((item, idx) => (
         <div
           key={idx}
-          className="bg-[#f0f4f8] rounded-[12px] p-6 shadow-md text-center w-full max-w-[220px] mx-auto"
+          className="bg-[#f0f4f8] rounded-[12px] p-6 shadow-md text-center"
         >
           <span className="text-3xl block mb-3">{item.icon}</span>
           <h3 className="text-lg font-bold mb-2">{item.title}</h3>

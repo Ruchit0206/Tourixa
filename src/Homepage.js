@@ -98,7 +98,7 @@ export default function Home() {
             </Link>
 
             <a
-              href="https://tourixaa.vercel.app/login" // replace with your real agency URL
+              href="https://tourixxa-3yet8jh1g-ruchit-patels-projects-b32f3c7a.vercel.app/login" // replace with your real agency URL
               target="_blank"
               rel="noopener noreferrer"
               className="join-agency-btn"
