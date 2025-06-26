@@ -27,10 +27,11 @@ export default function DashboardPage() {
 			console.log('Adding package:', newPkg);
 			const response = await fetchPost({
 				pathName: 'agency/addPackage',
-				body: JSON.stringify({ packageData: newPkg }),
+				token: localStorage.getItem('token'), // ✅ This line is CRITICAL
+				body: JSON.stringify(newPkg),
 			});
 			const savedPkg = response.data;
-			setPackages((prev) => [...prev, savedPkg]); // Optionally, use response from API
+			setPackages((prev) => [...prev, savedPkg]);
 		} catch (error) {
 			console.error('Error adding package:', error);
 			alert('Failed to add package.');
@@ -55,10 +56,9 @@ export default function DashboardPage() {
 	};
 
 	const filteredPackages = packages.filter((pkg) => {
-		const matchesSearch = (pkg.title || '')
-			.toLowerCase()
-			.includes((searchTerm || '').toLowerCase());
-		const matchesType = selectedType === 'All' || pkg.type === selectedType;
+		if (!pkg || !pkg.title || !pkg.packageType) return false;
+		const matchesSearch = pkg.title.toLowerCase().includes(searchTerm.toLowerCase());
+		const matchesType = selectedType === 'All' || pkg.packageType === selectedType;
 		return matchesSearch && matchesType;
 	});
 

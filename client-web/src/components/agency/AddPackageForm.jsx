@@ -19,7 +19,7 @@ export default function AddPackageForm({ onAdd }) {
 			price: parseFloat(price),
 			duration,
 			description,
-			type: packageType,
+			packageType,
 		};
 
 		onAdd(newPackage);

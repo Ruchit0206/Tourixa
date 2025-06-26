@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '/logo.jpeg'; // make sure the path is correct
+import { fetchPost } from '../../utils/fetch.utils'; // make sure path is correct
 
 export default function LoginPage() {
 	const [email, setEmail] = useState('');
@@ -9,7 +10,7 @@ export default function LoginPage() {
 	const [error, setError] = useState('');
 	const navigate = useNavigate();
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setError('');
 
@@ -22,7 +23,26 @@ export default function LoginPage() {
 			return;
 		}
 
-		navigate('/dashboard');
+		try {
+			const res = await fetchPost({
+				pathName: 'agency/login',
+				body: JSON.stringify({ email, password }),
+			});
+
+			if (res?.token) {
+				localStorage.setItem('token', res.token);
+				localStorage.setItem('role', 'AGENCY');
+				localStorage.setItem('agencyName', res.agency?.name); // optional
+				localStorage.setItem('agencyEmail', res.agency?.email); // optional
+
+				navigate('/dashboard');
+			} else {
+				setError(res?.message || 'Login failed. Please try again.');
+			}
+		} catch (err) {
+			console.error('Login error:', err);
+			setError('Something went wrong. Please try again.');
+		}
 	};
 
 	return (
