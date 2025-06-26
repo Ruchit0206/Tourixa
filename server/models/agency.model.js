@@ -16,11 +16,11 @@ const agencySchema = new mongoose.Schema(
 		},
 		proofDocument: {
 			type: String,
-			required: true,
+			// required: true,
 		},
 		phone: {
 			type: String,
-			required: true,
+			// required: true,
 			trim: true,
 		},
 		address: {

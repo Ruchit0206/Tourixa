@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '/logo.jpeg';
+import { fetchPost } from '../../utils/fetch.utils';
+import { useNavigate } from 'react-router-dom';
 
 export default function RegisterPage() {
 	const [fullName, setFullName] = useState('');
@@ -8,8 +10,9 @@ export default function RegisterPage() {
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmPassword] = useState('');
 	const [error, setError] = useState('');
+	const navigate = useNavigate();
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setError('');
 
@@ -30,7 +33,26 @@ export default function RegisterPage() {
 			return;
 		}
 
-		alert(`Registered: ${fullName}, Email: ${email}`);
+		try {
+			const result = await fetchPost({
+				pathName: 'agency/register',
+				body: JSON.stringify({ name: fullName, email, password }),
+			});
+			if (result.error) {
+				setError(result.error);
+				return;
+			}
+			if (result.success) {
+				alert(`Registered: ${fullName}, Email: ${email}`);
+				navigate('/agency/login');
+			} else {
+				console.log('Registration failed:', result);
+				setError(result.message || 'Registration failed. Please try again.');
+			}
+		} catch (err) {
+			console.error('Registration error:', err);
+			setError('An unexpected error occurred. Please try again later.');
+		}
 	};
 
 	return (
