@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AddPackageForm from '../../components/agency/AddPackageForm';
 import PackageList from '../../components/agency/PackageList';
+import { fetchPost } from '../../utils/fetch.utils';
 
 export default function DashboardPage() {
 	const [packages, setPackages] = useState([]);
@@ -20,9 +21,22 @@ export default function DashboardPage() {
 		}, 700);
 	};
 
-	const addPackage = (newPkg) => {
-		const packageWithId = { ...newPkg, id: Date.now() };
-		simulateLoading(() => setPackages([...packages, packageWithId]));
+	const addPackage = async (newPkg) => {
+		setLoading(true);
+		try {
+			console.log('Adding package:', newPkg);
+			const response = await fetchPost({
+				pathName: 'agency/addPackage',
+				body: JSON.stringify({ packageData: newPkg }),
+			});
+			const savedPkg = response.data;
+			setPackages((prev) => [...prev, savedPkg]); // Optionally, use response from API
+		} catch (error) {
+			console.error('Error adding package:', error);
+			alert('Failed to add package.');
+		} finally {
+			setLoading(false);
+		}
 	};
 
 	const updatePackage = (index, updatedPkg) => {

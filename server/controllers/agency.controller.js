@@ -45,22 +45,29 @@ async function loginAgency(req, res) {
 
 async function addPackage(req, res) {
 	try {
-		const { agencyId, packageData } = req.body;
+		const { packageData } = req.body;
+		// agencyId = res.locals.agencyId; // Assuming agencyId is set in middleware
 
-		if (!agencyId || !packageData) {
-			return res.status(400).json({ message: 'Agency ID and package data are required' });
-		}
+		// if (!agencyId || !packageData) {
+		// 	return res.status(400).json({ message: 'Agency ID and package data are required' });
+		// }
 
-		const agency = await agencyModel.findById(agencyId);
-		if (!agency) {
-			return res.status(404).json({ message: 'Agency not found' });
-		}
+		// const agency = await agencyModel.findById(agencyId);
+		// if (!agency) {
+		// 	return res.status(404).json({ message: 'Agency not found' });
+		// }
 
-		const newPackage = new packageModel({ ...packageData, agency: agencyId });
+		const newPackage = new packageModel({
+			title: packageData.title,
+			price: packageData.price,
+			duration: packageData.duration,
+			description: packageData.description,
+			packageType: packageData.type,
+		});
 		await newPackage.save();
-		agency.packages.push(newPackage._id);
-		await agency.save();
-		res.status(201).json({ message: 'Package added successfully', package: newPackage });
+		// agency.packages.push(newPackage._id);
+		// await agency.save();
+		res.status(201).json({ message: 'Package added successfully', data: newPackage });
 	} catch (error) {
 		res.status(500).json({ message: 'Server error', error: error.message });
 	}
