@@ -59,117 +59,148 @@ export default function Home() {
 
 	return (
 		<PageLayout>
-			<div>
-				<div
-					className="relative bg-cover bg-center bg-no-repeat text-white w-full h-[730px]"
-					style={{ backgroundImage: `url(homepage.jpg)` }}
-				>
-					<div className="relative z-10 flex flex-col justify-center items-start pt-32 px-10 max-w-full backdrop-blur-sm">
-						<p className="text-sm text-orange-100 font-bold mb-2">Launching Soon</p>
-						<h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5">
-							Discover The <span className="text-gray-300">Trip</span> Crafted By You
-						</h1>
-						<p className="text-lg md:text-xl mb-6 animate-fadeIn">
-							<span className="text-2xl font-bold animate-fadeIn bg-gradient-to-r from-pink-500 via-yellow-400 to-green-400 bg-clip-text text-transparent inline-block animate-rainbow">
-								<TypeAnimation
-									sequence={greetings.flatMap((g) => [g, 2000])}
-									speed={80}
-									repeat={Infinity}
-									cursor={true}
-								/>
-							</span>
-							<br />
-							Our team is working hard to bring you a powerful user experience. Stay
-							tuned!
-						</p>
+			{/* Hero Section */}
+			<section
+				className="relative w-full h-[550px] bg-cover bg-center text-white mt-5"
+				style={{ backgroundImage: `url(homepage.jpg)` }}
+			>
+				<div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
 
-						<div className="flex flex-wrap gap-4 justify-start">
-							<Link to="/underde/Login As Traveller">
-								<button className="min-w-[180px] max-w-[250px] py-3 px-8 text-white font-bold rounded-full bg-gradient-to-br from-[#45302d] via-[#10ea08e6] to-[#45302d] shadow-lg hover:bg-gradient-to-br hover:from-blue-500 hover:to-purple-600 transform hover:-translate-y-1 transition-all duration-300">
-									Login As Traveller
-								</button>
-							</Link>
-							<a
-								href="https://tourixaa.vercel.app/login"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<button className="min-w-[180px] max-w-[250px] py-3 px-8 text-white font-bold rounded-full bg-gradient-to-br from-[#45302d] via-[#10ea08e6] to-[#45302d] shadow-lg hover:bg-gradient-to-br hover:from-blue-500 hover:to-purple-600 transform hover:-translate-y-1 transition-all duration-300">
-									Join As Agency
-								</button>
-							</a>
-							<Link to="VideoUpload">
-								<button className="min-w-[180px] max-w-[250px] py-3 px-8 text-white font-bold rounded-full bg-gradient-to-br from-[#45302d] via-[#10ea08e6] to-[#45302d] shadow-lg hover:bg-gradient-to-br hover:from-blue-500 hover:to-purple-600 transform hover:-translate-y-1 transition-all duration-300">
-									Upload Travel Moments
-								</button>
-							</Link>
-						</div>
+				<div className="relative w-full h-full flex flex-col justify-center items-start space-y-6 px-4 md:px-6">
+					<p className="text-orange-300 font-semibold tracking-wider uppercase text-sm md:text-base animate-pulse">
+						Launching Soon
+					</p>
 
-						<div className="mt-5 text-lg font-semibold">
-							India's First Open Travel Platform
-						</div>
+					<h1 className="text-4xl md:text-6xl font-extrabold leading-tight max-w-3xl">
+						Discover The{' '}
+						<span className="text-gradient bg-gradient-to-r from-pink-500 via-yellow-400 to-green-400 bg-clip-text text-transparent">
+							Trip
+						</span>{' '}
+						Crafted By You
+					</h1>
 
-						{timeLeft && (
-							<div className="mt-4 text-xl font-bold text-[#faf0e6]">
-								{timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m{' '}
-								{timeLeft.seconds}s
-							</div>
-						)}
-
-						<div
-							onClick={scrollToSecondPage}
-							className="cursor-pointer font-bold text-white mt-8 text-xl relative inline-block pb-1 transition-all duration-300 hover:text-yellow-300"
-						>
-							Start Your Journey
-							<img
-								src="https://placeaa-seven.vercel.app/static/media/spiral.6e188be20c53c6fdce60d3f1a7b0ea1f.svg"
-								alt="start"
-								className="inline-block w-6 h-6 ml-2 transform rotate-180"
+					<p className="text-lg md:text-xl max-w-2xl">
+						<span className="inline-block text-3xl font-bold text-transparent bg-gradient-to-r from-pink-400 via-yellow-300 to-green-300 bg-clip-text">
+							<TypeAnimation
+								sequence={greetings.flatMap((g) => [g, 2000])}
+								speed={80}
+								repeat={Infinity}
+								cursor={true}
 							/>
-							<div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-yellow-400 scale-x-0 origin-right transition-transform duration-300 hover:scale-x-100 hover:origin-left"></div>
+						</span>
+						<br />
+						Our team is working hard to bring you a powerful user experience. Stay tuned!
+					</p>
+
+
+					{/* Buttons Group */}
+					<div className="flex flex-wrap gap-4 mt-6">
+						<Link to="/underde/Login As Traveller">
+							<button className={btnPrimaryClasses}>Login As Traveller</button>
+						</Link>
+
+						<a href="https://tourixaa.vercel.app/login" target="_blank" rel="noopener noreferrer">
+							<button className={btnPrimaryClasses}>Join As Agency</button>
+						</a>
+
+						<Link to="/VideoUpload">
+							<button className={btnPrimaryClasses}>Upload Travel Moments</button>
+						</Link>
+					</div>
+
+
+					{/* Tagline */}
+					<div className="mt-4 text-lg font-semibold uppercase tracking-wide text-yellow-400 drop-shadow-md">
+						India's First Open Travel Platform
+					</div>
+
+					{/* Countdown Timer */}
+					{timeLeft && (
+						<div className="mt-6 inline-flex items-center gap-4 bg-black/40 px-6 py-3 rounded-lg shadow-lg text-xl font-semibold tracking-widest">
+							<TimeBlock label="Days" value={timeLeft.days} />
+							<TimeBlock label="Hours" value={timeLeft.hours} />
+							<TimeBlock label="Minutes" value={timeLeft.minutes} />
+							<TimeBlock label="Seconds" value={timeLeft.seconds} />
 						</div>
+					)}
+
+					{/* Scroll Down */}
+					<div
+						onClick={scrollToSecondPage}
+						className="cursor-pointer flex items-center gap-2 font-bold text-yellow-400 hover:text-yellow-300 transition-colors duration-300 w-max select-none"
+					>
+						Start Your Journey
+						<img
+							src="https://placeaa-seven.vercel.app/static/media/spiral.6e188be20c53c6fdce60d3f1a7b0ea1f.svg"
+							alt="start"
+							className="w-6 h-6 rotate-180"
+							loading="lazy"
+						/>
 					</div>
 				</div>
+			</section>
 
-				<div id="next-section">
+			{/* About and Carousels Section */}
+			<main className="px-3 mx-auto space-y-16 py-12">
+				<section id="next-section" className="space-y-10">
 					<AboutUs />
-				</div>
-				<TravelCarouseli />
-				<TravelCarouseld />
-				<Secondpage />
+					<TravelCarouseli />
+					<TravelCarouseld />
+					<Secondpage />
+				</section>
+			</main>
 
-				{showBackToTop && (
-					<>
-						<button
-							onClick={scrollToTop}
-							aria-label="Back to top"
-							className="fixed bottom-10 right-10 w-12 h-12 text-white text-2xl font-bold bg-gradient-to-br from-purple-600 to-blue-500 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:-translate-y-1 z-50"
-						>
-							↑
-						</button>
 
-						<button
-							onClick={() => navigate('/Inquiry')}
-							className="fixed bottom-20 left-5 bg-[#7c4b30] text-white px-5 py-3 rounded-full font-bold shadow-md flex items-center gap-2 z-50 hover:bg-[#5c3724] transition duration-300"
-						>
-							<img
-								src="https://cdn-icons-png.flaticon.com/512/9412/9412919.png"
-								alt="Inquiry"
-								className="w-5"
-							/>
-							<span className="hidden sm:inline">Inquiry</span>
-						</button>
+			{/* Back to Top and Fixed Buttons */}
+			{showBackToTop && (
+				<>
+					<button
+						onClick={scrollToTop}
+						aria-label="Back to top"
+						className="fixed bottom-10 right-10 w-14 h-14 rounded-full bg-gradient-to-br from-purple-600 to-blue-500 text-white text-3xl shadow-lg flex items-center justify-center transition-transform hover:-translate-y-1 z-50"
+					>
+						↑
+					</button>
 
-						<button
-							onClick={() => navigate('/Community')}
-							className="fixed bottom-5 left-5 bg-[#7c4b30] text-white px-5 py-3 rounded-full font-bold shadow-md flex items-center gap-2 z-50 hover:bg-[#5c3724] transition duration-300"
-						>
-							<i className="fa-solid fa-users-rectangle"></i>
-							<span className="hidden sm:inline">Community</span>
-						</button>
-					</>
-				)}
-			</div>
+					<button
+						onClick={() => navigate('/Inquiry')}
+						className="fixed bottom-20 left-5 bg-[#7c4b30] text-white px-6 py-3 rounded-full font-bold shadow-md flex items-center gap-3 z-50 hover:bg-[#5c3724] transition duration-300"
+					>
+						<img
+							src="https://cdn-icons-png.flaticon.com/512/9412/9412919.png"
+							alt="Inquiry"
+							className="w-6"
+							loading="lazy"
+						/>
+						<span className="hidden sm:inline">Inquiry</span>
+					</button>
+
+					<button
+						onClick={() => navigate('/Community')}
+						className="fixed bottom-5 left-5 bg-[#7c4b30] text-white px-6 py-3 rounded-full font-bold shadow-md flex items-center gap-3 z-50 hover:bg-[#5c3724] transition duration-300"
+					>
+						<i className="fa-solid fa-users-rectangle"></i>
+						<span className="hidden sm:inline">Community</span>
+					</button>
+				</>
+			)}
 		</PageLayout>
 	);
 }
+
+// Helper for countdown blocks
+const TimeBlock = ({ label, value }) => (
+	<div className="flex flex-col items-center min-w-[3.5rem]">
+		<span className="text-3xl font-extrabold">{value}</span>
+		<span className="text-xs uppercase tracking-widest">{label}</span>
+	</div>
+);
+
+// Tailwind button class for reuse in main buttons
+// You can put this in your global CSS or Tailwind config if needed
+const btnPrimaryClasses =
+	'px-6 py-3 rounded-full font-bold text-white bg-gradient-to-r from-purple-600 via-pink-500 to-red-400 shadow-md hover:from-pink-500 hover:to-yellow-400 transform hover:-translate-y-1 transition duration-300';
+
+// Usage inside JSX: className={btnPrimaryClasses}
+// Or you can just keep it inline for simplicity
+

@@ -10,6 +10,7 @@ import UnderDevelopment from './components/Development.jsx';
 import RegisterPage from './pages/agency/RegisterPage.jsx';
 import LoginPage from './pages/agency/LoginPage.jsx';
 import DashboardPage from './pages/agency/Dashboard.jsx';
+import Community from './pages/Community.jsx';
 
 const routes = createBrowserRouter([
 	{
@@ -23,6 +24,7 @@ const routes = createBrowserRouter([
 			{ path: '/offers', element: <Offers /> },
 			{ path: '/vr-service-page', element: <VRServicePage /> },
 			{ path: '/plan-with-us', element: <PlanWithUs /> },
+			{ path: '/community', element: <Community /> }
 		],
 	},
 	{

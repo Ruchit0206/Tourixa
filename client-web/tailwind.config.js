@@ -3,10 +3,12 @@ export default {
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		extend: {
-			// colors: {
-			// 	darkBlue: '#002865',
-			// 	primaryBlue: '#3b82f6',
-			// },
+			colors: {
+				'primary': '#0f172a', // dark navy
+				'accent': '#06b6d4', // cyan
+				'gradient-start': '#ec4899',
+				'gradient-end': '#fbbf24',
+			},
 		},
 	},
 	plugins: [],

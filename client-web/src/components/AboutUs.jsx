@@ -1,34 +1,71 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import aboutImg from '/aboutpic.jpg';
 import { Link } from 'react-router-dom';
 
+
 const AboutUs = () => {
+  const [showMore, setShowMore] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
+
+  useEffect(() => {
+    const updateScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024);
+    };
+    window.addEventListener("resize", updateScreenSize);
+    return () => window.removeEventListener("resize", updateScreenSize);
+  }, []);
+
+  const fullContent = (
+    <>
+      <p className="mb-4">
+        <strong>Tourixaa</strong> is India’s first open and collaborative travel marketplace where verified travel agencies and passionate travelers connect, create, and get unforgettable journeys.
+      </p>
+      <p className="mb-4">
+        We’re building India’s first open travel ecosystem where verified travel agencies come together under one roof through a subscription-based model, giving travelers direct access to a wide range of trip plans, unique local experiences, and expert guidance.
+      </p>
+      <p className="mb-4">
+        Whether you’re looking for a serene escape in the hills, a culturally rich city tour, or a thrilling adventure off the beaten path — we connect you with the right agency to make it happen, your way.
+      </p>
+      <p className="mb-4">
+        Born from a passion for exploration and built with modern technology, Tourixaa blends smart digital tools (like trip previews and real-time planning features) with a human-first approach. We empower both travelers and agencies:
+        <br />
+        – <strong>Travelers</strong> get freedom of choice, better deals, and fully tailored trips.
+        <br />
+        – <strong>Agencies</strong> get visibility, leads, and a platform to grow without middlemen.
+      </p>
+      <p>
+        With Tourixaa, every journey starts with a choice — not a compromise.
+        <br />
+        <strong>Open. Flexible. Authentic.</strong> That’s Tourixaa.
+      </p>
+    </>
+  );
+
   return (
     <div>
-      <div className="flex flex-col md:flex-row items-center gap-8 px-4 sm:px-6 md:px-8 py-20 pt-[150px] bg-white">
+      <div className="flex flex-col md:flex-row items-center gap-8 px-4 sm:px-6 md:px-8 pt-0 bg-white">
         {/* Text Section */}
         <div className="w-full md:w-1/2 text-[1rem] sm:text-[1.1rem] leading-7 order-1">
           <h2 className="text-2xl sm:text-3xl font-semibold mb-4">About Tourixaa</h2>
 
           <div className="bg-[#f9fafb] p-4 sm:p-6 rounded-lg shadow-sm text-justify">
-            <p className="mb-4">
-              <strong>Tourixaa</strong> is India’s first open and collaborative travel marketplace where verified travel agencies and passionate travelers connect, create, and get unforgettable journeys. We’re building India’s first open travel ecosystem where verified travel agencies come together under one roof through a subscription-based model, giving travelers direct access to a wide range of trip plans, unique local experiences, and expert guidance.
-            </p>
-            <p className="mb-4">
-              At Tourixaa, whether you’re looking for a serene escape in the hills, a culturally rich city tour, or a thrilling adventure off the beaten path — we connect you with the right agency to make it happen, your way.
-            </p>
-            <p className="mb-4">
-              Born from a passion for exploration and built with modern technology, Tourixaa blends smart digital tools (like trip previews and real-time planning features) with a human-first approach. We empower both travelers and agencies:
-              <br />
-              – <strong>Travelers</strong> get freedom of choice, better deals, and fully tailored trips.
-              <br />
-              – <strong>Agencies</strong> get visibility, leads, and a platform to grow without middlemen.
-            </p>
-            <p>
-              With Tourixaa, every journey starts with a choice — not a compromise.
-              <br />
-              <strong>Open. Flexible. Authentic.</strong> That’s Tourixaa.
-            </p>
+            {/* Always show full content on large screens */}
+            {isLargeScreen ? fullContent : (
+              <>
+                <p className="mb-4">
+                  <strong>Tourixaa</strong> is India’s first open and collaborative travel marketplace where verified travel agencies and passionate travelers connect, create, and get unforgettable journeys.
+                </p>
+
+                {showMore && fullContent}
+
+                <button
+                  className="text-blue-600 mt-2 font-medium hover:underline"
+                  onClick={() => setShowMore(prev => !prev)}
+                >
+                  {showMore ? "See less" : "See more"}
+                </button>
+              </>
+            )}
           </div>
 
           <div className="mt-6">
@@ -56,7 +93,7 @@ const AboutUs = () => {
 };
 
 const Benefits = () => (
-  <section className="py-12 px-4 sm:px-6 md:px-8 bg-white text-center">
+  <section className="py-12 bg-white text-center">
     <h2 className="text-2xl sm:text-3xl font-semibold mb-10">Why Choose Tourixaa?</h2>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
       {[
@@ -93,7 +130,8 @@ const Benefits = () => (
       ].map((item, idx) => (
         <div
           key={idx}
-          className="bg-[#f0f4f8] rounded-[12px] p-6 shadow-md text-center"
+          className="bg-[#f0f4f8] rounded-[12px] p-6 shadow-md text-center
+                     transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer"
         >
           <span className="text-3xl block mb-3">{item.icon}</span>
           <h3 className="text-lg font-bold mb-2">{item.title}</h3>
@@ -103,5 +141,6 @@ const Benefits = () => (
     </div>
   </section>
 );
+
 
 export default AboutUs;
