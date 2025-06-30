@@ -24,7 +24,7 @@ export default function Home() {
 	];
 
 	useEffect(() => {
-		const launchDate = new Date('2025-06-01T00:00:00').getTime();
+		const launchDate = new Date('2025-07-05T00:00:00').getTime();
 		const interval = setInterval(() => {
 			const now = new Date().getTime();
 			const distance = launchDate - now;
@@ -58,13 +58,16 @@ export default function Home() {
 	};
 
 	return (
-		<PageLayout>
+		<PageLayout className="overflow-hidden">
+
 			{/* Hero Section */}
 			<section
-				className="relative w-full h-[550px] bg-cover bg-center text-white mt-5"
-				style={{ backgroundImage: `url(homepage.jpg)` }}
-			>
-				<div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+	className="relative w-full h-screen bg-cover bg-center text-white"
+	style={{ backgroundImage: `url(homepage.jpg)` }}
+>
+
+				<div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]"></div>
+
 
 				<div className="relative w-full h-full flex flex-col justify-center items-start space-y-6 px-4 md:px-6">
 					<p className="text-orange-300 font-semibold tracking-wider uppercase text-sm md:text-base animate-pulse">
@@ -95,16 +98,14 @@ export default function Home() {
 
 					{/* Buttons Group */}
 					<div className="flex flex-wrap gap-4 mt-6">
-						<Link to="/underde/Login As Traveller">
-							<button className={btnPrimaryClasses}>Login As Traveller</button>
-						</Link>
+						
 
 						<a href="https://tourixaa.vercel.app/login" target="_blank" rel="noopener noreferrer">
 							<button className={btnPrimaryClasses}>Join As Agency</button>
 						</a>
 
-						<Link to="/VideoUpload">
-							<button className={btnPrimaryClasses}>Upload Travel Moments</button>
+						<Link to="/packages">
+							<button className={btnPrimaryClasses}>Visit Packages</button>
 						</Link>
 					</div>
 

@@ -4,9 +4,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import confetti from "canvas-confetti";
 import {
-	FaUser,
 	FaGift,
-	FaHome,
 	FaGlobe,
 	FaHiking,
 	FaSuitcase,
@@ -27,39 +25,25 @@ import {
 	FaTrain,
 } from "react-icons/fa";
 
-// --- Dropdown Section Data ---
+// ---------------------- Dropdown Menu Data ----------------------
 const dropdownSections = [
-	{
-		id: "second",
-		label: "Tours",
-		links: [
-			{ to: "/international", text: <><FaGlobe className="inline mr-2" />International</> },
-			{ to: "/Domestic", text: <><FaPlane className="inline mr-2" />Domestic</> },
-			{ to: "/Group Tour", text: <><FaPeopleCarry className="inline mr-2" />Group Tour</> },
-			{ to: "/Solo Tour", text: <><FaHiking className="inline mr-2" />Solo Tour</> },
-			{ to: "/Nature and Tracking", text: <><FaTree className="inline mr-2" />Nature</> },
-			{ to: "/Maharaja Express", text: <><FaTrain className="inline mr-2" />Maharaja Express</> },
-			{ to: "/Honeymoon Package", text: <><FaHeart className="inline mr-2" />Honeymoon</> },
-			{ to: "/Spiritual Places", text: <><FaDharmachakra className="inline mr-2" />Spiritual</> },
-			{ to: "/Children Places", text: <><FaBaby className="inline mr-2" />Children Places</> },
-		],
-	},
+	
 	{
 		id: "fourth",
-		label: "Planning",
+		label: "Travel Guide",
 		links: [
-			{ to: "/Ai Tour Planner", text: <><FaBrain className="inline mr-2" />AI Tour Planner</> },
+			{ to: "/aitour", text: <><FaBrain className="inline mr-2" />AI Tour Planner</> },
 			{ to: "/plan-with-us", text: <><FaSuitcase className="inline mr-2" />Plan With Us</> },
 		],
 	},
 	{
 		id: "fifth",
-		label: "Media",
+		label: "Feature",
 		links: [
 			{ to: "/vr-service-page", text: <><FaGlobe className="inline mr-2" />VR Tour</> },
-			{ to: "/Video", text: <><FaVideo className="inline mr-2" />Video</> },
-			{ to: "/3D Model", text: <><FaCubes className="inline mr-2" />3D Model</> },
-			{ to: "/360 Video", text: <><FaSyncAlt className="inline mr-2" />360 Video</> },
+			{ to: "/videopage", text: <><FaVideo className="inline mr-2" />Video</> },
+			{ to: "/3dmodel", text: <><FaCubes className="inline mr-2" />3D Model</> },
+			
 		],
 	},
 	{
@@ -84,25 +68,17 @@ const dropdownSections = [
 	},
 ];
 
-// --- Reusable DropdownMenu Component ---
+// ---------------------- Dropdown Component ----------------------
 const DropdownMenu = ({ section, dropdownOpen, handleDropdownToggle, handleNavClick, isMobile }) => {
 	if (!isMobile) {
 		return (
 			<li className="relative group">
-				<div className="cursor-pointer hover:text-cyan-400 transition flex items-center">
-					{section.label}
-				</div>
+				<div className="cursor-pointer hover:text-cyan-400 transition flex items-center">{section.label}</div>
 				<div className="absolute left-0 top-full mt-2 z-[1001] invisible group-hover:visible opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
 					<ul className="bg-white text-black rounded-md shadow-lg w-56 pointer-events-auto">
 						{section.links.map((link, idx) => (
 							<li key={idx}>
-								<Link
-									to={link.to}
-									onClick={handleNavClick}
-									className="block px-4 py-2 hover:bg-gray-100 whitespace-nowrap"
-								>
-									{link.text}
-								</Link>
+								<Link to={link.to} onClick={handleNavClick} className="block px-4 py-2 hover:bg-gray-100 whitespace-nowrap">{link.text}</Link>
 							</li>
 						))}
 					</ul>
@@ -112,26 +88,14 @@ const DropdownMenu = ({ section, dropdownOpen, handleDropdownToggle, handleNavCl
 	} else {
 		return (
 			<li className="relative">
-				<div
-					className="cursor-pointer hover:text-cyan-400 transition flex justify-between items-center"
-					onClick={() => handleDropdownToggle(section.id)}
-				>
+				<div className="cursor-pointer hover:text-cyan-400 transition flex justify-between items-center" onClick={() => handleDropdownToggle(section.id)}>
 					{section.label}
 					<span className="ml-2">{dropdownOpen === section.id ? "▲" : "▼"}</span>
 				</div>
-				<ul
-					className={`mt-2 bg-white text-black rounded-md shadow-lg z-[1001] w-full transition-all duration-200 ${dropdownOpen === section.id ? "block" : "hidden"
-						}`}
-				>
+				<ul className={`mt-2 bg-white text-black rounded-md shadow-lg z-[1001] w-full transition-all duration-200 ${dropdownOpen === section.id ? "block" : "hidden"}`}>
 					{section.links.map((link, idx) => (
 						<li key={idx}>
-							<Link
-								to={link.to}
-								onClick={handleNavClick}
-								className="block px-4 py-2 hover:bg-gray-100"
-							>
-								{link.text}
-							</Link>
+							<Link to={link.to} onClick={handleNavClick} className="block px-4 py-2 hover:bg-gray-100">{link.text}</Link>
 						</li>
 					))}
 				</ul>
@@ -140,20 +104,14 @@ const DropdownMenu = ({ section, dropdownOpen, handleDropdownToggle, handleNavCl
 	}
 };
 
-// --- NavLinkItem Component ---
-const NavLinkItem = ({ to, label, onClick, className = "" }) => (
+// ---------------------- NavLinkItem ----------------------
+const NavLinkItem = ({ to, label, onClick, className = "", ...rest }) => (
 	<li>
-		<Link
-			to={to}
-			onClick={onClick}
-			className={`hover:text-cyan-400 flex items-center gap-1 ${className}`}
-		>
-			{label}
-		</Link>
+		<Link to={to} onClick={onClick} className={`hover:text-cyan-400 flex items-center gap-1 ${className}`} {...rest}>{label}</Link>
 	</li>
 );
 
-// --- Navbar Main Component ---
+// ---------------------- Main Navbar ----------------------
 export default function Navbar(props) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [dropdownOpen, setDropdownOpen] = useState(null);
@@ -170,11 +128,7 @@ export default function Navbar(props) {
 	};
 
 	const toggleNavbar = () => setIsOpen((prev) => !prev);
-
-	const handleDropdownToggle = (id) => {
-		setDropdownOpen((prev) => (prev === id ? null : id));
-	};
-
+	const handleDropdownToggle = (id) => setDropdownOpen((prev) => (prev === id ? null : id));
 	const handleNavClick = () => {
 		setIsOpen(false);
 		setDropdownOpen(null);
@@ -183,106 +137,83 @@ export default function Navbar(props) {
 
 	return (
 		<nav className="fixed top-0 w-full z-[1000] bg-black/80 text-white text-lg shadow-md">
-			<div className="max-w-[1280px] mx-auto flex justify-between items-center px-4 lg:px-6 py-4">
-				{/* Logo and Toggle */}
-				<div className="flex items-center gap-4">
+		<div className="w-full flex items-center justify-between py-4 px-4 relative">
+
+				<div className="pl-[4px]">
 					<Link to="/" onClick={handleNavClick}>
-						<img
-							src={logo}
-							alt="Tourixaa Logo"
-							className="h-14 w-auto rounded-lg shadow-md hover:scale-105 transition-transform duration-200"
-						/>
+						<img src={logo} alt="Tourixaa Logo" className="h-14 w-auto rounded-lg shadow-md hover:scale-105 transition-transform duration-200" />
 					</Link>
-					<button
-						className="lg:hidden flex flex-col justify-center items-center w-9 h-9"
-						onClick={toggleNavbar}
-						aria-label={isOpen ? "Close Menu" : "Open Menu"}
-						aria-expanded={isOpen}
-					>
-						<span
-							className={`bg-white h-[2px] w-6 my-[3px] transition-all duration-300 ${isOpen ? "rotate-45 translate-y-[6px]" : ""
-								}`}
-						/>
-						<span
-							className={`bg-white h-[2px] w-6 my-[3px] transition-all duration-300 ${isOpen ? "opacity-0" : ""
-								}`}
-						/>
-						<span
-							className={`bg-white h-[2px] w-6 my-[3px] transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-[6px]" : ""
-								}`}
-						/>
-					</button>
 				</div>
 
-				{/* Desktop Menu */}
-				<div className="hidden lg:flex items-center space-x-6">
-					<ul className="flex items-center gap-5 text-[20px] font-medium tracking-wide">
+				{/* Hamburger */}
+				<button className="lg:hidden flex flex-col justify-center items-center w-9 h-9" onClick={toggleNavbar}>
+					<span className={`bg-white h-[2px] w-6 my-[3px] transition-all duration-300 ${isOpen ? "rotate-45 translate-y-[6px]" : ""}`} />
+					<span className={`bg-white h-[2px] w-6 my-[3px] transition-all duration-300 ${isOpen ? "opacity-0" : ""}`} />
+					<span className={`bg-white h-[2px] w-6 my-[3px] transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-[6px]" : ""}`} />
+				</button>
+
+				{/* Center Menu */}
+				<div className="hidden lg:flex items-center w-full">
+					<ul className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-6 text-[18px] font-medium tracking-wide">
 						<NavLinkItem to="/" label={props.first} onClick={handleNavClick} />
+						<NavLinkItem to="/packages" label="Packages" onClick={handleNavClick} />
 						{dropdownSections.map((section) => (
-							<DropdownMenu
-								key={section.id}
-								section={section}
-								dropdownOpen={dropdownOpen}
-								handleDropdownToggle={handleDropdownToggle}
-								handleNavClick={handleNavClick}
-								isMobile={false}
-							/>
+							<DropdownMenu key={section.id} section={section} dropdownOpen={dropdownOpen} handleDropdownToggle={handleDropdownToggle} handleNavClick={handleNavClick} isMobile={false} />
 						))}
 						<NavLinkItem to="/community" label="Community" onClick={handleNavClick} />
-						<NavLinkItem
-							to="/Offers"
-							label="Offers"
-							onClick={handleNavClick}
-							className="bg-gradient-to-r from-pink-600 to-yellow-400 text-white px-4 py-1.5 rounded-md font-bold shadow hover:scale-105 transition"
-							onMouseEnter={handleConfetti}
-						/>
-						<NavLinkItem
-							to="/Profile"
-							label="Profile"
-							onClick={handleNavClick}
-							className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1.5 rounded-md font-semibold transition"
-						/>
+						<NavLinkItem to="/Offers" label={<><FaGift className="inline mr-1" />Offers</>} onClick={() => { handleNavClick(); handleConfetti(); }} />
 					</ul>
+
+					{/* Right Side */}
+					<ul className="ml-auto flex items-center gap-4 pr-[4px]">
+						<Link
+	to="/dashboard"
+	onClick={handleNavClick}
+	className="bg-white text-black px-4 py-2 rounded-md shadow hover:bg-cyan-500 hover:text-white transition font-semibold"
+>
+	Add Package
+</Link>
+	</ul>
 				</div>
 			</div>
 
 			{/* Mobile Menu */}
 			{isOpen && (
 				<div className="lg:hidden fixed inset-0 bg-black/90 backdrop-blur-md z-[999] pt-20 px-6 overflow-auto">
-					<button
-						onClick={toggleNavbar}
-						className="text-white text-3xl font-bold absolute top-5 right-5"
-						aria-label="Close Menu"
-					>
-						&times;
-					</button>
+					<button onClick={toggleNavbar} className="text-white text-3xl font-bold absolute top-5 right-5">&times;</button>
 					<ul className="flex flex-col gap-4 text-lg font-medium">
-						<NavLinkItem to="/" label={props.first} onClick={handleNavClick} />
-						{dropdownSections.map((section) => (
-							<DropdownMenu
-								key={section.id}
-								section={section}
-								dropdownOpen={dropdownOpen}
-								handleDropdownToggle={handleDropdownToggle}
-								handleNavClick={handleNavClick}
-								isMobile={true}
-							/>
-						))}
-						<NavLinkItem to="/community" label="Community" onClick={handleNavClick} />
-						<NavLinkItem
-							to="/Offers"
-							label="Offers"
-							onClick={handleNavClick}
-							className="bg-gradient-to-r from-pink-600 to-yellow-400 text-white px-4 py-2 rounded-md font-bold mt-4"
-							onMouseEnter={handleConfetti}
-						/>
-						<NavLinkItem
-							to="/Profile"
-							label="Profile"
-							onClick={handleNavClick}
-							className="bg-blue-600 text-white px-4 py-2 rounded-md font-semibold mt-2"
-						/>
-					</ul>
+	<NavLinkItem to="/" label={props.first} onClick={handleNavClick} />
+	<NavLinkItem to="/packages" label="Packages" onClick={handleNavClick} />
+	{dropdownSections.map((section) => (
+		<DropdownMenu
+			key={section.id}
+			section={section}
+			dropdownOpen={dropdownOpen}
+			handleDropdownToggle={handleDropdownToggle}
+			handleNavClick={handleNavClick}
+			isMobile={true}
+		/>
+	))}
+	<NavLinkItem to="/community" label="Community" onClick={handleNavClick} />
+	<NavLinkItem
+		to="/Offers"
+		label={<><FaGift className="inline mr-2" />Offers</>}
+		onClick={() => {
+			handleNavClick();
+			handleConfetti();
+		}}
+		className="hover:text-cyan-400 transition"
+	/>
+	<Link
+	to="/login"
+	onClick={handleNavClick}
+	className="bg-white text-black text-center px-4 py-2 rounded-md shadow hover:bg-cyan-500 hover:text-white transition font-semibold"
+>
+	Add Package
+</Link>
+
+</ul>
+
 				</div>
 			)}
 		</nav>
@@ -291,10 +222,4 @@ export default function Navbar(props) {
 
 Navbar.propTypes = {
 	first: PropTypes.string.isRequired,
-	second: PropTypes.string,
-	third: PropTypes.string,
-	fourth: PropTypes.string,
-	fifth: PropTypes.string,
-	six: PropTypes.string,
-	seven: PropTypes.string,
 };

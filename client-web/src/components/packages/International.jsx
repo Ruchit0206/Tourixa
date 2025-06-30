@@ -5,6 +5,7 @@ import PackageCard from './PackageCard';
 import Advertisement from './Advertisement';
 import PageLayout from '../layouts/PageLayout';
 
+
 const International = () => {
 	const [packages, setPackages] = useState([]);
 	const [filteredPackages, setFilteredPackages] = useState([]);
@@ -12,59 +13,72 @@ const International = () => {
 
 	useEffect(() => {
 		const mockData = [
-			{
-				title: 'Goa Getaway',
-				from: 'Ahmedabad',
-				location: 'Goa',
-				rating: 4.2,
-				originalPrice: 30000,
-				discountedPrice: 22000,
-				vendor: 'Sunny Travels',
-				features: ['3 Nights', 'Beach Resort', 'Free Water Sports'],
-				availableDates: ['2025-06-14', '2025-06-18', '2025-06-25'],
-				maxGuests: 4,
-				packageType: 'Domestic',
-			},
-			{
-				title: 'Manali Adventure',
-				from: 'Delhi',
-				location: 'Manali',
-				rating: 4.5,
-				originalPrice: 25000,
-				discountedPrice: 19000,
-				vendor: 'Himalaya Holidays',
-				features: ['2 Nights', 'Snow Trekking', 'Campfire Dinner'],
-				availableDates: ['2025-06-15', '2025-06-20', '2025-06-30'],
-				maxGuests: 5,
-				packageType: 'Trekking',
-			},
-			{
-				title: 'Kerala Backwaters',
-				from: 'Mumbai',
-				location: 'Alleppey',
-				rating: 4.8,
-				originalPrice: 40000,
-				discountedPrice: 32000,
-				vendor: 'South India Travels',
-				features: ['Houseboat', '2 Nights', 'Traditional Meals'],
-				availableDates: ['2025-06-14', '2025-06-22', '2025-06-29'],
-				maxGuests: 6,
-				packageType: 'Nature',
-			},
-			{
-				title: 'Paris Explorer',
-				from: 'Mumbai',
-				location: 'Paris',
-				rating: 4.9,
-				originalPrice: 120000,
-				discountedPrice: 95000,
-				vendor: 'Global Tours',
-				features: ['Eiffel Tower', 'Cruise Dinner', '4 Nights'],
-				availableDates: ['2025-06-25', '2025-07-01'],
-				maxGuests: 2,
-				packageType: 'International',
-			},
-		];
+  {
+    title: 'Goa Getaway',
+    from: 'Ahmedabad',
+    location: 'Goa',
+    rating: 4.2,
+    originalPrice: 30000,
+    discountedPrice: 22000,
+    vendor: 'Sunny Travels',
+    features: ['3 Nights', 'Beach Resort', 'Free Water Sports'],
+    availableDates: ['2025-06-14', '2025-06-18', '2025-06-25'],
+    maxGuests: 4,
+    packageType: 'Domestic',
+    hashtags: ['#Beach', '#Relax'],
+    isBestSeller: true,
+    imageUrl: '/images/Goa.jpg',
+  },
+  {
+    title: 'Manali Adventure',
+    from: 'Delhi',
+    location: 'Manali',
+    rating: 4.5,
+    originalPrice: 25000,
+    discountedPrice: 19000,
+    vendor: 'Himalaya Holidays',
+    features: ['2 Nights', 'Snow Trekking', 'Campfire Dinner'],
+    availableDates: ['2025-06-15', '2025-06-20', '2025-06-30'],
+    maxGuests: 5,
+    packageType: 'Trekking',
+    hashtags: ['#Snow', '#Adventure'],
+    isBestSeller: false,
+    imageUrl: '/images/Manali.jpg',
+  },
+  {
+    title: 'Kerala Backwaters',
+    from: 'Mumbai',
+    location: 'Alleppey',
+    rating: 4.8,
+    originalPrice: 40000,
+    discountedPrice: 32000,
+    vendor: 'South India Travels',
+    features: ['Houseboat', '2 Nights', 'Traditional Meals'],
+    availableDates: ['2025-06-14', '2025-06-22', '2025-06-29'],
+    maxGuests: 6,
+    packageType: 'Nature',
+    hashtags: ['#Backwaters', '#Calm'],
+    isBestSeller: true,
+    imageUrl: '/images/Kerala.jpg',
+  },
+  {
+    title: 'Paris Explorer',
+    from: 'Mumbai',
+    location: 'Paris',
+    rating: 4.9,
+    originalPrice: 120000,
+    discountedPrice: 95000,
+    vendor: 'Global Tours',
+    features: ['Eiffel Tower', 'Cruise Dinner', '4 Nights'],
+    availableDates: ['2025-06-25', '2025-07-01'],
+    maxGuests: 2,
+    packageType: 'International',
+    hashtags: ['#Romantic', '#Luxury'],
+    isBestSeller: true,
+    imageUrl: '/images/paris.jpg',
+  },
+];
+
 
 		setPackages(mockData);
 		setFilteredPackages(mockData);

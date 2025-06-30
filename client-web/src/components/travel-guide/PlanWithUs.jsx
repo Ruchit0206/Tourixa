@@ -233,7 +233,7 @@ export default function PlanWithUs() {
 				</div>
 
 				<a
-					href="https://wa.me/919979683808"
+					href="https://wa.me/917046726220"
 					className="fixed bottom-6 right-6 bg-green-500 text-white px-4 py-2 rounded-full shadow-lg z-50 font-semibold hover:bg-green-600"
 					target="_blank"
 					rel="noopener noreferrer"

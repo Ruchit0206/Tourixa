@@ -1,72 +1,85 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
+
+import "swiper/css"; 
+import "swiper/css/navigation"; 
 import "swiper/css/pagination";
+
 
 const travelData = [
   {
     id: 1,
     title: "BARCELONA",
     image: "/images/barcelona.jpg",
+    description: "Modernist architecture and lively beaches.",
     sticker: "International Pack",
   },
   {
     id: 2,
     title: "BALI",
     image: "/images/bali.jpeg",
+    description: "Island paradise with temples and beaches.",
     sticker: "International Pack",
   },
   {
     id: 3,
     title: "DUBAI",
     image: "/images/dubai.jpg",
+    description: "Skyscrapers, luxury shopping & desert adventures.",
     sticker: "International Pack",
   },
   {
     id: 4,
     title: "GREECE",
     image: "/images/greece.webp",
+    description: "Historic ruins and stunning Aegean islands.",
     sticker: "International Pack",
   },
   {
     id: 5,
     title: "PARIS",
     image: "/images/paris.jpg",
+    description: "City of love, lights, and iconic Eiffel Tower.",
     sticker: "International Pack",
   },
   {
     id: 6,
     title: "TOKYO",
     image: "/images/tokyo.jpg",
+    description: "Futuristic city with traditional roots.",
     sticker: "International Pack",
   },
   {
     id: 7,
     title: "ROME",
     image: "/images/rome.webp",
+    description: "Ancient ruins, art, and romantic vibes.",
     sticker: "International Pack",
   },
   {
     id: 8,
     title: "NEW YORK",
     image: "/images/newyork.jpg",
+    description: "The city that never sleeps with iconic landmarks.",
     sticker: "International Pack",
   },
   {
     id: 9,
     title: "CAPE TOWN",
     image: "/images/capetown.jpg",
+    description: "Mountains, wildlife & coastal beauty.",
     sticker: "International Pack",
   },
   {
     id: 10,
     title: "SYDNEY",
     image: "/images/sydney.jpg",
+    description: "Opera House, beaches & laid-back lifestyle.",
     sticker: "International Pack",
   },
 ];
+
 
 const TravelCarousel = () => {
   const [fullscreenImage, setFullscreenImage] = useState(null);
@@ -121,11 +134,13 @@ const TravelCarousel = () => {
                 </div>
               )}
 
-              <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 py-3 text-left text-white">
-                <h3 className="text-xl font-semibold tracking-wide drop-shadow-md">
-                  {place.title}
-                </h3>
-              </div>
+             <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 py-3 text-left text-white">
+  <h3 className="text-xl font-semibold tracking-wide drop-shadow-md">
+    {place.title}
+  </h3>
+  <p className="text-sm opacity-90 mt-1">{place.description}</p>
+</div>
+
             </div>
           </SwiperSlide>
         ))}
