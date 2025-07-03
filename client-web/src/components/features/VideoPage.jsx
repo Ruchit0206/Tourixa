@@ -1,48 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
 import "primeicons/primeicons.css";
 import PageLayout from "../layouts/PageLayout";
-
-// -----------------------------
-// 🔁 LazyIframe Component
-// -----------------------------
-const LazyIframe = ({ src, title }) => {
-  const ref = useRef();
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div ref={ref} className="w-full h-full">
-      {isVisible ? (
-        <iframe
-          src={src}
-          title={title}
-          className="w-full h-full rounded pointer-events-none"
-          allowFullScreen
-        />
-      ) : (
-        <div className="w-full h-full flex items-center justify-center bg-gray-200 rounded">
-          <i className="pi pi-spinner pi-spin text-2xl text-blue-500" />
-        </div>
-      )}
-    </div>
-  );
-};
 
 // -----------------------------
 // 📹 Video Data
@@ -195,29 +155,55 @@ const videoData = [
 ];
 
 
+
+// -----------------------------
+// 🎬 Thumbnail with Play Button
+// -----------------------------
+const ClickableThumbnail = ({ video, onClick }) => {
+  const videoId = video.url.split("embed/")[1];
+
+  return (
+    <div
+      onClick={() => onClick(video)}
+      className="relative aspect-video cursor-pointer group rounded overflow-hidden"
+    >
+      <img
+        src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+        alt={video.place}
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      />
+      <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-16 w-16 text-white opacity-80 group-hover:opacity-100"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </div>
+    </div>
+  );
+};
+
 // -----------------------------
 // 📦 Video Card Component
 // -----------------------------
 const VideoCard = ({ video, onClick, isViewed }) => {
   return (
-    <div
-      onClick={() => onClick(video)}
-      className="group relative p-[2px] rounded-xl w-full cursor-pointer transition-transform transform hover:scale-105"
-    >
-      {/* Card content inside sparkling border */}
+    <div className="group relative p-[2px] rounded-xl w-full transition-transform transform hover:scale-105">
       <div className="relative bg-white rounded-xl p-4 shadow-sm border border-gray-200 hover:border-gray-400 hover:shadow-lg transition">
         {isViewed && (
           <div className="absolute top-2 right-2 bg-green-600 text-white text-xs px-2 py-1 rounded-full shadow">
             ✅ Watched
           </div>
         )}
-        <div className="aspect-video mb-3">
-          <LazyIframe src={video.url} title={video.place} />
-        </div>
-        <h3 className="text-lg font-semibold text-gray-800 text-center">
+        <ClickableThumbnail video={video} onClick={onClick} />
+
+        <h3 className="text-lg font-semibold text-gray-800 text-center mt-2">
           {video.place}
         </h3>
-        <h3 className="text-lg font-semibold text-red-600 text-center">
+        <h3 className="text-sm font-medium text-red-600 text-center">
           {video.type}
         </h3>
         <p className="text-sm text-gray-600 text-center mt-1">
@@ -244,8 +230,8 @@ const VideoCard = ({ video, onClick, isViewed }) => {
 export default function VideoPage() {
   const [activeType, setActiveType] = useState("all");
   const [search, setSearch] = useState("");
-  const [visible, setVisible] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [visible, setVisible] = useState(false);
   const [viewedVideos, setViewedVideos] = useState([]);
 
   const handleCardClick = (video) => {
@@ -265,9 +251,7 @@ export default function VideoPage() {
   return (
     <PageLayout>
       <div className="min-h-screen p-6 bg-gray-100">
-        <h2 className="text-3xl font-bold text-center mb-4">
-          Explore Destinations
-        </h2>
+        <h2 className="text-3xl font-bold text-center mb-4">Explore Destinations</h2>
 
         {/* Search */}
         <input
@@ -277,11 +261,12 @@ export default function VideoPage() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-            <div className="text-l text-center text-gray-500 mt-1 py-1.3">
-  ⚠️ All video copyrights belong to their respective owners.
-</div>
 
-        {/* Toggle Buttons */}
+        <div className="text-l text-center text-gray-500 mt-1 py-1.3">
+          ⚠️ All video copyrights belong to their respective owners.
+        </div>
+
+        {/* Filter Buttons */}
         <div className="flex justify-center gap-4 mb-8 flex-wrap">
           {["all", "Video", "360 Video"].map((type) => (
             <Button
@@ -302,10 +287,8 @@ export default function VideoPage() {
             />
           ))}
         </div>
-    
 
-
-        {/* Grid of Cards */}
+        {/* Grid of Video Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredVideos.map((video) => (
             <VideoCard
@@ -317,7 +300,7 @@ export default function VideoPage() {
           ))}
         </div>
 
-        {/* Modal Video Dialog */}
+        {/* Modal for playing video */}
         <Dialog
           visible={visible}
           onHide={() => setVisible(false)}
@@ -329,22 +312,27 @@ export default function VideoPage() {
           {selectedVideo && (
             <div className="aspect-video">
               <iframe
-                src={selectedVideo.url}
+                src={`${selectedVideo.url}?autoplay=1`}
                 title={selectedVideo.place}
                 className="w-full h-full rounded"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
             </div>
           )}
         </Dialog>
-        {/* 📌 Copyright Disclaimer */}
-<div className="mt-12 bg-yellow-100 text-yellow-900 border-l-4 border-yellow-500 p-4 rounded shadow-sm max-w-3xl mx-auto text-sm leading-relaxed">
-  <h4 className="font-bold mb-1">📌 Disclaimer</h4>
-  <p>
-    The videos embedded on this page are publicly available content hosted on YouTube. We do not claim any ownership or copyright over these videos. All credit goes to their respective creators and YouTube channels. These videos are used purely for educational and informational purposes, without any intent to infringe.
-  </p>
-</div>
 
+        {/* 📌 Disclaimer */}
+        <div className="mt-12 bg-yellow-100 text-yellow-900 border-l-4 border-yellow-500 p-4 rounded shadow-sm max-w-3xl mx-auto text-sm leading-relaxed">
+          <h4 className="font-bold mb-1">📌 Disclaimer</h4>
+          <p>
+            The videos embedded on this page are publicly available content
+            hosted on YouTube. We do not claim any ownership or copyright over
+            these videos. All credit goes to their respective creators and
+            YouTube channels. These videos are used purely for educational and
+            informational purposes.
+          </p>
+        </div>
       </div>
     </PageLayout>
   );

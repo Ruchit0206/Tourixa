@@ -107,6 +107,7 @@ export default function Home() {
 						<Link to="/packages">
 							<button className={btnPrimaryClasses}>Visit Packages</button>
 						</Link>
+						<button className={btnPrimaryClasses}>Profile Section</button>
 					</div>
 
 
@@ -143,7 +144,8 @@ export default function Home() {
 
 			{/* About and Carousels Section */}
 			<main className="px-3 mx-auto space-y-16 py-12">
-				<section id="next-section" className="space-y-10">
+				<section id="next-section" className="space-y-10 scroll-mt-20">
+
 					<AboutUs />
 					<TravelCarouseli />
 					<TravelCarouseld />
@@ -163,7 +165,7 @@ export default function Home() {
 						↑
 					</button>
 
-					<button
+					<Link to ="/inquireus"><button
 						onClick={() => navigate('/Inquiry')}
 						className="fixed bottom-20 left-5 bg-[#7c4b30] text-white px-6 py-3 rounded-full font-bold shadow-md flex items-center gap-3 z-50 hover:bg-[#5c3724] transition duration-300"
 					>
@@ -174,7 +176,7 @@ export default function Home() {
 							loading="lazy"
 						/>
 						<span className="hidden sm:inline">Inquiry</span>
-					</button>
+					</button></Link>
 
 					<button
 						onClick={() => navigate('/Community')}

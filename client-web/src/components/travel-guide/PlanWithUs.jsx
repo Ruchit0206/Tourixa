@@ -40,7 +40,7 @@ export default function PlanWithUs() {
 
 	return (
 		<PageLayout>
-			<div className="px-6 py-10 bg-gray-100 text-gray-800 mt-16">
+			<div className="px-6 py-10 bg-gray-100 text-gray-800 mt-2">
 				<motion.h1
 					className="text-4xl font-bold text-center mb-2"
 					initial={{ opacity: 0, y: 30 }}

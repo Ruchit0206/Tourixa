@@ -14,7 +14,8 @@ export default function PageLayout({ children }) {
 				six="Cultural Journeys"
 				seven="Corporate Getaways"
 			/>
-			<main className="pt-20">
+			<main className="pt-16 md:pt-20">
+
 				{children}
 			</main>
 			<Footer />

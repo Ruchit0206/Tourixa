@@ -51,7 +51,7 @@ const International = () => {
     location: 'Alleppey',
     rating: 4.8,
     originalPrice: 40000,
-    discountedPrice: 32000,
+    discountedPrice: 2000,
     vendor: 'South India Travels',
     features: ['Houseboat', '2 Nights', 'Traditional Meals'],
     availableDates: ['2025-06-14', '2025-06-22', '2025-06-29'],
@@ -113,7 +113,7 @@ const International = () => {
 	return (
 		<PageLayout>
 			<section className="bg-gray-50">
-				<div className="mt-[66px]">
+				<div className="mt-[6px]">
 					<SearchBar onSearch={handleSearch} onClear={handleClearSearch} />
 					{/* <FilterBar /> */}
 					{searchSummary && <p className="text-center my-4 font-bold">{searchSummary}</p>}

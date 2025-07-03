@@ -49,14 +49,14 @@ const travelData = [
   {
     id: 6,
     title: "AGRA",
-    image: "/images/Ladakh.webp",
+    image: "/images/agra.jpg",
     description: "Home of the majestic Taj Mahal.",
     sticker: "Domestic Pack",
   },
   {
     id: 7,
     title: "KEDARNATH",
-    image: "/images/Ladakh.webp",
+    image: "/images/kedarnath.jpg",
     description: "Island beauty & coral diving.",
     sticker: "Spiritual Pack",
   },
@@ -70,14 +70,14 @@ const travelData = [
   {
     id: 9,
     title: "HUMPI",
-    image: "/images/Ladakh.webp",
+    image: "/images/Hampi.jpg",
     description: "Famous for tea and scenic sunrise.",
     sticker: "Heritage Pack",
   },
   {
     id: 10,
     title: "MALLDIVES",
-    image: "/images/Ladakh.webp",
+    image: "/images/maldives.jpg",
     description: "River rafting & spiritual vibes.",
     sticker: "Spiritual Pack",
   },

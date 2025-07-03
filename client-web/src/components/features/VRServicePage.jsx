@@ -87,9 +87,9 @@ const VRServicePage = () => {
 
   return (
     <PageLayout>
-      <div className="mt-[66px] bg-gradient-to-b from-[#7490b9] to-[#8bf9d6]">
+      <div className=" bg-gradient-to-b from-[#7490b9] to-[#8bf9d6] mt-2">
         <div className="bg-[#ffde59] text-black py-2 px-5 text-center font-semibold animate-fadeInDown">
-          🎉 First-time users get a free 5-minute VR destination tour!
+          🎉 First-time users get a free 5-minute VR Heritage Tour!
         </div>
 
         <section className="bg-white py-10 px-5 text-center">

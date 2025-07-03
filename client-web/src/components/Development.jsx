@@ -18,9 +18,9 @@ export default function UnderDevelopment() {
 
 	return (
 		<PageLayout>
-			<div style={{ textAlign: 'center', padding: '30px', marginTop: '66px' }}>
+			<div style={{ textAlign: 'center', padding: '5px', marginTop: '66px' , fontSize:" 1.3rem" }}>
 				<h2>🚧 {pageName} page is Under Development</h2>
-				<p>We're working on this page. Please check back later.</p>
+				<p>We're working on this page.</p>
 				<p>Come Back Soon</p>
 			</div>
 		</PageLayout>

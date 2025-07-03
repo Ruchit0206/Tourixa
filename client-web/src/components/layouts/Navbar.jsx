@@ -27,10 +27,9 @@ import {
 
 // ---------------------- Dropdown Menu Data ----------------------
 const dropdownSections = [
-	
 	{
 		id: "fourth",
-		label: "Travel Guide",
+		label: "Guide",
 		links: [
 			{ to: "/aitour", text: <><FaBrain className="inline mr-2" />AI Tour Planner</> },
 			{ to: "/plan-with-us", text: <><FaSuitcase className="inline mr-2" />Plan With Us</> },
@@ -43,7 +42,6 @@ const dropdownSections = [
 			{ to: "/vr-service-page", text: <><FaGlobe className="inline mr-2" />VR Tour</> },
 			{ to: "/videopage", text: <><FaVideo className="inline mr-2" />Video</> },
 			{ to: "/3dmodel", text: <><FaCubes className="inline mr-2" />3D Model</> },
-			
 		],
 	},
 	{
@@ -137,24 +135,25 @@ export default function Navbar(props) {
 
 	return (
 		<nav className="fixed top-0 w-full z-[1000] bg-black/80 text-white text-lg shadow-md">
-		<div className="w-full flex items-center justify-between py-4 px-4 relative">
-
+			<div className="w-full flex items-center justify-between lg:gap-4 py-4 px-4">
+				
+				{/* Logo */}
 				<div className="pl-[4px]">
-					<Link to="/" onClick={handleNavClick}>
-						<img src={logo} alt="Tourixaa Logo" className="h-14 w-auto rounded-lg shadow-md hover:scale-105 transition-transform duration-200" />
+					<Link to="/" onClick={handleNavClick} className="flex items-center gap-2">
+						<img
+							src={logo}
+							alt="Tourixaa Logo"
+							className="h-14 w-auto rounded-lg shadow-md hover:scale-105 transition-transform duration-200 hidden md:block"
+						/>
+						<span className="block md:hidden text-white text-2xl font-extrabold tracking-widest animate-fade-in-left">
+							Tourixaa
+						</span>
 					</Link>
 				</div>
 
-				{/* Hamburger */}
-				<button className="lg:hidden flex flex-col justify-center items-center w-9 h-9" onClick={toggleNavbar}>
-					<span className={`bg-white h-[2px] w-6 my-[3px] transition-all duration-300 ${isOpen ? "rotate-45 translate-y-[6px]" : ""}`} />
-					<span className={`bg-white h-[2px] w-6 my-[3px] transition-all duration-300 ${isOpen ? "opacity-0" : ""}`} />
-					<span className={`bg-white h-[2px] w-6 my-[3px] transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-[6px]" : ""}`} />
-				</button>
-
-				{/* Center Menu */}
-				<div className="hidden lg:flex items-center w-full">
-					<ul className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-6 text-[18px] font-medium tracking-wide">
+				{/* Center Menu - FIXED */}
+				<div className="hidden lg:flex justify-center flex-1">
+					<ul className="flex items-center gap-6 text-[18px] font-medium tracking-wide">
 						<NavLinkItem to="/" label={props.first} onClick={handleNavClick} />
 						<NavLinkItem to="/packages" label="Packages" onClick={handleNavClick} />
 						{dropdownSections.map((section) => (
@@ -163,18 +162,20 @@ export default function Navbar(props) {
 						<NavLinkItem to="/community" label="Community" onClick={handleNavClick} />
 						<NavLinkItem to="/Offers" label={<><FaGift className="inline mr-1" />Offers</>} onClick={() => { handleNavClick(); handleConfetti(); }} />
 					</ul>
-
-					{/* Right Side */}
-					<ul className="ml-auto flex items-center gap-4 pr-[4px]">
-						<Link
-	to="/dashboard"
-	onClick={handleNavClick}
-	className="bg-white text-black px-4 py-2 rounded-md shadow hover:bg-cyan-500 hover:text-white transition font-semibold"
->
-	Add Package
-</Link>
-	</ul>
 				</div>
+
+				{/* Right Buttons */}
+				<ul className="hidden lg:flex items-center gap-4 pr-[4px]">
+					<Link to="/Profile" onClick={handleNavClick} className="bg-white text-black px-4 py-2 rounded-md shadow hover:bg-cyan-500 hover:text-white transition font-semibold">Profile</Link>
+					<Link to="/dashboard" onClick={handleNavClick} className="bg-white text-black px-4 py-2 rounded-md shadow hover:bg-cyan-500 hover:text-white transition font-semibold">Add Package</Link>
+				</ul>
+
+				{/* Hamburger */}
+				<button className="lg:hidden flex flex-col justify-center items-center w-9 h-9" onClick={toggleNavbar}>
+					<span className={`bg-white h-[2px] w-6 my-[3px] transition-all duration-300 ${isOpen ? "rotate-45 translate-y-[6px]" : ""}`} />
+					<span className={`bg-white h-[2px] w-6 my-[3px] transition-all duration-300 ${isOpen ? "opacity-0" : ""}`} />
+					<span className={`bg-white h-[2px] w-6 my-[3px] transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-[6px]" : ""}`} />
+				</button>
 			</div>
 
 			{/* Mobile Menu */}
@@ -182,38 +183,15 @@ export default function Navbar(props) {
 				<div className="lg:hidden fixed inset-0 bg-black/90 backdrop-blur-md z-[999] pt-20 px-6 overflow-auto">
 					<button onClick={toggleNavbar} className="text-white text-3xl font-bold absolute top-5 right-5">&times;</button>
 					<ul className="flex flex-col gap-4 text-lg font-medium">
-	<NavLinkItem to="/" label={props.first} onClick={handleNavClick} />
-	<NavLinkItem to="/packages" label="Packages" onClick={handleNavClick} />
-	{dropdownSections.map((section) => (
-		<DropdownMenu
-			key={section.id}
-			section={section}
-			dropdownOpen={dropdownOpen}
-			handleDropdownToggle={handleDropdownToggle}
-			handleNavClick={handleNavClick}
-			isMobile={true}
-		/>
-	))}
-	<NavLinkItem to="/community" label="Community" onClick={handleNavClick} />
-	<NavLinkItem
-		to="/Offers"
-		label={<><FaGift className="inline mr-2" />Offers</>}
-		onClick={() => {
-			handleNavClick();
-			handleConfetti();
-		}}
-		className="hover:text-cyan-400 transition"
-	/>
-	<Link
-	to="/login"
-	onClick={handleNavClick}
-	className="bg-white text-black text-center px-4 py-2 rounded-md shadow hover:bg-cyan-500 hover:text-white transition font-semibold"
->
-	Add Package
-</Link>
-
-</ul>
-
+						<NavLinkItem to="/" label={props.first} onClick={handleNavClick} />
+						<NavLinkItem to="/packages" label="Packages" onClick={handleNavClick} />
+						{dropdownSections.map((section) => (
+							<DropdownMenu key={section.id} section={section} dropdownOpen={dropdownOpen} handleDropdownToggle={handleDropdownToggle} handleNavClick={handleNavClick} isMobile={true} />
+						))}
+						<NavLinkItem to="/community" label="Community" onClick={handleNavClick} />
+						<NavLinkItem to="/Offers" label={<><FaGift className="inline mr-2" />Offers</>} onClick={() => { handleNavClick(); handleConfetti(); }} />
+						<Link to="/login" onClick={handleNavClick} className="bg-white text-black text-center px-4 py-2 rounded-md shadow hover:bg-cyan-500 hover:text-white transition font-semibold">Add Package</Link>
+					</ul>
 				</div>
 			)}
 		</nav>

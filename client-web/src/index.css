@@ -16,3 +16,23 @@ body {
 	font-family: 'Times New Roman', Times, serif;
 }
 
+.input-style .p-inputtext,
+.input-style .p-dropdown,
+.input-style .p-calendar,
+.input-style .p-inputnumber-input {
+  background-color: #e5e7eb; /* Tailwind bg-gray-200 */
+  color: #111827; /* Tailwind text-gray-900 */
+  border-color: #9ca3af; /* Tailwind border-gray-400 */
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.input-style .p-inputtext:focus,
+.input-style .p-dropdown:focus,
+.input-style .p-calendar:focus,
+.input-style .p-inputnumber-input:focus {
+  outline: none;
+  border-color: #14b8a6; /* teal-500 */
+  box-shadow: 0 0 0 2px #99f6e4;
+}
