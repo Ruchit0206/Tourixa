@@ -4,13 +4,11 @@ import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
 const PackageCard = ({
 	title,
-	
 	rating,
 	originalPrice,
 	discountedPrice,
 	vendor,
 	features = [],
-	
 	hashtags = [],
 	imageUrl, // 👈 add this
 }) => {
@@ -36,7 +34,7 @@ const PackageCard = ({
 						<FaRegHeart className="text-black text-lg" />
 					)}
 				</div>
-				{discountAmount > 10000 && (
+				{discountAmount > 8000 && (
 					<div className="absolute top-2 left-2 bg-red-600 text-white text-xs font-semibold px-2 py-1 rounded z-10">
 						Best Deal
 					</div>
@@ -48,7 +46,6 @@ const PackageCard = ({
 				<div className="text-yellow-600 text-sm mb-1">
 					{'⭐'.repeat(Math.floor(rating)) + '☆'} ({rating})
 				</div>
-				
 
 				<ul className="text-sm mb-3 list-none p-0">
 					{features.map((item, index) => (
@@ -57,8 +54,6 @@ const PackageCard = ({
 						</li>
 					))}
 				</ul>
-
-				
 
 				<div className="flex flex-wrap gap-2 mb-3">
 					{hashtags.map((tag, i) => (
@@ -79,6 +74,14 @@ const PackageCard = ({
 						₹{discountedPrice.toLocaleString('en-IN')}
 					</span>
 				</div>
+
+				{/* ✅ Book Now Button */}
+				<button
+					onClick={() => alert(`Booking started for "${title}"`)}
+					className="w-full bg-red-600 text-white py-2 rounded-md text-sm font-semibold hover:bg-cyan-700 transition"
+				>
+					Book Now
+				</button>
 			</div>
 		</div>
 	);

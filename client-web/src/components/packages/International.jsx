@@ -51,7 +51,7 @@ const International = () => {
     location: 'Alleppey',
     rating: 4.8,
     originalPrice: 40000,
-    discountedPrice: 2000,
+    discountedPrice: 20000,
     vendor: 'South India Travels',
     features: ['Houseboat', '2 Nights', 'Traditional Meals'],
     availableDates: ['2025-06-14', '2025-06-22', '2025-06-29'],
