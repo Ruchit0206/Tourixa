@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import aboutImg from '/aboutpic.jpg';
 import { Link } from 'react-router-dom';
+import PageLayout from './layouts/PageLayout';
 
 
 const AboutUs = () => {
@@ -42,6 +43,7 @@ const AboutUs = () => {
   );
 
   return (
+   
     <div>
       <div className="flex flex-col md:flex-row items-center gap-8 px-4 sm:px-6 md:px-8 pt-0 bg-white">
         {/* Text Section */}
@@ -89,6 +91,8 @@ const AboutUs = () => {
 
       <Benefits />
     </div>
+   
+
   );
 };
 

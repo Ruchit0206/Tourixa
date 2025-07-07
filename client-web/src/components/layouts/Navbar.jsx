@@ -58,9 +58,9 @@ const dropdownSections = [
 		id: "corporate",
 		label: "Corporate",
 		links: [
-			{ to: "/Corporate Packages", text: <><FaSuitcase className="inline mr-2" />Corporate Packages</> },
+			{ to: "/corporatepack", text: <><FaSuitcase className="inline mr-2" />Corporate Packages</> },
 			{ to: "/Business Meetings", text: <><FaBusinessTime className="inline mr-2" />Business Meetings</> },
-			{ to: "/Team Offsite", text: <><FaUsers className="inline mr-2" />Team Offsite</> },
+		
 			{ to: "/Executive Retreats", text: <><FaTree className="inline mr-2" />Executive Retreats</> },
 		],
 	},
@@ -160,6 +160,7 @@ export default function Navbar(props) {
 							<DropdownMenu key={section.id} section={section} dropdownOpen={dropdownOpen} handleDropdownToggle={handleDropdownToggle} handleNavClick={handleNavClick} isMobile={false} />
 						))}
 						<NavLinkItem to="/community" label="Community" onClick={handleNavClick} />
+						<NavLinkItem to="/blogs" label="Blogs" onClick={handleNavClick} />
 						<NavLinkItem to="/Offers" label={<><FaGift className="inline mr-1" />Offers</>} onClick={() => { handleNavClick(); handleConfetti(); }} />
 					</ul>
 				</div>
@@ -189,6 +190,7 @@ export default function Navbar(props) {
 							<DropdownMenu key={section.id} section={section} dropdownOpen={dropdownOpen} handleDropdownToggle={handleDropdownToggle} handleNavClick={handleNavClick} isMobile={true} />
 						))}
 						<NavLinkItem to="/community" label="Community" onClick={handleNavClick} />
+						<NavLinkItem to="/blogs" label="Blogs" onClick={handleNavClick} />
 						<NavLinkItem to="/Offers" label={<><FaGift className="inline mr-2" />Offers</>} onClick={() => { handleNavClick(); handleConfetti(); }} />
 						<Link to="/login" onClick={handleNavClick} className="bg-white text-black text-center px-4 py-2 rounded-md shadow hover:bg-cyan-500 hover:text-white transition font-semibold">Add Package</Link>
 					</ul>

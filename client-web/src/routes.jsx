@@ -16,6 +16,7 @@ import VideoPage from './components/features/VideoPage.jsx';
 import ModelsPage from './components/features/3DModel.jsx';
 import AITourPlannerPage from './components/travel-guide/AiTourPlanner.jsx';
 import InquireUs from './components/packages/Inquireus.jsx';
+import CorporatePackages from './components/corporate/corporatepack.jsx';
 
 const routes = createBrowserRouter([
 	{
@@ -33,7 +34,10 @@ const routes = createBrowserRouter([
 				{ path: '/inquireus', element: <InquireUs /> },
 				{ path: '/videopage', element: <VideoPage /> },
 				{ path: '/3dmodel', element: <ModelsPage /> },
-				{ path: '/aitour', element: <AITourPlannerPage /> }
+				{ path: '/aitour', element: <AITourPlannerPage /> },
+				{ path: '/aboutus', element: <AboutUs /> },
+				{ path: '/corporatepack', element: <CorporatePackages /> }
+
 		],
 	},
 	{

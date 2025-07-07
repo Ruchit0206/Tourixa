@@ -60,13 +60,7 @@ const travelData = [
     description: "Island beauty & coral diving.",
     sticker: "Spiritual Pack",
   },
-  {
-    id: 8,
-    title: "OOTY",
-    image: "/images/Ladakh.webp",
-    description: "Green hills, tea gardens & toy train.",
-    sticker: "Tracking Pack",
-  },
+  
   {
     id: 9,
     title: "HUMPI",
