@@ -17,6 +17,7 @@ import ModelsPage from './components/features/3DModel.jsx';
 import AITourPlannerPage from './components/travel-guide/AiTourPlanner.jsx';
 import InquireUs from './components/packages/Inquireus.jsx';
 import CorporatePackages from './components/corporate/corporatepack.jsx';
+import BusinessMeeting from './components/corporate/businessmeeting.jsx';
 
 const routes = createBrowserRouter([
 	{
@@ -36,7 +37,8 @@ const routes = createBrowserRouter([
 				{ path: '/3dmodel', element: <ModelsPage /> },
 				{ path: '/aitour', element: <AITourPlannerPage /> },
 				{ path: '/aboutus', element: <AboutUs /> },
-				{ path: '/corporatepack', element: <CorporatePackages /> }
+				{ path: '/corporatepack', element: <CorporatePackages /> },
+				{ path: '/businessmeeting', element: <BusinessMeeting /> }
 
 		],
 	},

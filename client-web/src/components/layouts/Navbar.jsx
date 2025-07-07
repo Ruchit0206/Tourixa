@@ -59,9 +59,9 @@ const dropdownSections = [
 		label: "Corporate",
 		links: [
 			{ to: "/corporatepack", text: <><FaSuitcase className="inline mr-2" />Corporate Packages</> },
-			{ to: "/Business Meetings", text: <><FaBusinessTime className="inline mr-2" />Business Meetings</> },
+			{ to: "/businessmeeting", text: <><FaBusinessTime className="inline mr-2" />Business Meetings</> },
 		
-			{ to: "/Executive Retreats", text: <><FaTree className="inline mr-2" />Executive Retreats</> },
+			
 		],
 	},
 ];
