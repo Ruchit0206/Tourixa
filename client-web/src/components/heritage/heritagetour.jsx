@@ -626,6 +626,7 @@ export default function HeritageTourPage() {
               {type.label}
             </button>
           ))}
+          
         </div>
 
         {/* Grid of Cards */}
@@ -635,6 +636,38 @@ export default function HeritageTourPage() {
             <PackageCard key={tour.id} tour={tour} />
           ))}
         </div>
+        <div className="mt-12 max-w-3xl mx-auto">
+  <h2 className="text-2xl font-bold mb-4 text-center text-blue-700">🙋 Frequently Asked Questions</h2>
+  
+  <details className="mb-3 border border-gray-200 rounded p-4 bg-white shadow-sm">
+    <summary className="font-semibold text-gray-800 cursor-pointer">What is a UNESCO Pack?</summary>
+    <p className="mt-2 text-sm text-gray-600">
+      A UNESCO Pack includes only those heritage sites that are officially recognized as World Heritage Sites by UNESCO for their cultural or natural importance.
+    </p>
+  </details>
+
+  <details className="mb-3 border border-gray-200 rounded p-4 bg-white shadow-sm">
+    <summary className="font-semibold text-gray-800 cursor-pointer">What is a Full Heritage Pack?</summary>
+    <p className="mt-2 text-sm text-gray-600">
+      The Full Heritage Pack includes UNESCO sites as well as other important historic forts, temples, palaces, and cultural landmarks from the state.
+    </p>
+  </details>
+
+  <details className="mb-3 border border-gray-200 rounded p-4 bg-white shadow-sm">
+    <summary className="font-semibold text-gray-800 cursor-pointer">Is this package customizable?</summary>
+    <p className="mt-2 text-sm text-gray-600">
+      Yes, we offer customization options depending on your travel preferences, budget, and the number of days.
+    </p>
+  </details>
+
+  <details className="mb-3 border border-gray-200 rounded p-4 bg-white shadow-sm">
+    <summary className="font-semibold text-gray-800 cursor-pointer">How is the price decided?</summary>
+    <p className="mt-2 text-sm text-gray-600">
+      Price depends on the type of package, accommodation level, guide fees, and number of destinations covered. UNESCO Packs start at ₹3000 and Full Packs at ₹5000.
+    </p>
+  </details>
+</div>
+
 
         {/* 📌 Disclaimer */}
         <div className="mt-12 bg-yellow-100 text-yellow-900 border-l-4 border-yellow-500 p-4 rounded shadow-sm max-w-3xl mx-auto text-sm leading-relaxed">
