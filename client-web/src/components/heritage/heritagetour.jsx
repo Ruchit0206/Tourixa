@@ -667,6 +667,16 @@ export default function HeritageTourPage() {
     </p>
   </details>
 </div>
+<div className="mt-12 bg-white p-6 rounded-lg shadow-md max-w-4xl mx-auto">
+  <h2 className="text-xl font-bold text-center text-blue-700 mb-4">🚀 Why Choose Our Heritage Tours?</h2>
+  <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-700">
+    <li>✅ Expert-curated heritage itineraries</li>
+    <li>✅ Affordable & transparent pricing</li>
+    <li>✅ Trusted by 1,000+ travelers</li>
+    <li>✅ Guided tours with local experts</li>
+  </ul>
+</div>
+
 
 
         {/* 📌 Disclaimer */}
