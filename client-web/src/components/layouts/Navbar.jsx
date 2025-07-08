@@ -48,7 +48,7 @@ const dropdownSections = [
 		id: "six",
 		label: "Heritage",
 		links: [
-			{ to: "/Heritage Tour", text: <><FaLandmark className="inline mr-2" />Heritage Tour</> },
+			{ to: "/heritagetour", text: <><FaLandmark className="inline mr-2" />Heritage Tour</> },
 			{ to: "/Museum", text: <><FaUniversity className="inline mr-2" />Museum</> },
 			{ to: "/Video", text: <><FaVideo className="inline mr-2" />Forgotten Traditions</> },
 			{ to: "/3D Model", text: <><FaCubes className="inline mr-2" />Festival Tours</> },
@@ -168,7 +168,7 @@ export default function Navbar(props) {
 				{/* Right Buttons */}
 				<ul className="hidden lg:flex items-center gap-4 pr-[4px]">
 					<Link to="/Profile" onClick={handleNavClick} className="bg-white text-black px-4 py-2 rounded-md shadow hover:bg-cyan-500 hover:text-white transition font-semibold">Profile</Link>
-					<Link to="/dashboard" onClick={handleNavClick} className="bg-white text-black px-4 py-2 rounded-md shadow hover:bg-cyan-500 hover:text-white transition font-semibold">Add Package</Link>
+					<Link to="/dashboard" onClick={handleNavClick} className="bg-white text-black px-4 py-2 rounded-md shadow hover:bg-cyan-500 hover:text-white transition font-semibold">Join As Agency</Link>
 				</ul>
 
 				{/* Hamburger */}
@@ -192,7 +192,7 @@ export default function Navbar(props) {
 						<NavLinkItem to="/community" label="Community" onClick={handleNavClick} />
 						<NavLinkItem to="/blogs" label="Blogs" onClick={handleNavClick} />
 						<NavLinkItem to="/Offers" label={<><FaGift className="inline mr-2" />Offers</>} onClick={() => { handleNavClick(); handleConfetti(); }} />
-						<Link to="/login" onClick={handleNavClick} className="bg-white text-black text-center px-4 py-2 rounded-md shadow hover:bg-cyan-500 hover:text-white transition font-semibold">Add Package</Link>
+						<Link to="/login" onClick={handleNavClick} className="bg-white text-black text-center px-4 py-2 rounded-md shadow hover:bg-cyan-500 hover:text-white transition font-semibold">Join As Agency</Link>
 					</ul>
 				</div>
 			)}

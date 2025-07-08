@@ -18,6 +18,7 @@ import AITourPlannerPage from './components/travel-guide/AiTourPlanner.jsx';
 import InquireUs from './components/packages/Inquireus.jsx';
 import CorporatePackages from './components/corporate/corporatepack.jsx';
 import BusinessMeeting from './components/corporate/businessmeeting.jsx';
+import HeritageTourPage from './components/heritage/heritagetour.jsx';
 
 const routes = createBrowserRouter([
 	{
@@ -38,7 +39,8 @@ const routes = createBrowserRouter([
 				{ path: '/aitour', element: <AITourPlannerPage /> },
 				{ path: '/aboutus', element: <AboutUs /> },
 				{ path: '/corporatepack', element: <CorporatePackages /> },
-				{ path: '/businessmeeting', element: <BusinessMeeting /> }
+				{ path: '/businessmeeting', element: <BusinessMeeting /> },
+				{ path: '/heritagetour', element: <HeritageTourPage /> }
 
 		],
 	},
