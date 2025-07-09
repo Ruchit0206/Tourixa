@@ -42,7 +42,7 @@ const routes = createBrowserRouter([
 				{ path: '/corporatepack', element: <CorporatePackages /> },
 				{ path: '/businessmeeting', element: <BusinessMeeting /> },
 				{ path: '/heritagetour', element: <HeritageTourPage /> },
-				{ path: '/mesuem', element: <MuseumPage /> }
+				{ path: '/museum', element: <MuseumPage /> }
 
 		],
 	},
