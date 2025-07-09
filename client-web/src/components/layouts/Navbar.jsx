@@ -51,7 +51,7 @@ const dropdownSections = [
 			{ to: "/heritagetour", text: <><FaLandmark className="inline mr-2" />Heritage Tour</> },
 			{ to: "/museum", text: <><FaUniversity className="inline mr-2" />Museum</> },
 			{ to: "/Video", text: <><FaVideo className="inline mr-2" />Forgotten Traditions</> },
-			{ to: "/3D Model", text: <><FaCubes className="inline mr-2" />Festival Tours</> },
+			{ to: "/festival", text: <><FaCubes className="inline mr-2" />Festival Tours</> },
 		],
 	},
 	{

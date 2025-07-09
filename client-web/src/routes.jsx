@@ -20,6 +20,7 @@ import CorporatePackages from './components/corporate/corporatepack.jsx';
 import BusinessMeeting from './components/corporate/businessmeeting.jsx';
 import HeritageTourPage from './components/heritage/heritagetour.jsx';
 import MuseumPage from './components/heritage/museum.jsx';
+import FestivalPage from './components/heritage/FestivalPage.jsx';
 
 const routes = createBrowserRouter([
 	{
@@ -42,7 +43,8 @@ const routes = createBrowserRouter([
 				{ path: '/corporatepack', element: <CorporatePackages /> },
 				{ path: '/businessmeeting', element: <BusinessMeeting /> },
 				{ path: '/heritagetour', element: <HeritageTourPage /> },
-				{ path: '/museum', element: <MuseumPage /> }
+				{ path: '/museum', element: <MuseumPage /> },
+				{ path: '/festival', element: <FestivalPage /> }
 
 		],
 	},
