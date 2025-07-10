@@ -65,17 +65,18 @@ export default function ForgottenTraditionPage() {
         </h2>
 
         {/* Search Bar */}
-        <div className="flex justify-center mb-6">
-          <span className="p-input-icon-left w-full md:w-1/2">
-            <i className="pi pi-search" />
-            <InputText
-              className="w-full"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search tradition..."
-            />
-          </span>
-        </div>
+       <div className="flex justify-center mb-8">
+  <div className="relative w-full max-w-md">
+    <i className="pi pi-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+    <InputText
+      className="pl-10 pr-4 py-2 w-full border border-orange-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400 text-sm"
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+      placeholder="Search traditions by name..."
+    />
+  </div>
+</div>
+
 
         {/* Tabs */}
         <TabView activeIndex={activeIndex} onTabChange={(e) => setActiveIndex(e.index)}>
