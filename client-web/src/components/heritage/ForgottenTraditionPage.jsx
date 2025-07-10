@@ -1,8 +1,3 @@
-
-
-
-
-
 import React, { useState, useRef } from "react";
 import { InputText } from "primereact/inputtext";
 import { TabView, TabPanel } from "primereact/tabview";
@@ -12,10 +7,9 @@ import { Dropdown } from "primereact/dropdown";
 import { InputTextarea } from "primereact/inputtextarea";
 import { Toast } from "primereact/toast";
 import { ProgressSpinner } from "primereact/progressspinner";
-import { Image } from "primereact/image";
 import PageLayout from "../layouts/PageLayout";
 
-// Dynamic data
+// ... (Keep the entire data object as-is)
 const data = {
   "Old Cultures": [
     {
@@ -376,6 +370,7 @@ const data = {
   ],
 };
 
+
 export default function ForgottenTraditionPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
@@ -392,7 +387,6 @@ export default function ForgottenTraditionPage() {
   return (
     <PageLayout>
       <Toast ref={toast} />
-
       <section className="py-10 px-5 lg:px-20 bg-yellow-50 min-h-screen">
         <h2 className="text-4xl font-bold text-center text-orange-800 mb-6">
           Forgotten Traditions
@@ -421,18 +415,16 @@ export default function ForgottenTraditionPage() {
                     key={i}
                     className="bg-white shadow-xl rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-2xl transition duration-300"
                   >
-                    <Image
+                    <img
                       src={item.image}
                       alt={item.title}
-                      preview
-                      imageClassName="object-cover w-full h-48"
-                      className="w-full h-48"
+                      loading="lazy"
+                      className="object-cover w-full h-48"
                     />
                     <div className="p-5 space-y-2">
                       <h3 className="text-xl font-semibold text-orange-700">{item.title}</h3>
                       <p className="text-sm text-gray-500">{item.location}</p>
 
-                      {/* Show bullets if present, else description */}
                       {item.bullets ? (
                         <ul className="list-disc list-inside text-gray-700 text-sm space-y-1">
                           {item.bullets.map((point, j) => (
