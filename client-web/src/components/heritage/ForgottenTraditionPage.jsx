@@ -477,103 +477,121 @@ export default function ForgottenTraditionPage() {
           onHide={() => setShowDialog(false)}
           className="p-fluid rounded-2xl"
         >
-          <form
-            onSubmit={async (e) => {
-              e.preventDefault();
-              setLoading(true);
-              const formEl = e.target;
-              const formData = new FormData(formEl);
+        <form
+  onSubmit={async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const formEl = e.target;
+    const formData = new FormData(formEl);
+    try {
+      const response = await fetch("https://formspree.io/f/xeokyowy", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
 
-              try {
-                const response = await fetch("https://formspree.io/f/xeokyowy", {
-                  method: "POST",
-                  headers: { Accept: "application/json" },
-                  body: formData,
-                });
+      if (response.ok) {
+        toast.current.show({
+          severity: "success",
+          summary: "Submitted!",
+          detail: "Thank you for contributing 🎉",
+          life: 3000,
+        });
+        formEl.reset();
+        setShowDialog(false);
+      } else {
+        toast.current.show({
+          severity: "error",
+          summary: "Oops!",
+          detail: "Something went wrong.",
+          life: 3000,
+        });
+      }
+    } catch (err) {
+      toast.current.show({
+        severity: "error",
+        summary: "Network Error",
+        detail: "Please try again.",
+        life: 3000,
+      });
+    }
+    setLoading(false);
+  }}
+  className="space-y-5 bg-white px-6 py-4 rounded-xl shadow-xl border border-orange-200"
+>
+  {/* Title */}
+  <div>
+    <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
+      Tradition Title <span className="text-red-500">*</span>
+    </label>
+    <InputText
+      id="title"
+      name="title"
+      className="w-full p-inputtext-sm border border-orange-400 rounded-md"
+      required
+    />
+  </div>
 
-                if (response.ok) {
-                  toast.current.show({
-                    severity: "success",
-                    summary: "Submitted!",
-                    detail: "Thank you for contributing 🎉",
-                    life: 3000,
-                  });
-                  formEl.reset();
-                  setShowDialog(false);
-                } else {
-                  toast.current.show({
-                    severity: "error",
-                    summary: "Oops!",
-                    detail: "Something went wrong.",
-                    life: 3000,
-                  });
-                }
-              } catch (err) {
-                toast.current.show({
-                  severity: "error",
-                  summary: "Network Error",
-                  detail: "Please try again.",
-                  life: 3000,
-                });
-              }
+  {/* Location */}
+  <div>
+    <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-1">
+      Location <span className="text-red-500">*</span>
+    </label>
+    <InputText
+      id="location"
+      name="location"
+      className="w-full p-inputtext-sm border border-orange-400 rounded-md"
+      required
+    />
+  </div>
 
-              setLoading(false);
-            }}
-            className="space-y-5 bg-white px-6 py-4 rounded-xl shadow-xl border border-orange-200"
-          >
-            <div>
-              <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
-                Tradition Title <span className="text-red-500">*</span>
-              </label>
-              <InputText id="title" name="title" className="w-full p-inputtext-sm" required />
-            </div>
-            <div>
-              <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-1">
-                Location <span className="text-red-500">*</span>
-              </label>
-              <InputText id="location" name="location" className="w-full p-inputtext-sm" required />
-            </div>
-            <div>
-              <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">
-                Category
-              </label>
-              <Dropdown
-                id="category"
-                name="category"
-                className="w-full"
-                value={formData.category}
-                options={Object.keys(data)}
-                onChange={(e) => setFormData({ ...formData, category: e.value })}
-                placeholder="Select category"
-              />
-            </div>
-            <div>
-              <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
-                Description <span className="text-red-500">*</span>
-              </label>
-              <InputTextarea
-                id="description"
-                name="description"
-                rows={4}
-                className="w-full"
-                placeholder="Brief background or story"
-                required
-              />
-            </div>
-            <div className="flex justify-end pt-2">
-              <Button
-                type="submit"
-                label={loading ? "Submitting..." : "Submit Tradition"}
-                icon={!loading ? "pi pi-send" : null}
-                disabled={loading}
-                className="bg-orange-500 border-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md flex items-center gap-2 transition-all duration-300"
-              >
-                {loading && (
-                  <ProgressSpinner style={{ width: "18px", height: "18px" }} strokeWidth="4" />
-                )}
-              </Button>
-            </div>
-          </form>
+  {/* Category */}
+  <div>
+    <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">
+      Category
+    </label>
+    <Dropdown
+      id="category"
+      name="category"
+      className="w-full border border-orange-400 rounded-md"
+      value={formData.category}
+      options={Object.keys(data)}
+      onChange={(e) => setFormData({ ...formData, category: e.value })}
+      placeholder="Select category"
+    />
+  </div>
+
+  {/* Description */}
+  <div>
+    <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
+      Description <span className="text-red-500">*</span>
+    </label>
+    <InputTextarea
+      id="description"
+      name="description"
+      rows={4}
+      className="w-full border border-orange-400 rounded-md"
+      placeholder="Brief background or story"
+      required
+    />
+  </div>
+
+  {/* Submit Button */}
+  <div className="flex justify-end pt-2">
+    <Button
+      type="submit"
+      label={loading ? "Submitting..." : "Submit Tradition"}
+      icon={!loading ? "pi pi-send" : null}
+      disabled={loading}
+      className="bg-orange-500 border-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md flex items-center gap-2 transition-all duration-300"
+    >
+      {loading && (
+        <ProgressSpinner style={{ width: "18px", height: "18px" }} strokeWidth="4" />
+      )}
+    </Button>
+  </div>
+</form>
+
         </Dialog>
       </section>
     </PageLayout>
