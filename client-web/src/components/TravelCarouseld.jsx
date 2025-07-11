@@ -27,14 +27,14 @@ const travelData = [
   },
   {
     id: 3,
-    title: "OOTY",
+    title: "RAJASTAN",
     image: "/images/Jaipur.jpg",
     description: "Pink City with forts and culture.",
     sticker: "Nature Pack",
   },
   {
     id: 4,
-    title: "RAJASTAN",
+    title: "OOTY",
     image: "/images/Kerala.jpg",
     description: "Backwaters, houseboats & lush greenery.",
     sticker: "Heritage Pack",
