@@ -18,6 +18,9 @@ export default {
       animation: {
         'fade-in-left': 'fade-in-left 0.5s ease-out forwards',
       },
+      fontFamily: {
+        times: ['"Times New Roman"', 'serif'], // 👈 Add this
+      },
     },
   },
   plugins: [],

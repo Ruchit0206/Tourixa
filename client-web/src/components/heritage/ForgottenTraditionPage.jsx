@@ -387,7 +387,8 @@ export default function ForgottenTraditionPage() {
   return (
     <PageLayout>
       <Toast ref={toast} />
-      <section className="py-10 px-5 lg:px-20 bg-yellow-50 min-h-screen">
+   <section className="font-times py-10 px-5 lg:px-20 bg-yellow-50 min-h-screen">
+
         <h2 className="text-4xl font-bold text-center text-orange-800 mb-6">
           Forgotten Traditions
         </h2>
@@ -422,7 +423,7 @@ export default function ForgottenTraditionPage() {
                       className="object-cover w-full h-48"
                     />
                     <div className="p-5 space-y-2">
-                      <h3 className="text-xl font-semibold text-orange-700">{item.title}</h3>
+                      <h3 className="text-xl font-semibold-times text-orange-700">{item.title}</h3>
                       <p className="text-sm text-gray-500">{item.location}</p>
 
                       {item.bullets ? (

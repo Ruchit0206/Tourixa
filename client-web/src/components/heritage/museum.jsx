@@ -95,7 +95,686 @@ const museumsData = [
         "map": "https://maps.google.com/?q=Nalanda+Archaeological+Museum"
     },
   // Continue this with previous array
- 
+ {
+  id: 11,
+  name: 'Mahant Ghasidas Memorial Museum',
+  state: 'Raipur, Chhattisgarh',
+  link: 'http://www.cgculture.in',
+  image: '',
+  description: 'Exhibits archaeological and anthropological artifacts from central India.',
+  map: 'https://maps.google.com/?q=Mahant+Ghasidas+Museum+Raipur'
+},
+{
+  id: 12,
+  name: 'Purkhouti Muktangan',
+  state: 'Naya Raipur, Chhattisgarh',
+  link: 'http://www.cgculture.in',
+  image: '',
+  description: 'An open-air museum showcasing tribal culture and rural traditions.',
+  map: 'https://maps.google.com/?q=Purkhouti+Muktangan+Naya+Raipur'
+},
+{
+  id: 13,
+  name: 'Goa State Museum',
+  state: 'Panaji, Goa',
+  link: 'https://goamuseum.gov.in',
+  image: '',
+  description: 'Covers Goa’s art, culture, and history with various thematic galleries.',
+  map: 'https://maps.google.com/?q=Goa+State+Museum+Panaji'
+},
+{
+  id: 14,
+  name: 'Naval Aviation Museum',
+  state: 'Vasco da Gama, Goa',
+  link: 'https://goa-tourism.org.in/',
+  image: '',
+  description: 'India’s only Naval Aviation museum featuring aircraft and naval equipment.',
+  map: 'https://maps.google.com/?q=Naval+Aviation+Museum+Goa'
+},
+{
+  id: 15,
+  name: 'Lakshi Vilas Palace',
+  state: 'Vadodara, Gujarat',
+  link: 'https://lvpbooking.gaekwarenterprise.com/homepage',
+  image: '',
+  description: 'A grand royal residence with an art gallery and museum section.',
+  map: 'https://maps.google.com/?q=Lakshmi+Vilas+Palace+Vadodara'
+},
+{
+  id: 16,
+  name: 'Calico Museum of Textiles',
+  state: 'Ahmedabad, Gujarat',
+  link: 'https://www.calicomuseum.org/information-for-visitors/tour-booking',
+  image: '',
+  description: 'One of India’s finest textile museums with rare fabrics and weaving tools.',
+  map: 'https://maps.google.com/?q=Calico+Museum+of+Textiles+Ahmedabad'
+},
+{
+  id: 17,
+  name: 'Vechar Utensil Museum',
+  state: 'Ahmedabad, Gujarat',
+  link: 'local',
+  image: '',
+  description: 'An open-air museum displaying traditional and historic kitchen utensils.',
+  map: 'https://maps.google.com/?q=Vechar+Utensil+Museum+Ahmedabad'
+},
+{
+  id: 18,
+  name: 'Lakhota Museum',
+  state: 'Jamnagar, Gujarat',
+  link: 'local',
+  image: '',
+  description: 'Located inside Lakhota Fort, showcasing artifacts of the princely state.',
+  map: 'https://maps.google.com/?q=Lakhota+Museum+Jamnagar'
+},
+{
+  id: 19,
+  name: 'Kutch Museum',
+  state: 'Bhuj, Gujarat',
+  link: 'https://archaeologymuseum.gujarat.gov.in/Museum/kutch.html',
+  image: '',
+  description: 'Gujarat’s oldest museum with tribal artifacts and regional history.',
+  map: 'https://maps.google.com/?q=Kutch+Museum+Bhuj'
+},
+{
+  id: 20,
+  name: 'Watson Museum',
+  state: 'Rajkot, Gujarat',
+  link: 'local',
+  image: '',
+  description: 'Houses colonial history collections, textiles, and local heritage exhibits.',
+  map: 'https://maps.google.com/?q=Watson+Museum+Rajkot'
+},
+
+ {
+  id: 21,
+  name: 'Baroda Museum and Picture Gallery',
+  state: 'Vadodara, Gujarat',
+  link: 'local',
+  image: '',
+  description: 'Inspired by London’s Science Museum, it displays paintings and natural history.',
+  map: 'https://maps.google.com/?q=Baroda+Museum+Vadodara'
+},
+{
+  id: 22,
+  name: 'Maharaja Fatehsingh Museum',
+  state: 'Vadodara, Gujarat',
+  link: 'local',
+  image: '',
+  description: 'Located inside the palace, featuring European and Indian artworks.',
+  map: 'https://maps.google.com/?q=Maharaja+Fatehsingh+Museum+Vadodara'
+},
+{
+  id: 23,
+  name: 'Sri Krishna Museum',
+  state: 'Kurukshetra, Haryana',
+  link: 'local',
+  image: '',
+  description: 'Dedicated to Lord Krishna, with artifacts and exhibits from the Mahabharata.',
+  map: 'https://maps.google.com/?q=Sri+Krishna+Museum+Kurukshetra'
+},
+{
+  id: 24,
+  name: 'Panipat Museum',
+  state: 'Panipat, Haryana',
+  link: 'local',
+  image: '',
+  description: 'Focuses on the three historic battles of Panipat with paintings and weapons.',
+  map: 'https://maps.google.com/?q=Panipat+Museum'
+},
+{
+  id: 25,
+  name: 'State Museum',
+  state: 'Shimla, Himachal Pradesh',
+  link: 'local',
+  image: '',
+  description: 'Displays Himachal’s cultural heritage, archaeology, and miniature paintings.',
+  map: 'https://maps.google.com/?q=State+Museum+Shimla'
+},
+{
+  id: 26,
+  name: 'Tibetan Museum',
+  state: 'Dharamshala, Himachal Pradesh',
+  link: 'local',
+  image: '',
+  description: 'Chronicles the Tibetan exile experience with photo exhibitions and stories.',
+  map: 'https://maps.google.com/?q=Tibetan+Museum+Dharamshala'
+},
+{
+  id: 27,
+  name: 'State Museum Hotwar',
+  state: 'Ranchi, Jharkhand',
+  link: 'local',
+  image: '',
+  description: 'Displays archaeological treasures and tribal culture from Jharkhand.',
+  map: 'https://maps.google.com/?q=State+Museum+Hotwar+Ranchi'
+},
+{
+  id: 28,
+  name: 'Tribal Research Institute Museum',
+  state: 'Ranchi, Jharkhand',
+  link: 'free',
+  image: '',
+  description: 'Free-entry museum showcasing tribal life, musical instruments, and paintings.',
+  map: 'https://maps.google.com/?q=Tribal+Research+Institute+Museum+Ranchi'
+},
+{
+  id: 29,
+  name: 'Government Museum',
+  state: 'Bengaluru, Karnataka',
+  link: 'local',
+  image: '',
+  description: 'One of the oldest museums in South India, known for geology and sculpture.',
+  map: 'https://maps.google.com/?q=Government+Museum+Bengaluru'
+},
+{
+  id: 30,
+  name: 'Visvesvaraya Industrial and Technological Museum',
+  state: 'Bengaluru, Karnataka',
+  link: 'https://www.vismuseum.gov.in/ticket',
+  image: '',
+  description: 'Interactive science museum named after Sir M. Visvesvaraya.',
+  map: 'https://maps.google.com/?q=Visvesvaraya+Museum+Bengaluru'
+},
+
+ {
+  id: 31,
+  name: 'Indira Gandhi Musical Fountain and Museum',
+  state: 'Bengaluru, Karnataka',
+  link: 'local',
+  image: '',
+  description: 'Combines a musical fountain show with a small museum on Indian science.',
+  map: 'https://maps.google.com/?q=Indira+Gandhi+Musical+Fountain+Bengaluru'
+},
+{
+  id: 32,
+  name: 'Karnataka Folk Museum',
+  state: 'Bengaluru, Karnataka',
+  link: 'local',
+  image: '',
+  description: 'Preserves folk art, dance costumes, and instruments of Karnataka.',
+  map: 'https://maps.google.com/?q=Karnataka+Folk+Museum+Bengaluru'
+},
+{
+  id: 33,
+  name: 'Napier Museum',
+  state: 'Thiruvananthapuram, Kerala',
+  link: 'local',
+  image: '',
+  description: 'Famous for Indo-Saracenic architecture and collections of bronze idols.',
+  map: 'https://maps.google.com/?q=Napier+Museum+Thiruvananthapuram'
+},
+{
+  id: 34,
+  name: 'Hill Palace Museum',
+  state: 'Kochi, Kerala',
+  link: 'local',
+  image: '',
+  description: 'Former royal residence with crown jewels, weapons, and murals.',
+  map: 'https://maps.google.com/?q=Hill+Palace+Museum+Kochi'
+},
+{
+  id: 35,
+  name: 'Kerala Folklore Museum',
+  state: 'Kochi, Kerala',
+  link: 'https://kochifolkloreodeum.com/make-a-booking/',
+  image: '',
+  description: 'Private museum showcasing antiques, sculptures, and folk art.',
+  map: 'https://maps.google.com/?q=Kerala+Folklore+Museum+Kochi'
+},
+{
+  id: 36,
+  name: 'Indo-Portuguese Museum',
+  state: 'Fort Kochi, Kerala',
+  link: 'local',
+  image: '',
+  description: 'Explores the Indo-Portuguese Christian art heritage of Kerala.',
+  map: 'https://maps.google.com/?q=Indo+Portuguese+Museum+Kochi'
+},
+{
+  id: 37,
+  name: 'State Museum',
+  state: 'Bhopal, Madhya Pradesh',
+  link: 'https://www.mptourism.com/state-museum-bhopal.html',
+  image: '',
+  description: 'Archaeological artifacts and tribal arts housed in a modern structure.',
+  map: 'https://maps.google.com/?q=State+Museum+Bhopal'
+},
+{
+  id: 38,
+  name: 'Tribal Museum',
+  state: 'Bhopal, Madhya Pradesh',
+  link: 'local',
+  image: '',
+  description: 'Visually immersive galleries on Madhya Pradesh’s tribal communities.',
+  map: 'https://maps.google.com/?q=Tribal+Museum+Bhopal'
+},
+{
+  id: 39,
+  name: 'Manav Sangrahalaya (Museum of Mankind)',
+  state: 'Bhopal, Madhya Pradesh',
+  link: 'https://igrms.gov.in/en/visiting/e-ticketing',
+  image: '',
+  description: 'An open-air museum showcasing diverse human cultures across India.',
+  map: 'https://maps.google.com/?q=Manav+Sangrahalaya+Bhopal'
+},
+{
+  id: 40,
+  name: 'Rani Durgavati Museum',
+  state: 'Jabalpur, Madhya Pradesh',
+  link: 'local',
+  image: '',
+  description: 'Named after Rani Durgavati, displays local sculptures and paintings.',
+  map: 'https://maps.google.com/?q=Rani+Durgavati+Museum+Jabalpur'
+},
+
+ {
+  id: 41,
+  name: 'Chhatrapati Shivaji Maharaj Vastu Sangrahalaya',
+  state: 'Mumbai, Maharashtra',
+  link: 'https://maharajsangrahalay.mobirisesite.com',
+  image: '',
+  description: 'One of India’s premier museums featuring art, archaeology, and history.',
+  map: 'https://maps.google.com/?q=Chhatrapati+Shivaji+Maharaj+Vastu+Sangrahalaya+Mumbai'
+},
+{
+  id: 42,
+  name: 'Dr. Bhau Daji Lad Museum',
+  state: 'Mumbai, Maharashtra',
+  link: 'local',
+  image: '',
+  description: 'Mumbai’s oldest museum with decorative arts, models, and photographs.',
+  map: 'https://maps.google.com/?q=Dr.+Bhau+Daji+Lad+Museum+Mumbai'
+},
+{
+  id: 43,
+  name: 'Pune Raja Dinkar Kelkar Museum',
+  state: 'Pune, Maharashtra',
+  link: 'https://www.rajakelkarmuseum.org/museum-tickets-2',
+  image: '',
+  description: 'Dedicated to Indian decorative arts collected by Dr. D.G. Kelkar.',
+  map: 'https://maps.google.com/?q=Raja+Dinkar+Kelkar+Museum+Pune'
+},
+{
+  id: 44,
+  name: 'Shivaji Maharaj Museum of Indian History',
+  state: 'Pune, Maharashtra',
+  link: 'local',
+  image: '',
+  description: 'Highlights Indian warriors, dynasties, and unsung heroes.',
+  map: 'https://maps.google.com/?q=Shivaji+Maharaj+Museum+Pune'
+},
+{
+  id: 45,
+  name: 'Nagpur Central Museum',
+  state: 'Nagpur, Maharashtra',
+  link: 'local',
+  image: '',
+  description: 'Popularly known as Ajab Bangla, displays historical and zoological artifacts.',
+  map: 'https://maps.google.com/?q=Central+Museum+Nagpur'
+},
+{
+  id: 46,
+  name: 'Manipur State Museum',
+  state: 'Imphal, Manipur',
+  link: 'local',
+  image: '',
+  description: 'Displays rare manuscripts, tribal ornaments, and weapons.',
+  map: 'https://maps.google.com/?q=Manipur+State+Museum+Imphal'
+},
+{
+  id: 47,
+  name: 'Captain Williamson Sangma State Museum',
+  state: 'Shillong, Meghalaya',
+  link: 'local',
+  image: '',
+  description: 'Preserves tribal traditions and the lifestyle of Meghalaya.',
+  map: 'https://maps.google.com/?q=Williamson+Sangma+Museum+Shillong'
+},
+{
+  id: 48,
+  name: 'Don Bosco Museum',
+  state: 'Shillong, Meghalaya',
+  link: 'local',
+  image: '',
+  description: 'Seven-floor museum exhibiting North-East Indian cultures.',
+  map: 'https://maps.google.com/?q=Don+Bosco+Museum+Shillong'
+},
+{
+  id: 49,
+  name: 'Mizoram State Museum',
+  state: 'Aizawl, Mizoram',
+  link: 'local',
+  image: '',
+  description: 'Represents Mizo heritage with costumes, weapons, and musical instruments.',
+  map: 'https://maps.google.com/?q=Mizoram+State+Museum+Aizawl'
+},
+{
+  id: 50,
+  name: 'Nagaland State Museum',
+  state: 'Kohima, Nagaland',
+  link: 'local',
+  image: '',
+  description: 'Ethnographic museum with Naga tribal relics, jewelry, and attire.',
+  map: 'https://maps.google.com/?q=Nagaland+State+Museum+Kohima'
+},
+{
+  id: 51,
+  name: 'Odisha State Museum',
+  state: 'Bhubaneswar, Odisha',
+  link: 'local',
+  image: '',
+  description: 'Displays regional epigraphy, coins, and palm-leaf manuscripts.',
+  map: 'https://maps.google.com/?q=Odisha+State+Museum+Bhubaneswar'
+},
+{
+  id: 52,
+  name: 'Tribal Museum',
+  state: 'Bhubaneswar, Odisha',
+  link: 'local',
+  image: '',
+  description: 'Dedicated to Odisha’s tribes with costumes, tools, and music.',
+  map: 'https://maps.google.com/?q=Tribal+Museum+Bhubaneswar'
+},
+{
+  id: 53,
+  name: 'Konark Archaeological Museum',
+  state: 'Konark, Odisha',
+  link: 'local',
+  image: '',
+  description: 'Houses sculptures excavated from the Sun Temple complex.',
+  map: 'https://maps.google.com/?q=Konark+Archaeological+Museum'
+},
+{
+  id: 54,
+  name: 'Punjab State Museum',
+  state: 'Chandigarh, Punjab',
+  link: 'local',
+  image: '',
+  description: 'Focuses on Punjab’s cultural past with paintings and crafts.',
+  map: 'https://maps.google.com/?q=Punjab+State+Museum+Chandigarh'
+},
+{
+  id: 55,
+  name: 'Partition Museum',
+  state: 'Amritsar, Punjab',
+  link: 'https://www.partitionmuseum.org',
+  image: '',
+  description: 'First museum in the world dedicated to the Partition of India.',
+  map: 'https://maps.google.com/?q=Partition+Museum+Amritsar'
+},
+{
+  id: 56,
+  name: 'Virast-e-Khalsa',
+  state: 'Anandpur Sahib, Punjab',
+  link: 'local',
+  image: '',
+  description: 'Modern museum on Sikh heritage and Guru Gobind Singh’s legacy.',
+  map: 'https://maps.google.com/?q=Virast-e-Khalsa+Anandpur+Sahib'
+},
+{
+  id: 57,
+  name: 'Albert Hall Museum',
+  state: 'Jaipur, Rajasthan',
+  link: 'local',
+  image: '',
+  description: 'Iconic Indo-Saracenic museum with arts, crafts, and weapons.',
+  map: 'https://maps.google.com/?q=Albert+Hall+Museum+Jaipur'
+},
+{
+  id: 58,
+  name: 'City Palace Museum',
+  state: 'Jaipur & Udaipur, Rajasthan',
+  link: 'https://www.thecitypalacejaipur.com/ticket',
+  image: '',
+  description: 'Grand museum inside City Palaces of Jaipur and Udaipur.',
+  map: 'https://maps.google.com/?q=City+Palace+Museum+Jaipur'
+},
+{
+  id: 59,
+  name: 'Mehrangarh Fort Museum',
+  state: 'Jodhpur, Rajasthan',
+  link: 'https://www.mehrangarh.org/visit/mehrangarh-museum',
+  image: '',
+  description: 'Famous for Rajput weaponry, textiles, and palanquins.',
+  map: 'https://maps.google.com/?q=Mehrangarh+Fort+Museum+Jodhpur'
+},
+{
+  id: 60,
+  name: 'Junagarh Fort Museum',
+  state: 'Bikaner, Rajasthan',
+  link: 'local',
+  image: '',
+  description: 'Features artifacts and weapons from the Bikaner royal era.',
+  map: 'https://maps.google.com/?q=Junagarh+Fort+Museum+Bikaner'
+},
+{
+  id: 61,
+  name: 'Namgyal Institute of Tibetology',
+  state: 'Gangtok, Sikkim',
+  link: 'local',
+  image: '',
+  description: 'Preserves Buddhist manuscripts, statues, and thangkas.',
+  map: 'https://maps.google.com/?q=Namgyal+Institute+of+Tibetology+Gangtok'
+},
+{
+  id: 62,
+  name: 'Government Museum (Egmore)',
+  state: 'Chennai, Tamil Nadu',
+  link: 'https://chennaimuseum.web-trendz.com/online-booking',
+  image: '',
+  description: 'Houses archaeological finds, bronze icons, and a children’s museum.',
+  map: 'https://maps.google.com/?q=Government+Museum+Egmore+Chennai'
+},
+
+ {
+  id: 63,
+  name: 'Fort Museum',
+  state: 'Chennai, Tamil Nadu',
+  link: 'local',
+  image: '',
+  description: 'Located inside Fort St. George, showcasing colonial-era relics.',
+  map: 'https://maps.google.com/?q=Fort+Museum+Chennai'
+},
+{
+  id: 64,
+  name: 'Regional Railway Museum',
+  state: 'Chennai, Tamil Nadu',
+  link: 'local',
+  image: '',
+  description: 'Features vintage locomotives, coaches, and railway memorabilia.',
+  map: 'https://maps.google.com/?q=Regional+Railway+Museum+Chennai'
+},
+{
+  id: 65,
+  name: 'Government Museum',
+  state: 'Pudukkottai, Tamil Nadu',
+  link: 'local',
+  image: '',
+  description: 'Showcases prehistoric and Chola dynasty artifacts.',
+  map: 'https://maps.google.com/?q=Government+Museum+Pudukkottai'
+},
+{
+  id: 66,
+  name: 'Salar Jung Museum',
+  state: 'Hyderabad, Telangana',
+  link: 'https://www.salarjungmuseum.in/Hours-and-admission.html',
+  image: '',
+  description: 'World-renowned museum with rare art, manuscripts, and sculptures.',
+  map: 'https://maps.google.com/?q=Salar+Jung+Museum+Hyderabad'
+},
+{
+  id: 67,
+  name: 'Telangana State Archaeology Museum',
+  state: 'Hyderabad, Telangana',
+  link: 'local',
+  image: '',
+  description: 'Features Buddhist artifacts, coins, and sculptures from Telangana.',
+  map: 'https://maps.google.com/?q=Telangana+State+Archaeology+Museum+Hyderabad'
+},
+{
+  id: 68,
+  name: 'Sudha Car Museum',
+  state: 'Hyderabad, Telangana',
+  link: 'local',
+  image: '',
+  description: 'A quirky museum with cars shaped like everyday objects.',
+  map: 'https://maps.google.com/?q=Sudha+Car+Museum+Hyderabad'
+},
+{
+  id: 69,
+  name: 'Tripura State Museum',
+  state: 'Agartala, Tripura',
+  link: 'local',
+  image: '',
+  description: 'Features collections on Tripuri culture, tribal life, and archaeology.',
+  map: 'https://maps.google.com/?q=Tripura+State+Museum+Agartala'
+},
+{
+  id: 70,
+  name: 'State Museum',
+  state: 'Lucknow, Uttar Pradesh',
+  link: 'local',
+  image: '',
+  description: 'Houses archaeological treasures, coins, and miniature paintings.',
+  map: 'https://maps.google.com/?q=State+Museum+Lucknow'
+},
+{
+  id: 71,
+  name: 'Sarnath Museum',
+  state: 'Varanasi, Uttar Pradesh',
+  link: 'https://asisarnathcircle.in/visitorinformation.php',
+  image: '',
+  description: 'Famous for the Lion Capital of Ashoka and Buddhist relics.',
+  map: 'https://maps.google.com/?q=Sarnath+Museum+Varanasi'
+},
+{
+  id: 72,
+  name: 'Allahabad Museum',
+  state: 'Prayagraj, Uttar Pradesh',
+  link: 'local',
+  image: '',
+  description: 'Rich in historical documents, sculptures, and artwork.',
+  map: 'https://maps.google.com/?q=Allahabad+Museum+Prayagraj'
+},
+{
+  id: 73,
+  name: 'G.B. Pant Government Museum',
+  state: 'Almora, Uttarakhand',
+  link: 'local',
+  image: '',
+  description: 'Showcases Kumaon’s folk culture, art, and archaeological finds.',
+  map: 'https://maps.google.com/?q=G.B.+Pant+Government+Museum+Almora'
+},
+{
+  id: 74,
+  name: 'Forest Research Institute Museum',
+  state: 'Dehradun, Uttarakhand',
+  link: 'local',
+  image: '',
+  description: 'Dedicated to forestry, wildlife, and environmental conservation.',
+  map: 'https://maps.google.com/?q=Forest+Research+Institute+Museum+Dehradun'
+},
+{
+  id: 75,
+  name: 'Indian Museum',
+  state: 'Kolkata, West Bengal',
+  link: 'https://indianmuseumkolkata.org',
+  image: '',
+  description: 'India’s oldest museum with Egyptian mummies, fossils, and ornaments.',
+  map: 'https://maps.google.com/?q=Indian+Museum+Kolkata'
+},
+{
+  id: 76,
+  name: 'Birla Industrial & Technological Museum',
+  state: 'Kolkata, West Bengal',
+  link: 'local',
+  image: '',
+  description: 'Interactive museum focusing on science and technology education.',
+  map: 'https://maps.google.com/?q=Birla+Industrial+Technological+Museum+Kolkata'
+},
+{
+  id: 77,
+  name: 'Rabindra Bharati Museum',
+  state: 'Kolkata, West Bengal',
+  link: 'local',
+  image: '',
+  description: 'Located in Tagore’s house, displaying his life and works.',
+  map: 'https://maps.google.com/?q=Rabindra+Bharati+Museum+Kolkata'
+},
+{
+  id: 78,
+  name: 'Victoria Memorial Hall',
+  state: 'Kolkata, West Bengal',
+  link: 'https://victoriamemorial-cal.org/coming-soon/?utm_source=chatgpt.com',
+  image: '',
+  description: 'Colonial-era memorial housing paintings, artifacts, and gardens.',
+  map: 'https://maps.google.com/?q=Victoria+Memorial+Hall+Kolkata'
+},
+{
+  id: 79,
+  name: 'National Museum',
+  state: 'New Delhi, Delhi (UT)',
+  link: 'https://nationalmuseumindia.gov.in/en/online-ticket-booking?utm_source=chatgpt.com',
+  image: '',
+  description: 'Houses over 200,000 works from prehistoric to modern times.',
+  map: 'https://maps.google.com/?q=National+Museum+New+Delhi'
+},
+{
+  id: 80,
+  name: 'National Gallery of Modern Art (NGMA)',
+  state: 'New Delhi, Delhi (UT)',
+  link: 'local',
+  image: '',
+  description: 'Modern Indian art from 1850s to contemporary works.',
+  map: 'https://maps.google.com/?q=NGMA+New+Delhi'
+},
+{
+  id: 81,
+  name: 'National Rail Museum',
+  state: 'New Delhi, Delhi (UT)',
+  link: 'https://nrmindia.org',
+  image: '',
+  description: 'Showcases Indian Railways history with locomotives and models.',
+  map: 'https://maps.google.com/?q=National+Rail+Museum+New+Delhi'
+},
+{
+  id: 82,
+  name: 'Crafts Museum',
+  state: 'New Delhi, Delhi (UT)',
+  link: 'https://nationalcraftsmuseum.nic.in/plan-your-visit',
+  image: '',
+  description: 'Exhibits traditional Indian crafts, textiles, and village huts.',
+  map: 'https://maps.google.com/?q=Crafts+Museum+Delhi'
+},
+{
+  id: 83,
+  name: 'Gandhi Museum',
+  state: 'Rajghat, Delhi (UT)',
+  link: 'local',
+  image: '',
+  description: 'Dedicated to Mahatma Gandhi’s life, letters, and relics.',
+  map: 'https://maps.google.com/?q=Gandhi+Museum+Rajghat+Delhi'
+},
+{
+  id: 84,
+  name: 'Puducherry Museum',
+  state: 'Puducherry (UT)',
+  link: 'local',
+  image: '',
+  description: 'French colonial furniture, Roman artifacts, and sculpture displays.',
+  map: 'https://maps.google.com/?q=Puducherry+Museum'
+},
+{
+  id: 85,
+  name: 'St. Thomas Church Museum',
+  state: 'Diu (UT)',
+  link: 'local',
+  image: '',
+  description: 'Housed in a Gothic church, it showcases wooden carvings and religious art.',
+  map: 'https://maps.google.com/?q=St.+Thomas+Church+Museum+Diu'
+},
+
 ];
 
 const getBadge = (link) => {
