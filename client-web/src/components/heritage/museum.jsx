@@ -985,7 +985,14 @@ const MuseumPage = () => {
             />
           )}
         </AnimatePresence>
+         <div className="mt-12 bg-yellow-100 text-yellow-900 border-l-4 border-yellow-500 p-4 rounded shadow-sm max-w-3xl mx-auto text-sm leading-relaxed">
+          <h4 className="font-bold mb-1">📌 Disclaimer</h4>
+          <p>
+            The images used on this page are for display purposes only and belong to their respective sources. We do not claim any ownership or copyright. These visuals are used to promote awareness and appreciation of heritage tourism.
+          </p>
+        </div>
       </div>
+      
     </PageLayout>
   );
 };
