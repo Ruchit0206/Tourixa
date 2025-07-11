@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import PageLayout from '../layouts/PageLayout';
+// import solotour from "/images/solotour.jpg"
 
 const offers = [
 	{
@@ -14,7 +15,7 @@ const offers = [
 		description:
 			'Bring your family along and kids travel absolutely free on all domestic tours.',
 		imageUrl:
-			'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80',
+			'https://static7.depositphotos.com/1006188/693/v/950/depositphotos_6936820-stock-illustration-family-holidays-under-palm-trees.jpg',
 	},
 	{
 		title: 'Early Bird Offer',
@@ -22,6 +23,18 @@ const offers = [
 		imageUrl:
 			'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80',
 	},
+	{
+		title: 'Solo Tour : Student Special 40% Off',
+		description: 'Embark on your solo adventure with our Student Special: Enjoy 40% Off',
+		imageUrl:
+			'https://medellin-tours.com/wp-content/uploads/2023/09/why-tourism-can-be-bad-for-a-city.jpg',
+				},
+	{
+		title: 'Group Tour : Upto 60%  ',
+		description: 'Adventure Together: Group Tours at 40 % Off – Because the More, the Merrier!',
+		imageUrl:
+			'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsrkxFCyoehU0cyLZep-rvSYmNbcaTEB3tA-XgzsXiKuV0xX1DEBiFw9Vz3bRdzMPJD3ccj6ipGiu1XCjovYF-_gx5LjWe93kmSoWrDPVyKmdzp6tq3dQDP806X6iUNnsT5L4pXg83MF8C/w625-h351/photo-1529156069898-49953e39b3ac.jpg',
+				},
 ];
 
 const GiftClaimForm = ({ onSubmit, onCancel }) => {
