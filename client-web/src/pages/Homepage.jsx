@@ -151,6 +151,14 @@ export default function Home() {
 					<TravelCarouseld />
 					<Secondpage />
 				</section>
+	<div className="w-full bg-orange-100 text-orange-900 border-l-4 border-orange-500 px-6 py-6 shadow-md text-sm leading-relaxed">
+  <h2 className="text-xl font-bold mb-3">📌 Disclaimer</h2>
+  <p>
+    All images, videos, and other visual assets shown on this website are used strictly for educational and illustrative purposes. We do not own the copyrights of these materials unless explicitly stated. Credit belongs to the original creators and sources. This content is shared with respect, aiming to raise awareness about India's cultural heritage and promote responsible tourism. If you are a rightful owner and would like us to remove or credit the content, please contact us directly.
+  </p>
+</div>
+
+
 			</main>
 
 
