@@ -927,7 +927,7 @@ const MuseumPage = () => {
                 className="bg-white rounded-2xl shadow-md hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 group flex flex-col border border-gray-200"
               >
                 <img
-                  src={museum.image || "https://via.placeholder.com/400x300?text=Museum+Image"}
+                  src={museum.image || "https://via.placeholder.com/400x300?text=Museum+Image"} loading="lazy"
                   alt={museum.name}
                   className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105 group-hover:brightness-110"
                 />
