@@ -93,7 +93,7 @@ const BusinessMeeting = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
           <div className="rounded-xl overflow-hidden shadow-xl w-full h-full">
             <img
-              src="/images/first.jpg"
+              src="https://tse1.mm.bing.net/th/id/OIP.HxPWcck7LTEWkPNv9UnuegHaEq?rs=1&pid=ImgDetMain&o=7&rm=3"
               alt="Business Meeting"
               className="w-full h-full object-cover aspect-video lg:aspect-[4/3]"
               loading="lazy"

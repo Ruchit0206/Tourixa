@@ -1,4 +1,10 @@
+
+
+
+
+// All imports remain same
 import React, { useState, useRef } from "react";
+// import "./index.css"
 import { InputText } from "primereact/inputtext";
 import { TabView, TabPanel } from "primereact/tabview";
 import { Button } from "primereact/button";
@@ -8,8 +14,6 @@ import { InputTextarea } from "primereact/inputtextarea";
 import { Toast } from "primereact/toast";
 import { ProgressSpinner } from "primereact/progressspinner";
 import PageLayout from "../layouts/PageLayout";
-
-// ... (Keep the entire data object as-is)
 const data = {
   "Old Cultures": [
     {
@@ -355,7 +359,8 @@ const data = {
     image: "https://thumbs.dreamstime.com/b/kurangani-tamil-nadu-hidden-beauty-western-ghats-148388604.jpg",
     bullets: [
       "Western Ghats trek base",
-      "Forests, waterfalls, peace"
+      "Forests, waterfalls, peace",
+      
     ]
   },
   {
@@ -370,11 +375,12 @@ const data = {
   ],
 };
 
-
 export default function ForgottenTraditionPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const [showDialog, setShowDialog] = useState(false);
+  const [showMoreDialog, setShowMoreDialog] = useState(false);
+  const [moreItem, setMoreItem] = useState(null);
   const [formData, setFormData] = useState({ category: Object.keys(data)[0] });
   const [loading, setLoading] = useState(false);
   const toast = useRef(null);
@@ -387,218 +393,129 @@ export default function ForgottenTraditionPage() {
   return (
     <PageLayout>
       <Toast ref={toast} />
-   <section className="font-times py-10 px-5 lg:px-20 bg-yellow-50 min-h-screen">
-
-        <h2 className="text-4xl font-bold text-center text-orange-800 mb-6">
+      <section className="font-sans py-8 px-4 lg:px-24 bg-orange-50 min-h-screen">
+        <h2 className="text-4xl font-bold text-center text-orange-900 mb-6">
           Forgotten Traditions
         </h2>
 
-        {/* Search Bar */}
-        <div className="flex justify-center mb-8">
-          <div className="relative w-full max-w-md">
+        {/* Search */}
+        <div className="flex justify-center mb-10">
+          <div className="relative w-full max-w-lg">
             <i className="pi pi-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
             <InputText
-              className="pl-10 pr-4 py-2 w-full border border-orange-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400 text-sm"
+              className="pl-10 pr-4 py-2 w-full border border-orange-300 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search traditions..."
+              placeholder="Search for traditions or places..."
             />
           </div>
         </div>
 
-        {/* Dynamic Tabs */}
-        <TabView activeIndex={activeIndex} onTabChange={(e) => setActiveIndex(e.index)}>
-          {Object.keys(data).map((category, catIndex) => (
-            <TabPanel key={catIndex} header={category}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredData(category).map((item, i) => (
-                  <div
-                    key={i}
-                    className="bg-white shadow-xl rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-2xl transition duration-300"
-                  >
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      loading="lazy"
-                      className="object-cover w-full h-48"
-                    />
-                    <div className="p-5 space-y-2">
-                      <h3 className="text-xl font-semibold-times text-orange-700">{item.title}</h3>
-                      <p className="text-sm text-gray-500">{item.location}</p>
-
-                      {item.bullets ? (
-                        <ul className="list-disc list-inside text-gray-700 text-sm space-y-1">
-                          {item.bullets.map((point, j) => (
-                            <li key={j}>{point}</li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <p className="text-sm text-gray-700">{item.description}</p>
-                      )}
-
-                      <div className="text-green-700 text-sm font-semibold mt-2">
-                        🌄 Package starting at ₹7,000
-                      </div>
-                      <Button
-                        label="Book Now"
-                        icon="pi pi-check-circle"
-                        className="w-full p-button-sm p-button-warning mt-3"
-                      />
-                    </div>
-                  </div>
-                ))}
-                {filteredData(category).length === 0 && (
-                  <p className="col-span-full text-center text-gray-500 mt-4">
-                    No traditions found for this search.
-                  </p>
-                )}
-              </div>
-            </TabPanel>
+        {/* Category Buttons */}
+        <div className="flex justify-center space-x-4 mb-6">
+          {Object.keys(data).map((category, idx) => (
+            <Button
+              key={category}
+              label={category}
+              className={`rounded-full px-6 py-2 text-sm font-medium border-none shadow-md transition-all duration-200 ${
+                activeIndex === idx ? "bg-orange-600 text-white" : "bg-white text-orange-700"
+              }`}
+              onClick={() => setActiveIndex(idx)}
+            />
           ))}
-        </TabView>
-
-        {/* CTA Section */}
-        <section className="mt-14 p-8 bg-gradient-to-r from-orange-200 to-yellow-100 rounded-xl text-center shadow-lg">
-          <h3 className="text-2xl font-semibold text-orange-800 mb-2">Know a Lost Tradition?</h3>
-          <p className="mb-4 text-gray-700">Contribute your story and help preserve cultural heritage.</p>
-          <Button
-            label="Submit a Tradition"
-            icon="pi pi-send"
-            className="p-button-warning p-button-raised"
-            onClick={() => setShowDialog(true)}
-          />
-        </section>
-
-        {/* Submit Dialog */}
-        <Dialog
-          header="Submit a Forgotten Tradition"
-          visible={showDialog}
-          style={{ width: "100%", maxWidth: "500px" }}
-          onHide={() => setShowDialog(false)}
-          className="p-fluid rounded-2xl"
-        >
-        <form
-  onSubmit={async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    const formEl = e.target;
-    const formData = new FormData(formEl);
-    try {
-      const response = await fetch("https://formspree.io/f/xeokyowy", {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: formData,
-      });
-
-      if (response.ok) {
-        toast.current.show({
-          severity: "success",
-          summary: "Submitted!",
-          detail: "Thank you for contributing 🎉",
-          life: 3000,
-        });
-        formEl.reset();
-        setShowDialog(false);
-      } else {
-        toast.current.show({
-          severity: "error",
-          summary: "Oops!",
-          detail: "Something went wrong.",
-          life: 3000,
-        });
-      }
-    } catch (err) {
-      toast.current.show({
-        severity: "error",
-        summary: "Network Error",
-        detail: "Please try again.",
-        life: 3000,
-      });
-    }
-    setLoading(false);
-  }}
-  className="space-y-5 bg-white px-6 py-4 rounded-xl shadow-xl border border-orange-200"
->
-  {/* Title */}
-  <div>
-    <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
-      Tradition Title <span className="text-red-500">*</span>
-    </label>
-    <InputText
-      id="title"
-      name="title"
-      className="w-full p-inputtext-sm border border-orange-400 rounded-md"
-      required
-    />
-  </div>
-
-  {/* Location */}
-  <div>
-    <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-1">
-      Location <span className="text-red-500">*</span>
-    </label>
-    <InputText
-      id="location"
-      name="location"
-      className="w-full p-inputtext-sm border border-orange-400 rounded-md"
-      required
-    />
-  </div>
-
-  {/* Category */}
-  <div>
-    <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">
-      Category
-    </label>
-    <Dropdown
-      id="category"
-      name="category"
-      className="w-full border border-orange-400 rounded-md"
-      value={formData.category}
-      options={Object.keys(data)}
-      onChange={(e) => setFormData({ ...formData, category: e.value })}
-      placeholder="Select category"
-    />
-  </div>
-
-  {/* Description */}
-  <div>
-    <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
-      Description <span className="text-red-500">*</span>
-    </label>
-    <InputTextarea
-      id="description"
-      name="description"
-      rows={4}
-      className="w-full border border-orange-400 rounded-md"
-      placeholder="Brief background or story"
-      required
-    />
-  </div>
-
-  {/* Submit Button */}
-  <div className="flex justify-end pt-2">
-    <Button
-      type="submit"
-      label={loading ? "Submitting..." : "Submit Tradition"}
-      icon={!loading ? "pi pi-send" : null}
-      disabled={loading}
-      className="bg-orange-500 border-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md flex items-center gap-2 transition-all duration-300"
-    >
-      {loading && (
-        <ProgressSpinner style={{ width: "18px", height: "18px" }} strokeWidth="4" />
-      )}
-    </Button>
-  </div>
-</form>
-
-        </Dialog>
-         <div className="mt-12 bg-yellow-100 text-yellow-900 border-l-4 border-yellow-500 p-4 rounded shadow-sm max-w-3xl mx-auto text-sm leading-relaxed">
-          <h4 className="font-bold mb-1">📌 Disclaimer</h4>
-          <p>
-            The images used on this page are for display purposes only and belong to their respective sources. We do not claim any ownership or copyright. These visuals are used to promote awareness and appreciation of heritage tourism.
-          </p>
         </div>
+
+        {/* Cards */}
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {filteredData(Object.keys(data)[activeIndex]).map((item, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col"
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-48 object-cover rounded-t-xl"
+              />
+              <div className="p-5 space-y-4 flex flex-col justify-between flex-grow font-sans">
+                <div className="text-sm text-gray-500 flex items-center gap-1">
+                  <i className="pi pi-map-marker text-pink-500" />
+                  {item.location}
+                </div>
+
+                <h3 className="text-xl font-bold text-blue-800">{item.title}</h3>
+
+               {/* First bullet only */}
+{item.bullets && item.bullets.length > 0 && (
+  <ul className="text-gray-700 text-sm space-y-1">
+    <li className="flex gap-2 items-start">
+      <span className="text-blue-700 text-xs mt-1">🏛️</span>
+      <span>{item.bullets[0]}</span>
+    </li>
+  </ul>
+)}
+
+
+                {/* See More */}
+                {item.bullets?.length > 1 && (
+  <button
+    onClick={() => {
+      setMoreItem(item);
+      setShowMoreDialog(true);
+    }}
+    className="text-blue-500 text-sm underline hover:text-blue-600 transition self-start"
+  >
+    See more
+  </button>
+)}
+
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 pt-2">
+                  <span className="px-3 py-1 text-xs rounded-full bg-blue-50 text-blue-700 border border-blue-200">#UPHeritage</span>
+                  <span className="px-3 py-1 text-xs rounded-full bg-blue-50 text-blue-700 border border-blue-200">#HistoricIndia</span>
+                  <span className="px-3 py-1 text-xs rounded-full bg-blue-50 text-blue-700 border border-blue-200">#FullPack</span>
+                </div>
+
+                {/* Price */}
+                <div className="pt-2 text-sm font-medium text-green-700">
+                  Starting at <span className="font-bold text-green-800">₹5000</span>{" "}
+                  <span className="line-through text-gray-400 ml-1">₹6000</span>
+                </div>
+
+                {/* Book Now Button */}
+                <Button
+                  label="Book Now"
+                  className="w-full mt-3 justify-center text-white font-semibold text-base rounded-lg bg-gradient-to-r from-indigo-500 to-blue-600 border-none hover:from-indigo-600 hover:to-blue-700 px-2 py-2"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Empty State */}
+        {filteredData(Object.keys(data)[activeIndex]).length === 0 && (
+          <p className="text-center text-gray-500 mt-6">No results found.</p>
+        )}
+
+        {/* Modal for See More */}
+        <Dialog
+          header={moreItem?.title}
+          visible={showMoreDialog}
+          style={{ width: "100%", maxWidth: "500px" }}
+          onHide={() => setShowMoreDialog(false)}
+          className="p-fluid rounded-xl"
+        >
+          {moreItem && (
+            <div className="space-y-4">
+              <img src={moreItem.image} alt={moreItem.title} className="rounded-lg w-full h-56 object-cover" />
+              <p className="text-sm text-gray-600"><i className="pi pi-map-marker text-pink-500" /> {moreItem.location}</p>
+              <ul className="list-disc list-inside text-gray-800 space-y-1 text-sm">
+                {moreItem.bullets?.map((point, i) => <li key={i}>{point}</li>)}
+              </ul>
+            </div>
+          )}
+        </Dialog>
       </section>
     </PageLayout>
   );
