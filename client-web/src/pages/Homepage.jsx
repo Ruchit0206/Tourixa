@@ -11,9 +11,7 @@ export default function Home() {
 	const [timeLeft, setTimeLeft] = useState({});
 	const [showBackToTop, setShowBackToTop] = useState(false);
 	const navigate = useNavigate();
-	const [showPopupDisclaimer, setShowPopupDisclaimer] = useState(() => {
-  return !localStorage.getItem('popupDisclaimerDismissed');
-});
+	const [showPopupDisclaimer, setShowPopupDisclaimer] = useState(true);
 
 
 
