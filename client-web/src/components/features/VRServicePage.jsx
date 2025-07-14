@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import confetti from 'canvas-confetti';
 import video from '/newvideo.mp4';
+import video2 from '/video2.mp4'
+import video3 from '/video3.mp4';
 import { FaVrCardboard, FaMapMarkerAlt, FaRupeeSign, FaCheckCircle, FaWhatsapp } from 'react-icons/fa';
 import PageLayout from '../layouts/PageLayout';
 
@@ -84,13 +86,48 @@ const VRServicePage = () => {
     const availableCities = ['ahmedabad', 'gandhinagar', 'patna'];
     setAvailable(availableCities.includes(city.trim().toLowerCase()));
   };
+  const videos = [
+  {
+    id: 1,
+    preview: video, // Short or cropped video
+    fullLink: "https://drive.google.com/your-full-video-link",
+  },
+  {
+    id: 2,
+    preview: video2,
+    fullLink: "https://drive.google.com/file/d/1bgmdPEbC5n_RDg7-QP9E0WtAk9OnGdTv/view?usp=sharing",
+  },
+  {
+    id: 3,
+    preview: video3,
+    fullLink: "https://drive.google.com/another-full-video",
+  },
+  // Add more if needed
+];
+
 
   return (
     <PageLayout>
       <div className=" bg-gradient-to-b from-[#7490b9] to-[#8bf9d6] mt-2">
         <div className="bg-[#ffde59] text-black py-2 px-5 text-center font-semibold animate-fadeInDown">
-          🎉 First-time users get a free 5-minute VR Heritage Tour!
+          🎉 First-time users get a free Tourixa Welcome Kit!
         </div>
+        <section className="bg-blue-600 text-white text-center py-16 px-5">
+  <h2 className="text-3xl font-bold mb-4">Experience Virtual Reality – Your Way!</h2>
+  <p className="max-w-2xl mx-auto mb-4 text-lg">
+    Whether you're curious about top destinations or want to view <span className="font-semibold underline">your own video</span> in VR, we’ve got you covered.
+  </p>
+  <p className="max-w-2xl mx-auto mb-8 text-md">
+    Book your personalized home VR session today and enjoy an immersive experience tailored just for you!
+  </p>
+  <button
+    onClick={toggleForm}
+    className="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition"
+  >
+    🎟️ Book Your VR Session
+  </button>
+</section>
+
 
         <section className="bg-white py-10 px-5 text-center">
           <h2 className="text-2xl font-bold mb-4">Check VR Availability in Your City</h2>
@@ -118,16 +155,7 @@ const VRServicePage = () => {
           )}
         </section>
 
-        <section className="bg-blue-600 text-white text-center py-16 px-5">
-          <h2 className="text-3xl font-bold mb-3">Ready to Explore Virtually?</h2>
-          <p className="mb-6">Feel the adventure before the journey. Book your home VR session today!</p>
-          <button
-            className="bg-white text-blue-600 px-5 py-2 rounded font-semibold hover:bg-gray-200"
-            onClick={toggleForm}
-          >
-            Get Started
-          </button>
-        </section>
+       
 
         <section className="bg-white py-12 px-5 text-center">
           <h2 className="text-2xl font-bold mb-8">Why Try Our VR Experience?</h2>
@@ -153,20 +181,47 @@ const VRServicePage = () => {
           </div>
         </section>
 
-        <section className="py-10 px-5 bg-gray-200 text-center">
-          <h2 className="text-2xl font-bold mb-5">See It In Action</h2>
-          <div className="flex justify-center">
-            <video
-              className="rounded shadow-lg w-full sm:w-[75%] max-w-[900px] h-auto"
-              muted
-              autoPlay
-              loop
-            >
-              <source src={video} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </section>
+     <section className="py-10 px-5 bg-gray-200 text-center">
+  <h2 className="text-2xl font-bold mb-8">See Our VR Projects</h2>
+
+  <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
+    {videos.map((vid) => (
+      <div
+        key={vid.id}
+        className="bg-white rounded-xl shadow-md overflow-hidden max-w-md w-full"
+      >
+        <video
+          className="w-full h-auto rounded-t-xl"
+          muted
+          autoPlay
+          loop
+          controls={false}
+        >
+          <source src={vid.preview} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <div className="p-4">
+          <a
+            href={vid.fullLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition"
+          >
+            Full Video
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {/* Message at the end */}
+  <p className="mt-10 text-gray-600 text-lg font-medium">
+    🚀 More Projects Coming Soon...
+  </p>
+</section>
+
+
 
         <section className="py-12 px-5 text-center">
           <h2 className="text-2xl font-bold mb-6">What Our Clients Say</h2>
@@ -241,16 +296,32 @@ const VRServicePage = () => {
                 ✕
               </span>
               <h3 className="text-xl font-bold mb-4 text-center">Book Your VR Session</h3>
-              <form onSubmit={sendEmail} className="space-y-4" id="vr-booking-form">
-                <input type="text" name="name" placeholder="Full Name" required className="w-full border px-3 py-2 rounded" />
-                <input type="email" name="email" placeholder="Email" required className="w-full border px-3 py-2 rounded" />
-                <input type="tel" name="contact" placeholder="Contact Number" required className="w-full border px-3 py-2 rounded" />
-                <input type="text" name="address" placeholder="Address" required className="w-full border px-3 py-2 rounded" />
-                <input type="date" name="date" required className="w-full border px-3 py-2 rounded" />
-                <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
-                  Submit
-                </button>
-              </form>
+             <form onSubmit={sendEmail} className="space-y-4" id="vr-booking-form">
+  <input type="text" name="name" placeholder="Full Name" required className="w-full border px-3 py-2 rounded" />
+  <input type="email" name="email" placeholder="Email" required className="w-full border px-3 py-2 rounded" />
+  <input type="tel" name="contact" placeholder="Contact Number" required className="w-full border px-3 py-2 rounded" />
+  <input type="text" name="address" placeholder="Address" required className="w-full border px-3 py-2 rounded" />
+  <input type="date" name="date" required className="w-full border px-3 py-2 rounded" />
+
+  {/* NEW: VR Video Type Dropdown */}
+  <select
+    name="videoType"
+    required
+    className="w-full border px-3 py-2 rounded bg-white text-gray-800"
+    defaultValue=""
+  >
+    <option value="" disabled>
+      Select VR Video Type
+    </option>
+    <option value="Our Provided VR Tour Videos">Our Provided VR Tour Videos</option>
+    <option value="Your Own Video in VR">Your Own Video in VR</option>
+  </select>
+
+  <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+    Submit
+  </button>
+</form>
+
 
               {bookingLoading && (
                 <div className="text-center text-blue-600 mt-3 animate-pulse font-semibold">
