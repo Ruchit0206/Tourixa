@@ -11,6 +11,11 @@ export default function Home() {
 	const [timeLeft, setTimeLeft] = useState({});
 	const [showBackToTop, setShowBackToTop] = useState(false);
 	const navigate = useNavigate();
+	const [showPopupDisclaimer, setShowPopupDisclaimer] = useState(() => {
+  return !localStorage.getItem('popupDisclaimerDismissed');
+});
+
+
 
 	const greetings = [
 		'नमः',
@@ -151,12 +156,46 @@ export default function Home() {
 					<TravelCarouseld />
 					<Secondpage />
 				</section>
-	<div className="w-full bg-orange-100 text-orange-900 border-l-4 border-orange-500 px-6 py-6 shadow-md text-sm leading-relaxed">
-  <h2 className="text-xl font-bold mb-3">📌 Disclaimer</h2>
-  <p>
-    All images, videos, and other visual assets shown on this website are used strictly for educational and illustrative purposes. We do not own the copyrights of these materials unless explicitly stated. Credit belongs to the original creators and sources. This content is shared with respect, aiming to raise awareness about India's cultural heritage and promote responsible tourism. If you are a rightful owner and would like us to remove or credit the content, please contact us directly.
-  </p>
-</div>
+{showPopupDisclaimer && (
+  <div className="fixed inset-0 bg-black/50 z-[9999] flex items-center justify-center px-4">
+    <div className="bg-white w-full max-w-lg p-6 rounded-xl relative shadow-2xl text-center animate-fadeIn">
+      
+      {/* Close Button */}
+      <button
+        className="absolute top-2 right-3 text-gray-600 hover:text-black text-2xl"
+        onClick={() => {
+          setShowPopupDisclaimer(false);
+          localStorage.setItem('popupDisclaimerDismissed', 'true');
+        }}
+        aria-label="Dismiss disclaimer"
+      >
+        &times;
+      </button>
+
+     
+      {/* Disclaimer Content */}
+      <h2 className="text-xl font-bold mb-3 text-red-600">📌 Disclaimer</h2>
+      <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+        All images, videos, and other visual assets shown on this website are used strictly for educational and illustrative purposes.
+        We do not own the copyrights of these materials unless explicitly stated. Credit belongs to the original creators and sources.
+        This content is shared with respect, aiming to raise awareness about India's cultural heritage and promote responsible tourism.
+        If you are a rightful owner and would like us to remove or credit the content, please contact us directly.
+      </p>
+
+      <button
+        onClick={() => {
+          setShowPopupDisclaimer(false);
+          localStorage.setItem('popupDisclaimerDismissed', 'true');
+        }}
+        className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md font-semibold transition"
+      >
+        I Understand
+      </button>
+    </div>
+  </div>
+)}
+
+
 
 
 			</main>
