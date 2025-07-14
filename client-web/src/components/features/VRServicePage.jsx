@@ -340,7 +340,7 @@ const VRServicePage = () => {
 
         {/* WhatsApp Button */}
         <a
-          href="https://wa.me/919979683808"
+          href="https://wa.me/917046726220"
           className="fixed bottom-5 right-5 p-3 rounded-full bg-green-500 text-white text-xl shadow hover:bg-green-600 z-[999]"
           target="_blank"
           rel="noopener noreferrer"
