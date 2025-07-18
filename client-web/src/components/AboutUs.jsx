@@ -72,9 +72,9 @@ const AboutUs = () => {
 
           <div className="mt-6">
             
-              <button className="bg-red-600 hover:bg-red-700 transition-colors text-white px-6 py-2 rounded-full font-semibold w-full sm:w-auto">
-               <Link to ="/inquireus" ><i className="fa-solid fa-globe mr-2"></i> Inquire Us</Link>
-              </button>
+               <Link to ="/inquireus" > <button className="bg-red-600 hover:bg-red-700 transition-colors text-white px-6 py-2 rounded-full font-semibold w-full sm:w-auto">
+               <i className="fa-solid fa-globe mr-2"></i> Inquire Us
+              </button></Link>
            
           </div>
         </div>
