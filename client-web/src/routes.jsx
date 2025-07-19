@@ -22,6 +22,7 @@ import HeritageTourPage from './components/heritage/heritagetour.jsx';
 import MuseumPage from './components/heritage/museum.jsx';
 import FestivalPage from './components/heritage/FestivalPage.jsx';
 import ForgottenTraditionPage from './components/heritage/ForgottenTraditionPage.jsx';
+// import BlogSection from './components/features/Blog.jsx';
 
 const routes = createBrowserRouter([
 	{
@@ -46,7 +47,9 @@ const routes = createBrowserRouter([
 				{ path: '/heritagetour', element: <HeritageTourPage /> },
 				{ path: '/museum', element: <MuseumPage /> },
 				{ path: '/festival', element: <FestivalPage /> },
-				{ path: '/forgottentraditions', element: <ForgottenTraditionPage /> }
+				{ path: '/forgottentraditions', element: <ForgottenTraditionPage /> },
+				
+
 
 		],
 	},

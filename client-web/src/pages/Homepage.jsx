@@ -158,7 +158,8 @@ export default function Home() {
   <div className="fixed inset-0 bg-black/50 z-[9999] flex items-center justify-center px-4">
     <div className="bg-white w-full max-w-lg p-6 rounded-xl relative shadow-2xl text-center animate-fadeIn">
       
-      {/* Close Button */}
+      {/* 
+	  e Button */}
       <button
         className="absolute top-2 right-3 text-gray-600 hover:text-black text-2xl"
         onClick={() => {

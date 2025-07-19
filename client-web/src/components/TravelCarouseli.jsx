@@ -165,7 +165,7 @@ const TravelCarousel = () => {
             alt="Fullscreen"
             className="max-w-[80%] max-h-[80%] rounded-lg shadow-lg"
           />
-          <span className="absolute top-10 right-12 text-white text-5xl cursor-pointer">
+          <span className="absolute top-10 right-12 text-white text-5xl cursor-pointer" style={{ marginTop: `35px` }}>
             &times;
           </span>
         </div>
