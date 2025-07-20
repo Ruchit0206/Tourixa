@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AddPackageForm from '../../components/agency/AddPackageForm';
 import PackageList from '../../components/agency/PackageList';
 import { fetchPost } from '../../utils/fetch.utils';
@@ -13,6 +13,32 @@ export default function DashboardPage() {
 	const [currentPage, setCurrentPage] = useState(1);
 	const itemsPerPage = 5;
 
+	useEffect(() => {
+		const fetchPackages = async () => {
+			setLoading(true);
+			try {
+				const response = await fetch(import.meta.env.VITE_URL + 'agency/getAllPackages', {
+					method: 'GET',
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem('token')}`,
+					},
+				});
+
+				const data = await response.json();
+				if (!data.success) throw new Error(data.message || 'Failed to fetch packages');
+
+				setPackages(data.data); // Assuming the array is in data.data
+			} catch (error) {
+				console.error('Error fetching packages:', error);
+				alert('Failed to load packages.');
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		fetchPackages();
+	}, []);
+
 	const simulateLoading = (callback) => {
 		setLoading(true);
 		setTimeout(() => {
@@ -25,13 +51,29 @@ export default function DashboardPage() {
 		setLoading(true);
 		try {
 			console.log('Adding package:', newPkg);
-			const response = await fetchPost({
-				pathName: 'agency/addPackage',
-				token: localStorage.getItem('token'), // ✅ This line is CRITICAL
-				body: JSON.stringify(newPkg),
+
+			// Use FormData to send text + file together
+			const formData = new FormData();
+			formData.append('title', newPkg.title);
+			formData.append('price', newPkg.price);
+			formData.append('duration', newPkg.duration);
+			formData.append('description', newPkg.description);
+			formData.append('packageType', newPkg.packageType);
+			formData.append('photo', newPkg.photo); // this must be a File object
+
+			const response = await fetch(import.meta.env.VITE_URL + 'agency/addPackage', {
+				method: 'POST',
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('token')}`, // 🔐 Token header only
+					// DO NOT set Content-Type manually when using FormData
+				},
+				body: formData,
 			});
-			const savedPkg = response.data;
-			setPackages((prev) => [...prev, savedPkg]);
+
+			const data = await response.json();
+			if (!response.ok) throw new Error(data.message || 'Something went wrong');
+
+			setPackages((prev) => [...prev, data.data]);
 		} catch (error) {
 			console.error('Error adding package:', error);
 			alert('Failed to add package.');

@@ -38,6 +38,7 @@ const packageSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
+		photo: { type: String },
 		isActive: {
 			type: Boolean,
 			default: true,

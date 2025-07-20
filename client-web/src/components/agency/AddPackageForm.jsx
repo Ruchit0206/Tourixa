@@ -6,11 +6,12 @@ export default function AddPackageForm({ onAdd }) {
 	const [duration, setDuration] = useState('');
 	const [description, setDescription] = useState('');
 	const [packageType, setPackageType] = useState('');
+	const [photo, setPhoto] = useState(null); // New photo state
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (!title || !price || !duration || !description || !packageType) {
-			alert('Please fill in all fields.');
+		if (!title || !price || !duration || !description || !packageType || !photo) {
+			alert('Please fill in all fields and upload a photo.');
 			return;
 		}
 
@@ -20,6 +21,7 @@ export default function AddPackageForm({ onAdd }) {
 			duration,
 			description,
 			packageType,
+			photo, // Will be a File object
 		};
 
 		onAdd(newPackage);
@@ -29,6 +31,8 @@ export default function AddPackageForm({ onAdd }) {
 		setDuration('');
 		setDescription('');
 		setPackageType('');
+		setPhoto(null);
+		e.target.reset(); // Reset file input
 	};
 
 	return (
@@ -82,11 +86,19 @@ export default function AddPackageForm({ onAdd }) {
 				/>
 
 				<textarea
-					placeholder="Description"
+					placeholder="E.g. Day 1: "
 					value={description}
 					onChange={(e) => setDescription(e.target.value)}
 					rows={4}
 					className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 resize-y min-h-[90px]"
+				/>
+
+				<input
+					type="file"
+					accept="image/*"
+					onChange={(e) => setPhoto(e.target.files[0])}
+					className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white"
+					required
 				/>
 
 				<button

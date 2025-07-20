@@ -71,18 +71,23 @@ async function addPackage(req, res) {
 		const { title, price, duration, description, packageType } = req.body;
 		const agencyId = res.locals.userData?.id;
 
-		// 🧾 Basic validation
-		if (!agencyId || !title || !price || !duration || !description || !packageType) {
-			return res.status(400).json({ message: 'All fields are required' });
+		if (
+			!agencyId ||
+			!title ||
+			!price ||
+			!duration ||
+			!description ||
+			!packageType ||
+			!req.file
+		) {
+			return res.status(400).json({ message: 'All fields and photo are required' });
 		}
 
-		// 🔍 Check if agency exists
 		const agency = await agencyModel.findById(agencyId);
 		if (!agency) {
 			return res.status(404).json({ message: 'Agency not found' });
 		}
 
-		// 📦 Create new package
 		const newPackage = new packageModel({
 			agencyId,
 			title,
@@ -90,12 +95,11 @@ async function addPackage(req, res) {
 			duration,
 			description,
 			packageType,
+			photo: `/uploads/${req.file.filename}`, // Store relative or absolute path
 		});
 
-		// 💾 Save to DB
 		await newPackage.save();
 
-		// ✅ Respond with saved package
 		res.status(201).json({
 			message: 'Package added successfully',
 			data: {
@@ -105,6 +109,7 @@ async function addPackage(req, res) {
 				duration: newPackage.duration,
 				description: newPackage.description,
 				packageType: newPackage.packageType,
+				photoUrl: newPackage.photoUrl,
 				isActive: newPackage.isActive,
 				createdAt: newPackage.createdAt,
 				updatedAt: newPackage.updatedAt,
@@ -116,8 +121,14 @@ async function addPackage(req, res) {
 	}
 }
 
+async function getAllPackages(req, res) {
+	const packages = await packageModel.find({});
+	return res.json({ data: packages, success: true });
+}
+
 module.exports = {
 	registerAgency,
 	loginAgency,
 	addPackage,
+	getAllPackages,
 };
