@@ -168,7 +168,7 @@ export default function Navbar(props) {
 				{/* Right Buttons */}
 				<ul className="hidden lg:flex items-center gap-4 pr-[4px]">
 					<Link to="/Profile" onClick={handleNavClick} className="bg-white text-black px-4 py-2 rounded-md shadow hover:bg-cyan-500 hover:text-white transition font-semibold">Profile</Link>
-					<Link to="/dashboard" onClick={handleNavClick} className="bg-white text-black px-4 py-2 rounded-md shadow hover:bg-cyan-500 hover:text-white transition font-semibold">Join As Agency</Link>
+					<Link to="/agency/login" onClick={handleNavClick} className="bg-white text-black px-4 py-2 rounded-md shadow hover:bg-cyan-500 hover:text-white transition font-semibold">Join As Agency</Link>
 				</ul>
 
 				{/* Hamburger */}
