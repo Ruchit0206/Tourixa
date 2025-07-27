@@ -6,12 +6,23 @@ export default function AddPackageForm({ onAdd }) {
 	const [duration, setDuration] = useState('');
 	const [description, setDescription] = useState('');
 	const [packageType, setPackageType] = useState('');
-	const [photo, setPhoto] = useState(null); // New photo state
+	const [photo, setPhoto] = useState(null);
+	const [fromPlace, setFromPlace] = useState('');
+	const [toPlace, setToPlace] = useState('');
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (!title || !price || !duration || !description || !packageType || !photo) {
-			alert('Please fill in all fields and upload a photo.');
+		if (
+			!title ||
+			!price ||
+			!duration ||
+			!description ||
+			!packageType ||
+			!photo ||
+			!fromPlace ||
+			!toPlace
+		) {
+			alert('Please fill in all fields including From and To.');
 			return;
 		}
 
@@ -21,18 +32,23 @@ export default function AddPackageForm({ onAdd }) {
 			duration,
 			description,
 			packageType,
-			photo, // Will be a File object
+			photo,
+			from: fromPlace,
+			to: toPlace,
 		};
 
 		onAdd(newPackage);
 
+		// Reset
 		setTitle('');
 		setPrice('');
 		setDuration('');
 		setDescription('');
 		setPackageType('');
 		setPhoto(null);
-		e.target.reset(); // Reset file input
+		setFromPlace('');
+		setToPlace('');
+		e.target.reset();
 	};
 
 	return (
@@ -85,8 +101,24 @@ export default function AddPackageForm({ onAdd }) {
 					className="w-full md:w-[48%] px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
 				/>
 
+				<input
+					type="text"
+					placeholder="From"
+					value={fromPlace}
+					onChange={(e) => setFromPlace(e.target.value)}
+					className="w-full md:w-[48%] px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+				/>
+
+				<input
+					type="text"
+					placeholder="To"
+					value={toPlace}
+					onChange={(e) => setToPlace(e.target.value)}
+					className="w-full md:w-[48%] px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+				/>
+
 				<textarea
-					placeholder="E.g. Day 1: "
+					placeholder="Description (e.g. Day 1: ...)"
 					value={description}
 					onChange={(e) => setDescription(e.target.value)}
 					rows={4}

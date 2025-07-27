@@ -151,7 +151,7 @@ export default function RegisterPage() {
 			</form>
 
 			<footer className="text-center text-sm text-gray-500 mt-6">
-				<p>© 2025 Your Agency. All rights reserved.</p>
+				<p>© 2025 Tourixaa. All rights reserved.</p>
 				<div className="space-x-2 mt-1">
 					<Link to="/privacy-policy" className="hover:underline">
 						Privacy Policy

@@ -7,9 +7,9 @@ import International from './components/packages/International.jsx';
 import VRServicePage from './components/features/VRServicePage.jsx';
 import PlanWithUs from './components/travel-guide/PlanWithUs.jsx';
 import UnderDevelopment from './components/Development.jsx';
-import RegisterPage from './pages/agency/RegisterPage.jsx';
-import LoginPage from './pages/agency/LoginPage.jsx';
-import DashboardPage from './pages/agency/Dashboard.jsx';
+import RegisterPage from './components/agency/RegisterPage.jsx';
+import LoginPage from './components/agency/LoginPage.jsx';
+import DashboardPage from './components/agency/Dashboard.jsx';
 import Community from './pages/Community.jsx';
 import AboutUs from './components/AboutUs.jsx';
 import VideoPage from './components/features/VideoPage.jsx';
@@ -22,6 +22,7 @@ import HeritageTourPage from './components/heritage/heritagetour.jsx';
 import MuseumPage from './components/heritage/museum.jsx';
 import FestivalPage from './components/heritage/FestivalPage.jsx';
 import ForgottenTraditionPage from './components/heritage/ForgottenTraditionPage.jsx';
+import AddPackageForm from './components/agency/AddPackageForm.jsx';
 // import BlogSection from './components/features/Blog.jsx';
 
 const routes = createBrowserRouter([
@@ -54,16 +55,14 @@ const routes = createBrowserRouter([
 		],
 	},
 	{
-		path: 'agency',
-		// element: , // Dashboard avse ahiya
-		// loader: verifyLoader,
-		// errorElement: <ErrorElement />,
-		children: [
-			{ path: 'register', element: <RegisterPage /> },
-			{ path: 'login', element: <LoginPage /> },
-			{ path: 'dashboard', element: <DashboardPage /> },
-		],
-	},
+	path: 'agency',
+	children: [
+		{ path: 'register', element: <RegisterPage /> },
+		{ path: 'login', element: <LoginPage /> },
+		{ path: 'dashboard', element: <DashboardPage /> },
+		{ path: 'addpackage', element: <AddPackageForm /> }, // ✅ FIXED here
+	],
+},
 	{
 		path: '*',
 		element: <UnderDevelopment />,

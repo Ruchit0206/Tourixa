@@ -103,9 +103,9 @@ export default function Home() {
 					<div className="flex flex-wrap gap-4 mt-6">
 						
 
-						<a href="https://tourixaa.vercel.app/login" target="_blank" rel="noopener noreferrer">
+						<Link to="/agency/login" target="_blank" rel="noopener noreferrer">
 							<button className={btnPrimaryClasses}>Join As Agency</button>
-						</a>
+						</Link>
 
 						<Link to="/packages">
 							<button className={btnPrimaryClasses}>Visit Packages</button>

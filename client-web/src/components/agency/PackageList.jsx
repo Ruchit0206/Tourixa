@@ -16,6 +16,8 @@ export default function PackageList({
 		duration: '',
 		description: '',
 		type: '',
+		from: '',
+		to: '',
 	});
 
 	const getSortClass = (key) => {
@@ -54,31 +56,13 @@ export default function PackageList({
 			<table className="w-full text-sm border border-gray-200 shadow-md rounded-md bg-white">
 				<thead>
 					<tr className="bg-gray-100 text-left text-gray-700 font-semibold">
-						<th
-							onClick={() => onSort('title')}
-							className={`p-3 cursor-pointer ${getSortClass('title')}`}
-						>
-							Title
-						</th>
-						<th
-							onClick={() => onSort('price')}
-							className={`p-3 cursor-pointer ${getSortClass('price')}`}
-						>
-							Price (₹)
-						</th>
-						<th
-							onClick={() => onSort('duration')}
-							className={`p-3 cursor-pointer ${getSortClass('duration')}`}
-						>
-							Duration
-						</th>
+						<th onClick={() => onSort('title')} className={`p-3 cursor-pointer ${getSortClass('title')}`}>Title</th>
+						<th onClick={() => onSort('price')} className={`p-3 cursor-pointer ${getSortClass('price')}`}>Price (₹)</th>
+						<th onClick={() => onSort('duration')} className={`p-3 cursor-pointer ${getSortClass('duration')}`}>Duration</th>
 						<th className="p-3">Description</th>
-						<th
-							onClick={() => onSort('type')}
-							className={`p-3 cursor-pointer ${getSortClass('type')}`}
-						>
-							Type
-						</th>
+						<th onClick={() => onSort('type')} className={`p-3 cursor-pointer ${getSortClass('type')}`}>Type</th>
+						<th className="p-3">From</th>
+						<th className="p-3">To</th>
 						<th className="p-3">Actions</th>
 					</tr>
 				</thead>
@@ -87,52 +71,19 @@ export default function PackageList({
 						editingIndex === index ? (
 							<tr key={index} className="border-t">
 								<td className="p-2">
-									<input
-										type="text"
-										name="title"
-										value={editFormData.title}
-										onChange={handleChange}
-										required
-										className="w-full p-2 border rounded"
-									/>
+									<input type="text" name="title" value={editFormData.title} onChange={handleChange} required className="w-full p-2 border rounded" />
 								</td>
 								<td className="p-2">
-									<input
-										type="number"
-										name="price"
-										value={editFormData.price}
-										onChange={handleChange}
-										required
-										className="w-full p-2 border rounded"
-									/>
+									<input type="number" name="price" value={editFormData.price} onChange={handleChange} required className="w-full p-2 border rounded" />
 								</td>
 								<td className="p-2">
-									<input
-										type="text"
-										name="duration"
-										value={editFormData.duration}
-										onChange={handleChange}
-										required
-										className="w-full p-2 border rounded"
-									/>
+									<input type="text" name="duration" value={editFormData.duration} onChange={handleChange} required className="w-full p-2 border rounded" />
 								</td>
 								<td className="p-2">
-									<textarea
-										name="description"
-										value={editFormData.description}
-										onChange={handleChange}
-										rows={2}
-										className="w-full p-2 border rounded resize-y min-h-[80px]"
-									/>
+									<textarea name="description" value={editFormData.description} onChange={handleChange} rows={2} className="w-full p-2 border rounded resize-y min-h-[80px]" />
 								</td>
 								<td className="p-2">
-									<select
-										name="type"
-										value={editFormData.type}
-										onChange={handleChange}
-										required
-										className="w-full p-2 border rounded"
-									>
+									<select name="type" value={editFormData.type} onChange={handleChange} required className="w-full p-2 border rounded">
 										<option value="">Select Type</option>
 										<option value="International">International</option>
 										<option value="Domestic">Domestic</option>
@@ -146,19 +97,15 @@ export default function PackageList({
 										<option value="Children Places">Children Places</option>
 									</select>
 								</td>
+								<td className="p-2">
+									<input type="text" name="from" value={editFormData.from} onChange={handleChange} required className="w-full p-2 border rounded" />
+								</td>
+								<td className="p-2">
+									<input type="text" name="to" value={editFormData.to} onChange={handleChange} required className="w-full p-2 border rounded" />
+								</td>
 								<td className="p-2 flex gap-2 flex-wrap">
-									<button
-										className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm"
-										onClick={handleSave}
-									>
-										Save
-									</button>
-									<button
-										className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm"
-										onClick={handleCancel}
-									>
-										Cancel
-									</button>
+									<button className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm" onClick={handleSave}>Save</button>
+									<button className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm" onClick={handleCancel}>Cancel</button>
 								</td>
 							</tr>
 						) : (
@@ -168,23 +115,11 @@ export default function PackageList({
 								<td className="p-3">{pkg.duration}</td>
 								<td className="p-3">{pkg.description}</td>
 								<td className="p-3">{pkg.type}</td>
+								<td className="p-3">{pkg.from}</td>
+								<td className="p-3">{pkg.to}</td>
 								<td className="p-3 flex gap-2 flex-wrap">
-									<button
-										className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm"
-										onClick={() => startEdit(index)}
-									>
-										Edit
-									</button>
-									<button
-										className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm"
-										onClick={() => {
-											if (window.confirm(`Delete "${pkg.title}"?`)) {
-												onDelete(index);
-											}
-										}}
-									>
-										Delete
-									</button>
+									<button className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm" onClick={() => startEdit(index)}>Edit</button>
+									<button className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm" onClick={() => { if (window.confirm(`Delete "${pkg.title}"?`)) onDelete(index); }}>Delete</button>
 								</td>
 							</tr>
 						)
