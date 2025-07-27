@@ -192,7 +192,7 @@ export default function Navbar(props) {
 						<NavLinkItem to="/community" label="Community" onClick={handleNavClick} />
 						<NavLinkItem to="/blog" label="Blogs" onClick={handleNavClick} />
 						<NavLinkItem to="/Offers" label={<><FaGift className="inline mr-2" />Offers</>} onClick={() => { handleNavClick(); handleConfetti(); }} />
-						<Link to="/login" onClick={handleNavClick} className="bg-white text-black text-center px-4 py-2 rounded-md shadow hover:bg-cyan-500 hover:text-white transition font-semibold">Join As Agency</Link>
+						<Link to="/agency/login" onClick={handleNavClick} className="bg-white text-black text-center px-4 py-2 rounded-md shadow hover:bg-cyan-500 hover:text-white transition font-semibold">Join As Agency</Link>
 					</ul>
 				</div>
 			)}
