@@ -68,7 +68,7 @@ async function loginAgency(req, res) {
 
 async function addPackage(req, res) {
 	try {
-		const { title, price, duration, description, packageType } = req.body;
+		const { title, price, duration, description, packageType, from, to } = req.body;
 		const agencyId = res.locals.userData?.id;
 
 		if (
@@ -95,6 +95,8 @@ async function addPackage(req, res) {
 			duration,
 			description,
 			packageType,
+			from,
+			to,
 			photo: `/uploads/${req.file.filename}`, // Store relative or absolute path
 		});
 

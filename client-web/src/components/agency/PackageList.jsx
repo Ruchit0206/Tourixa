@@ -1,131 +1,86 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export default function PackageList({
-	packages,
-	onEdit,
-	onDelete,
-	loading,
-	onSort,
-	sortKey,
-	sortOrder,
-}) {
-	const [editingIndex, setEditingIndex] = useState(null);
-	const [editFormData, setEditFormData] = useState({
-		title: '',
-		price: 0,
-		duration: '',
-		description: '',
-		type: '',
-		from: '',
-		to: '',
-	});
+const PackageList = ({ packages, onEdit, onDelete, loading, onSort, sortKey, sortOrder }) => {
+	if (loading) {
+		return <div>Loading packages...</div>;
+	}
 
-	const getSortClass = (key) => {
-		if (sortKey !== key) return '';
-		return sortOrder === 'asc' ? "after:content-['▲']" : "after:content-['▼']";
-	};
-
-	const startEdit = (index) => {
-		setEditingIndex(index);
-		setEditFormData({ ...packages[index] });
-	};
-
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setEditFormData((prev) => ({
-			...prev,
-			[name]: name === 'price' ? parseFloat(value) || 0 : value,
-		}));
-	};
-
-	const handleSave = (e) => {
-		e.preventDefault();
-		onEdit(editingIndex, editFormData);
-		setEditingIndex(null);
-	};
-
-	const handleCancel = () => {
-		setEditingIndex(null);
-	};
-
-	if (loading) return <p className="text-center">Loading...</p>;
-	if (packages.length === 0) return <p className="text-center">No packages found.</p>;
+	if (!packages || packages.length === 0) {
+		return <div>No packages found.</div>;
+	}
 
 	return (
-		<div className="overflow-x-auto mt-6">
-			<table className="w-full text-sm border border-gray-200 shadow-md rounded-md bg-white">
+		<div className="overflow-x-auto">
+			<table className="min-w-full bg-white border border-gray-300">
 				<thead>
-					<tr className="bg-gray-100 text-left text-gray-700 font-semibold">
-						<th onClick={() => onSort('title')} className={`p-3 cursor-pointer ${getSortClass('title')}`}>Title</th>
-						<th onClick={() => onSort('price')} className={`p-3 cursor-pointer ${getSortClass('price')}`}>Price (₹)</th>
-						<th onClick={() => onSort('duration')} className={`p-3 cursor-pointer ${getSortClass('duration')}`}>Duration</th>
-						<th className="p-3">Description</th>
-						<th onClick={() => onSort('type')} className={`p-3 cursor-pointer ${getSortClass('type')}`}>Type</th>
-						<th className="p-3">From</th>
-						<th className="p-3">To</th>
-						<th className="p-3">Actions</th>
+					<tr className="bg-gray-100">
+						<th
+							className="px-4 py-2 border cursor-pointer"
+							onClick={() => onSort('title')}
+						>
+							Title {sortKey === 'title' && (sortOrder === 'asc' ? '↑' : '↓')}
+						</th>
+						<th
+							className="px-4 py-2 border cursor-pointer"
+							onClick={() => onSort('price')}
+						>
+							Price {sortKey === 'price' && (sortOrder === 'asc' ? '↑' : '↓')}
+						</th>
+						<th className="px-4 py-2 border">Duration</th>
+						<th className="px-4 py-2 border">Description</th>
+						<th className="px-4 py-2 border">Type</th>
+						<th className="px-4 py-2 border">From</th> {/* Add this */}
+						<th className="px-4 py-2 border">To</th> {/* Add this */}
+						<th className="px-4 py-2 border">Photo</th>
+						<th className="px-4 py-2 border">Actions</th>
 					</tr>
 				</thead>
 				<tbody>
-					{packages.map((pkg, index) =>
-						editingIndex === index ? (
-							<tr key={index} className="border-t">
-								<td className="p-2">
-									<input type="text" name="title" value={editFormData.title} onChange={handleChange} required className="w-full p-2 border rounded" />
-								</td>
-								<td className="p-2">
-									<input type="number" name="price" value={editFormData.price} onChange={handleChange} required className="w-full p-2 border rounded" />
-								</td>
-								<td className="p-2">
-									<input type="text" name="duration" value={editFormData.duration} onChange={handleChange} required className="w-full p-2 border rounded" />
-								</td>
-								<td className="p-2">
-									<textarea name="description" value={editFormData.description} onChange={handleChange} rows={2} className="w-full p-2 border rounded resize-y min-h-[80px]" />
-								</td>
-								<td className="p-2">
-									<select name="type" value={editFormData.type} onChange={handleChange} required className="w-full p-2 border rounded">
-										<option value="">Select Type</option>
-										<option value="International">International</option>
-										<option value="Domestic">Domestic</option>
-										<option value="Group Tour">Group Tour</option>
-										<option value="Solo Tour">Solo Tour</option>
-										<option value="Nature & Tracking">Nature & Tracking</option>
-										<option value="Maharaja Express">Maharaja Express</option>
-										<option value="Honeymoon Package">Honeymoon Package</option>
-										<option value="Senior Citizen">Senior Citizen</option>
-										<option value="Business Packages">Business Packages</option>
-										<option value="Children Places">Children Places</option>
-									</select>
-								</td>
-								<td className="p-2">
-									<input type="text" name="from" value={editFormData.from} onChange={handleChange} required className="w-full p-2 border rounded" />
-								</td>
-								<td className="p-2">
-									<input type="text" name="to" value={editFormData.to} onChange={handleChange} required className="w-full p-2 border rounded" />
-								</td>
-								<td className="p-2 flex gap-2 flex-wrap">
-									<button className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm" onClick={handleSave}>Save</button>
-									<button className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm" onClick={handleCancel}>Cancel</button>
-								</td>
-							</tr>
-						) : (
-							<tr key={index} className="border-t">
-								<td className="p-3">{pkg.title}</td>
-								<td className="p-3">₹{pkg.price.toFixed(2)}</td>
-								<td className="p-3">{pkg.duration}</td>
-								<td className="p-3">{pkg.description}</td>
-								<td className="p-3">{pkg.type}</td>
-								<td className="p-3">{pkg.from}</td>
-								<td className="p-3">{pkg.to}</td>
-								<td className="p-3 flex gap-2 flex-wrap">
-									<button className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm" onClick={() => startEdit(index)}>Edit</button>
-									<button className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm" onClick={() => { if (window.confirm(`Delete "${pkg.title}"?`)) onDelete(index); }}>Delete</button>
-								</td>
-							</tr>
-						)
-					)}
+					{packages.map((pkg, index) => (
+						<tr key={index} className="hover:bg-gray-50">
+							<td className="px-4 py-2 border">{pkg.title}</td>
+							<td className="px-4 py-2 border">{pkg.price}</td>
+							<td className="px-4 py-2 border">{pkg.duration}</td>
+							<td className="px-4 py-2 border">{pkg.description}</td>
+							<td className="px-4 py-2 border">{pkg.packageType}</td>
+							<td className="px-4 py-2 border">{pkg.from || 'N/A'}</td>{' '}
+							{/* Add this */}
+							<td className="px-4 py-2 border">{pkg.to || 'N/A'}</td> {/* Add this */}
+							<td className="px-4 py-2 border">
+								{pkg.photo ? (
+									<img
+										src={
+											typeof pkg.photo === 'string'
+												? pkg.photo
+												: URL.createObjectURL(pkg.photo)
+										}
+										alt={pkg.title}
+										className="w-16 h-16 object-cover"
+									/>
+								) : (
+									'No photo'
+								)}
+							</td>
+							<td className="px-4 py-2 border">
+								<button
+									onClick={() => onEdit(index, pkg)}
+									className="text-blue-600 hover:underline mr-2"
+								>
+									Edit
+								</button>
+								<button
+									onClick={() => onDelete(index)}
+									className="text-red-600 hover:underline"
+								>
+									Delete
+								</button>
+							</td>
+						</tr>
+					))}
 				</tbody>
 			</table>
 		</div>
 	);
-}
+};
+
+export default PackageList;

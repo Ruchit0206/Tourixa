@@ -39,6 +39,14 @@ const packageSchema = new mongoose.Schema(
 			required: true,
 		},
 		photo: { type: String },
+		from: {
+			type: String,
+			required: true,
+		},
+		to: {
+			type: String,
+			required: true,
+		},
 		isActive: {
 			type: Boolean,
 			default: true,

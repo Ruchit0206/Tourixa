@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '/logo.jpeg'; // make sure the path is correct
+import { fetchPost } from '../../utils/fetch.utils'; // make sure path is correct
 
 export default function LoginPage() {
 	const [email, setEmail] = useState('');
@@ -23,21 +24,21 @@ export default function LoginPage() {
 		}
 
 		try {
-			// ✅ MOCKED LOGIN RESPONSE
-			const mockAgency = {
-				name: 'Demo Agency',
-				email: email,
-			};
-			const mockToken = 'mocked-jwt-token';
+			const res = await fetchPost({
+				pathName: 'agency/login',
+				body: JSON.stringify({ email, password }),
+			});
 
-			await new Promise((res) => setTimeout(res, 500)); // simulate API delay
+			if (res?.token) {
+				localStorage.setItem('token', res.token);
+				localStorage.setItem('role', 'AGENCY');
+				localStorage.setItem('agencyName', res.agency?.name); // optional
+				localStorage.setItem('agencyEmail', res.agency?.email); // optional
 
-			localStorage.setItem('token', mockToken);
-			localStorage.setItem('role', 'AGENCY');
-			localStorage.setItem('agencyName', mockAgency.name);
-			localStorage.setItem('agencyEmail', mockAgency.email);
-
-			navigate('/agency/dashboard'); // ✅ navigate to dashboard
+				navigate('/agency/dashboard');
+			} else {
+				setError(res?.message || 'Login failed. Please try again.');
+			}
 		} catch (err) {
 			console.error('Login error:', err);
 			setError('Something went wrong. Please try again.');

@@ -15,11 +15,29 @@ export default function DashboardPage() {
 
 	// Simulate package fetching with mock data
 	useEffect(() => {
-		setLoading(true);
-		setTimeout(() => {
-			setPackages([]); // Start with empty or dummy data if needed
-			setLoading(false);
-		}, 500);
+		const fetchPackages = async () => {
+			setLoading(true);
+			try {
+				const response = await fetch(import.meta.env.VITE_URL + 'agency/getAllPackages', {
+					method: 'GET',
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem('token')}`,
+					},
+				});
+
+				const data = await response.json();
+				if (!data.success) throw new Error(data.message || 'Failed to fetch packages');
+
+				setPackages(data.data); // Assuming the array is in data.data
+			} catch (error) {
+				console.error('Error fetching packages:', error);
+				alert('Failed to load packages.');
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		fetchPackages();
 	}, []);
 
 	const simulateLoading = (callback) => {
@@ -34,20 +52,36 @@ export default function DashboardPage() {
 	const addPackage = async (newPkg) => {
 		setLoading(true);
 		try {
-			console.log('Simulating package add:', newPkg);
-			setTimeout(() => {
-				const fakeResponse = {
-					...newPkg,
-					id: Date.now(),
-					photo: URL.createObjectURL(newPkg.photo), // for preview
-				};
-				setPackages((prev) => [...prev, fakeResponse]);
-				alert('✅ Package added (mocked)');
-				setLoading(false);
-			}, 700);
+			console.log('Adding package:', newPkg);
+
+			// Use FormData to send text + file together
+			const formData = new FormData();
+			formData.append('title', newPkg.title);
+			formData.append('price', newPkg.price);
+			formData.append('duration', newPkg.duration);
+			formData.append('description', newPkg.description);
+			formData.append('packageType', newPkg.packageType);
+			formData.append('from', newPkg.from);
+			formData.append('to', newPkg.to);
+			formData.append('photo', newPkg.photo); // this must be a File object
+
+			const response = await fetch(import.meta.env.VITE_URL + 'agency/addPackage', {
+				method: 'POST',
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('token')}`, // 🔐 Token header only
+					// DO NOT set Content-Type manually when using FormData
+				},
+				body: formData,
+			});
+
+			const data = await response.json();
+			if (!response.ok) throw new Error(data.message || 'Something went wrong');
+
+			setPackages((prev) => [...prev, data.data]);
 		} catch (error) {
-			console.error('Error (mock):', error);
+			console.error('Error adding package:', error);
 			alert('Failed to add package.');
+		} finally {
 			setLoading(false);
 		}
 	};
@@ -90,6 +124,7 @@ export default function DashboardPage() {
 		(currentPage - 1) * itemsPerPage,
 		currentPage * itemsPerPage
 	);
+	console.log('Total pages:', paginatedPackages);
 
 	const handleSort = (key) => {
 		if (sortKey === key) {
@@ -114,10 +149,8 @@ export default function DashboardPage() {
 				</div>
 			</div>
 
-		
-
 			<AddPackageForm onAdd={addPackage} />
-				<div className="flex flex-wrap gap-4 items-center justify-between mb-6">
+			<div className="flex flex-wrap gap-4 items-center justify-between mb-6">
 				<input
 					type="text"
 					placeholder="🔍 Search packages by name..."
